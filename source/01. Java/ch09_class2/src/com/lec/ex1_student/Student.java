@@ -54,6 +54,12 @@ public class Student {
 	public int getMat() {
 		return mat;
 	}
+	public int getTot() {
+		return tot;
+	}
+	public double getAvg() {
+		return avg;
+	}
 }
 
 
