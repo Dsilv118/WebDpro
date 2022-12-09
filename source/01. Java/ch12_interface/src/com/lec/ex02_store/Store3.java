@@ -1,0 +1,36 @@
+package com.lec.ex02_store;
+
+// 3È£Á¡ : ±èÄ¡Âî°³ - 6,000¿ø  ºÎ´ëÂî°³ - 7,000¿ø  ºñºö¹ä - 7,000¿ø  ¾óÅ«¼ø´ë±¹ - 6,000¿ø
+
+public class Store3 implements HeadQuarterStore {
+	private String storeName;
+
+	public Store3(String storeName) {
+		this.storeName = storeName;
+	}
+	@Override
+	public void kimchi() {
+		System.out.println("±èÄ¡Âî°³ : 6,000¿ø");
+	}
+	@Override
+	public void bude() {
+		System.out.println("ºÎ´ëÂî°³ : 7,000¿ø");
+	}
+	@Override
+	public void bibim() {
+		System.out.println("ºñºö¹ä : 7,000¿ø");
+	}
+	@Override
+	public void sunde() {
+		System.out.println("¾óÅ«¼ø´ë±¹ : 6,000¿ø");
+	}
+	@Override
+	public void gongibab() {
+		System.out.println("°ø±â¹ä : 3,000¿ø");
+		
+	}
+	@Override
+	public String getStoreName() {
+		return storeName;
+	}
+}
