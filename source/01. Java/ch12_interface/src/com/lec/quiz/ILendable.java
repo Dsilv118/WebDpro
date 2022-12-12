@@ -1,4 +1,4 @@
-package com.lec.ex08_booklib;
+package com.lec.quiz;
 
 public interface ILendable {
 	public byte STATE_BORROWED = 1; // "대출중"을 의미
