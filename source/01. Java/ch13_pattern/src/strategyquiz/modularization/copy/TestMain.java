@@ -1,4 +1,4 @@
-package strategyquiz.modularization;
+package strategyquiz.modularization.copy;
 
 public class TestMain {
 	public static void main(String[] args) {
@@ -18,7 +18,7 @@ public class TestMain {
 		}
 		for(Person p : person) {
 			//System.out.println(p);
-			System.out.println(p.print());
+			p.print();
 		}
 	}
 

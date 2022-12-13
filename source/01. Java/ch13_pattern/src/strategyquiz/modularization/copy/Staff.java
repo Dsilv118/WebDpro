@@ -1,4 +1,4 @@
-package strategyquiz.modularization;
+package strategyquiz.modularization.copy;
 
 import strategyquiz.interfaces.GetSalary;
 import strategyquiz.interfaces.JobMng;
@@ -12,8 +12,7 @@ public class Staff extends Person {
 		setJob(new JobMng());
 		setGet(new GetSalary());
 	}
-	public String print() {
-		return super.print() + "\t[부서] : " + part;
+	public void print() {
+		System.out.println("\t[부서] : " + part);
 	}
-	
 }

@@ -1,4 +1,4 @@
-package strategyquiz.modularization;
+package strategyquiz.modularization.copy;
 
 import strategyquiz.interfaces.GetStudentPay;
 import strategyquiz.interfaces.JobStudy;
@@ -12,7 +12,7 @@ public class Student extends Person {
 		setJob(new JobStudy());
 		setGet(new GetStudentPay());
 	}
-	public String print() {
-		return super.print() + "\t[¹Ý] : " + ban;
+	public void print() {
+		System.out.println("\t[¹Ý] : " + ban);
 	}
 }

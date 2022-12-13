@@ -1,4 +1,4 @@
-package strategyquiz.modularization;
+package strategyquiz.modularization.copy;
 
 import strategyquiz.interfaces.GetImpl;
 import strategyquiz.interfaces.JobImpl;
@@ -21,8 +21,8 @@ public class Person {
 	public void get() {
 		get.get();
 	}
-	public String print() {
-		return "[ID] : " + id + "\t[이름] : " + name;
+	public void print() {
+		System.out.println("[ID] : " + id + "\t[이름] : " + name);
 	}
 	
 	

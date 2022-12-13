@@ -1,4 +1,4 @@
-package strategyquiz.modularization;
+package strategyquiz.modularization.copy;
 
 import strategyquiz.interfaces.GetSalary;
 import strategyquiz.interfaces.JobLec;
@@ -12,8 +12,7 @@ public class Lecturer extends Person {
 		setJob(new JobLec());
 		setGet(new GetSalary());
 	}
-	public String print() {
-		return super.print() + "\t[과목] : " + subject;
+	public void print() {
+		System.out.println("\t[과목] : " + subject);
 	}
-	
 }
