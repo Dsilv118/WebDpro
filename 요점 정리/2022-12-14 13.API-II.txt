@@ -1,0 +1,10 @@
+2022.12.14 요점정리
+
+13. API-II
+
+● 날짜(Calendar와 GregorianCalendar) API 
+※ 날짜와 시간을 표현할 때 많이 쓰이는 Calendar클래스는 싱글톤 클래스
+※ 날짜와 시간을 표현할 때 많이 쓰이는 GregorianCalendar클래스는 일반 클래스
+
+● Math 
+수학적 계산에 사용되는 클래스 
