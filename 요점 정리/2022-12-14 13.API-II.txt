@@ -3,8 +3,27 @@
 13. API-II
 
 ● 날짜(Calendar와 GregorianCalendar) API 
-※ 날짜와 시간을 표현할 때 많이 쓰이는 Calendar클래스는 싱글톤 클래스
-※ 날짜와 시간을 표현할 때 많이 쓰이는 GregorianCalendar클래스는 일반 클래스
+* 날짜와 시간을 표현할 때 많이 쓰이는 Calendar클래스는 싱글톤 클래스
+* 날짜와 시간을 표현할 때 많이 쓰이는 GregorianCalendar클래스는 일반 클래스
+            
+        ※ 시스템은 0월부터 11월까지
+                       // DAY_OF_WEEK              :  월, 화, 수, ...
+                       // DAY_OF_YEAR               :  그해 날짜 
+                       // WEEK_OF_MONTH          : 그 달의 몇째주인지
+                       // DATE나 DAY_OF_MONTH : 그 달의 날짜
+                       // WEEK_OF_YEAR              : 그 해에서의 몇째주인지 
+                       // MONTH                      : 달의 이름                                        
 
 ● Math 
 수학적 계산에 사용되는 클래스 
+
+◎ 난수 발생이 쉬운 Random 클래스
+다양한 랜덤 숫자를 구하는 작업을 제공합니다.
+
+※ Math.random() 
+Random() 메소드는 double 타입의 임의의 수를 발생합니다. API documents를 보면 static이고, 
+반환 타입이 double임을 확인 할 수 있습니다. Math클래스의 random()메소드가 static이기 때문에
+객체 생성하지 않고 Math.random() 형으로 바로 실행 할 수 있습니다.
+
+※ Random 클래스
+사용법이 아주 쉬워 요즘 많이 쓰이고 있는 클래스. 일반 메소드는 객체를 생성 후 실행가능합니다.
