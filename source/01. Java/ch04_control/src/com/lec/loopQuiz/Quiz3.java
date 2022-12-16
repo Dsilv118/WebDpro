@@ -10,10 +10,11 @@ public class Quiz3 {
 		int fnt = sca.nextInt();
 		int tot = 1 ;
 		int i=1;
-		for(int i=1 ; i<10 ; i++) {
-			tot = fnt * i ;
+		for(int i1=1 ; i1<10 ; i1++) {
+			tot = fnt * i1 ;
 		}
 		System.out.printf("%d x %d = %d", fnt, i, tot);
+		sca.close();
 	}
 
 }
