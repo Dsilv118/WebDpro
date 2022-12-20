@@ -5,21 +5,21 @@
 ● Object
 
 ◎ Object클래스의 메소드들
-※ public String toString()  
+* public String toString()  
 객체의 정보를 문자열로 제공할 목적으로 정의된 메소드, 객체의 문자열을 반환한다.
 사용자가 모르게 내부적으로 동작하는 메소드들이 많은데 그 중 하나
 
-※ public boolean equals(Object obj) 
+* public boolean equals(Object obj) 
 객체를 비교해주는 메소드, 오버라이딩을 할 수도 있다.
 
-※ public int hashCode()                 
+* public int hashCode()                 
 자바에서 객체를 식별하는 정수 값인 해시 코드를 반환
 
-※ protected Object Clone()            
+* protected Object Clone()            
 객체 자신을 복제해서 새로운 객체를 생성하는 메소드, Cloneable 인터페이스를 구현한 클래스의 
 인스턴스만 복제할 수 있다. 인스턴스 변수가 참조형일 때 참조하는 객체도 복제되게 오버라이딩해야 함
 
-※ public Class getClass()      
+* public Class getClass()      
 객체가 속하는 클래스의 정보(이름)를 리턴  
 
 ● Scanner 

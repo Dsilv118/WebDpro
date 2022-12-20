@@ -24,7 +24,7 @@ public class Friend {
 		                       // sysout(f) => 홍 717-2231
 		if(birthday!=null) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일(E요일)");
-			return "name=" + name + ", tel=" + tel + ", birthday=" + birthday;
+			return "name=" + name + ", tel=" + tel + ", birthday=" + sdf.format(birthday);
 		}else {
 			return "name=" + name + ", tel=" + tel;
 		}

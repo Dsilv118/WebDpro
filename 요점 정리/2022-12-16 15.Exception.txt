@@ -18,12 +18,12 @@
 예외(Exception)의 종류는 아주 많습니다. Exception클래스는 많은 예외들(자식클래스)를 가지고 
 있습니다. 프로그래밍을 하다 보면, 자주 보게 되는 예외들이 있습니다.
 
-※ ArrayIndexOutOfBoundsException -> 배열을 사용시 존재하지 않는 index값을 호출하면 발생합니다.
+* ArrayIndexOutOfBoundsException -> 배열을 사용시 존재하지 않는 index값을 호출하면 발생합니다.
 
-※ NullPointerException -> 존재하지 않는 객체를 가리킬 때 발생합니다.
+* NullPointerException -> 존재하지 않는 객체를 가리킬 때 발생합니다.
 
-※ NumberFormatException -> 숫자로 변경할 수 없는 문자열을 변경하려고 합니다.
+* NumberFormatException -> 숫자로 변경할 수 없는 문자열을 변경하려고 합니다.
 
-○ 예외처리는 보험입니다.
+※ 예외처리는 보험입니다.
 예외가 발생 했을 때 프로세스가 죽지 않게 예외처리를 자체적으로 처리할 수도 있고, 
 내가 처리 안하고 나를 부른데서 알아서 할테니 던져 버릴 수도 있습니다.
