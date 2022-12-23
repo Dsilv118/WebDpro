@@ -1,0 +1,29 @@
+2022.12.23 요점정리
+
+02. Join
+
+● Join
+Join이란?
+2개 이상의 테이블을 연결하여 데이터를 검색하는 방법
+
+◎ Join의 필요성
+특정부서번호에 대한 부서이름은 무엇인지 DEPT 테이블에 있고 특정 사원에 대한 부서명을 알아내기 
+위해서는 부서 테이블에서 정보를 얻어와야 합니다. Join을 하지 않는 경우 다음의 두 SQL문을 통해 
+알아내야 하는 번거로움이 있습니다.
+
+       - SELECT ENAME, DEPTNO FROM EMP ORDER BY DEPTNO;
+       - SELECT DEPTNO, DNAME FROM DEPT;
+
+다행히도 SQL에서는 두 개 이상의 테이블을 결합해야만 원하는 결과를 얻을 수 있을 때 한번의 질의로 
+원하는 결과를 얻어내는 Join 기능을 제공합니다.
+
+◎ Cross Join 
+Cross Join은 특별한 키워드 없이 다음과 같이 FROM절에 두 개 이상의 테이블을 기술하는 것.
+
+       - SELECT * FROM EMP, DEPT;
+
+◎ Join의 종류
+* EQUI JOIN        : 동일한 컬럼을 기준으로 조인
+* NON-EQUI JOIN : 동일한 컬럼없이 다른 조건을 사용하여 조인
+* OUTER JOIN      : 조인 조건에 만족하지 않는 행도 나타나는 조인
+* SELF JOIN         : 한 테이블 내에서 조인

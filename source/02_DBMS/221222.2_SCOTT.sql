@@ -230,22 +230,3 @@ SELECT EMPNO, ENAME FROM EMP WHERE ENAME LIKE '%A%';
 SELECT EMPNO, ENAME, SAL*12 ¿¬ºÀ FROM EMP WHERE SAL*12>=35000;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
