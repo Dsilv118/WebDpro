@@ -137,10 +137,9 @@ SELECT S.ENAME
     FROM EMP W, EMP S
     WHERE W.ENAME='SCOTT' AND W.DEPTNO=S.DEPTNO AND S.ENAME!='SCOTT';
 --	SCOTT과 동일한 근무지에서 근무하는 사원의 이름을 출력하시오(2단계 최종문제)
-SELECT E2.ENAME
-    FROM EMP E1, DEPT D1, EMP E2, DEPT D2
-    WHERE E1.DEPTNO=D1.DEPTNO AND E2.DEPTNO=D2.DEPTNO
-        AND E1.ENAME='SCOTT' AND D1.LOC=D2.LOC AND E2.ENAME <> 'SCOTT';
+SELECT E1.ENAME, E2.ENAME, LOC
+    FROM EMP E1, EMP E2, DEPT D
+    WHERE E1.ENAME='SCOTT' AND E2.DEPTNO=D.DEPTNO AND D.LOC='DALLAS' AND E2.ENAME!='SCOTT';
 -- 홍데이터 50번부터 데이터 원상복귀(삭제)
 ROLLBACK;
 SELECT * FROM DEPT;
@@ -187,7 +186,7 @@ SELECT E1.ENAME 이름, E1.SAL 급여, E1.DEPTNO 부서코드, DNAME 부서명, LOC 근무지,
     FROM EMP E1, EMP E2, DEPT D
     WHERE E1.MGR=E2.EMPNO(+) AND E1.DEPTNO=D.DEPTNO;
 --6. 이름, 급여, 등급, 부서명, 직속상사명. 급여가 2000이상인 사람
-SELECT E1.ENAME 이름, E1.SAL 급여, GRADE 등급, DNAME 부서명, E2.ENAME 직속상사
+SELECT E1.ENAME 이름, E1.SAL 급여, GRADE, DNAME 부서명, E2.ENAME 직속상사
     FROM EMP E1, EMP E2, DEPT D, SALGRADE S
     WHERE E1.MGR=E2.EMPNO AND E1.DEPTNO=D.DEPTNO AND (E1.SAL BETWEEN LOSAL AND HISAL) AND E1.SAL > 2000;
 --7. 이름, 급여, 등급, 부서명, 직속상사명, (직속상사가 없는 직원까지 전체직원 부서명 순 정렬)
@@ -216,7 +215,7 @@ SELECT ENAME 이름, JOB 업무, SAL 급여, DNAME 부서명, LOC 근무지
 --3. EMP 테이블에서 보너스를 받는 사원에 대하여 이름,부서명,위치를 출력
 SELECT ENAME 이름, DNAME 부서명, LOC 근무지, COMM 보너스
     FROM EMP E, DEPT D
-    WHERE E.DEPTNO=D.DEPTNO AND COMM > 0;
+    WHERE E.DEPTNO=D.DEPTNO AND E.COMM IS NOT NULL AND E.COMM != 0;
 --4. EMP 테이블에서 이름 중 L자가 있는 사원에 대하여 이름,업무,부서명,위치를 출력
 SELECT ENAME 이름, JOB, DNAME 부서명, LOC 근무지
     FROM EMP E, DEPT D
@@ -257,4 +256,21 @@ SELECT E1.ENAME 사원명, NVL(E2.ENAME, '상사없음') 상사명, NVL(E3.ENAME, '상사없�
     WHERE E1.MGR=E2.EMPNO(+) AND E2.MGR=E3.EMPNO(+);
     
 
-       
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
