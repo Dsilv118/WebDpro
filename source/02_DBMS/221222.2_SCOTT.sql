@@ -216,9 +216,8 @@ SELECT * FROM EMP WHERE JOB IN ('CLERK', 'ANALYST') AND SAL NOT IN (1000, 3000, 
 SELECT * FROM EMP WHERE ENAME LIKE '%L%L%' AND DEPTNO=30 OR MGR=7782;
 --12.	입사일이 81년도인 직원의 사번,사원명, 입사일, 업무, 급여를 출력
 SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP WHERE HIREDATE LIKE '81/__/__';
---13.	입사일이81년이고 업무가 'SALESMAN'이 아닌 직원의 사번, 사원명, 입사일, 
--- 업무, 급여를 검색하시오.
-SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP WHERE HIREDATE LIKE '81/__/__' AND JOB != 'SALEMAN';
+--13.	입사일이81년이고 업무가 'SALESMAN'이 아닌 직원의 사번, 사원명, 입사일, 업무, 급여를 검색하시오.
+SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP WHERE HIREDATE LIKE '81/__/__' AND JOB != 'SALESMAN';
 --14.	사번, 사원명, 입사일, 업무, 급여를 급여가 높은 순으로 정렬하고, 
 -- 급여가 같으면 입사일이 빠른 사원으로 정렬하시오.
 SELECT EMPNO, ENAME, HIREDATE, JOB, SAL FROM EMP ORDER BY SAL DESC, HIREDATE;
