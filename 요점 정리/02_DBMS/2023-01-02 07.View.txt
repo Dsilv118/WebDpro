@@ -11,3 +11,32 @@
 * 기본 테이블의 데이터가 변경되면 뷰에도 반영
 
 ◎ View의 장점
+* 뷰를 이용한 기본 테이블의 엑세스 제한을 통한 데이터에 대한 보안 기능 제공
+* 기본 테이블에 영향을 주지 않을 수도 있다.
+* 여러 개의 기본 테이블로 정의된 뷰가 하나의 테이블인것처럼 인식 
+* 기본테이블에 대한 복잡한 형태의 질의를 뷰로 정의하여 간단하게 표현 가능 
+
+◎ View의 종류
+※ 단순뷰
+* 하나의 테이블로 구성한 뷰
+* INSERT, DELETE, UPDATE와 같은 DML 명령문을 실행하여 기본 테이블의 데이터 조작 가능
+* 함수나 그룹 데이터는 사용 가능 
+* CREATE OR REPLACE VIEW EMPv0
+	AS SELECT EMPNO, ENAME, JOB, DEPTNO 
+	FROM EMP;
+
+※ 복합뷰
+* 하나 이상의 기본 테이블로 구성한 뷰
+* DML문을 제한적으로 사용 
+* 함수나 그룹데이터는 사용 가능 
+* CREATE OR REPLACE VIEW EMPv0
+            AS SELECT EMPNO, ENAME, JOB, DNAME,
+	FROM EMP E, DEPT D
+	WHERE E.DEPTNO = D.DEPTNO;
+
+◎ INLINE VIEW
+* SQL문장 내의 서브쿼리는 SELECT 절에도, FROM 절에도 WHERE 절에도 어디든 사용 가능.
+* FROM 절 상의 서브쿼리를 INLINE VIEW라 하며, FROM 절에 오는 서브쿼리는 VIEW처럼 작용한다.
+* SELECT COLUMN_LIST
+	FROM (SUB QUERY) ALIAS
+	WHERE CONDITION
