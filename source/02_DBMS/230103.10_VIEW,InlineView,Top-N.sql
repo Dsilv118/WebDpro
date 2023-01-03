@@ -181,14 +181,15 @@ CREATE OR REPLACE VIEW WORKER_MANAGER_VU
     AS SELECT W.ENAME WN, M.ENAME MN
             FROM EMP W, EMP M
             WHERE W.MGR=M.EMPNO;
--- 3. 부서별 급여합계 등수를 출력하시오(부서번호, 급여합계, 등수). 
+SELECT * FROM WORKER_MANAGER_VU;
+-- 3. 부서별 급여합계 등수를 출력하시오(부서번호, 급여합계, 등수) 
 SELECT B.*
     FROM (SELECT A.*, ROWNUM RW
              FROM (SELECT DEPTNO, SUM(SAL) FROM EMP GROUP BY DEPTNO) A) B;
 -- 3-1. 부서별 급여합계 등수가 2~3등인 부서번호, 급여합계, 등수를 출력하시오.
 SELECT B.*
     FROM (SELECT A.*, ROWNUM RW
-             FROM (SELECT DEPTNO, SUM(SAL) FROM EMP GROUP BY DEPTNO) A) B
+             FROM (SELECT DEPTNO, SUM(SAL) FROM EMP GROUP BY DEPTNO ORDER BY SUM(SAL)) A) B
     WHERE RW BETWEEN 2 AND 3;
 -- 4. 사원테이블에서 사번, 사원명, 입사일을 입사일이 최신에서 오래된 사원 순으로 정렬하시오
 SELECT EMPNO, ENAME, HIREDATE
@@ -207,61 +208,3 @@ SELECT EMPNO, ENAME, HIREDATE
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- 2. INLINE-VIEW
--- 3. TOP-N 구문
