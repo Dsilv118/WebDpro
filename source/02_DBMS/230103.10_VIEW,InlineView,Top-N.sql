@@ -176,7 +176,7 @@ CREATE OR REPLACE VIEW DNAME_ENAME_VU
         FROM (SELECT E.*, D.*
                 FROM EMP E, DEPT D
                 WHERE E.DEPTNO=D.DEPTNO);
--- 2. 사원명과 직속상관명을 출력하는 용도의 뷰,  WORKER_MANAGER_VU를 작성하시오
+-- 2. 사원명과 직속상관명을 출력하는 용도의 뷰, WORKER_MANAGER_VU를 작성하시오
 CREATE OR REPLACE VIEW WORKER_MANAGER_VU 
     AS SELECT W.ENAME WN, M.ENAME MN
             FROM EMP W, EMP M

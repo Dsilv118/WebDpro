@@ -1,0 +1,11 @@
+-- Ex1. 부서번호 받고 부서정보 출력하기
+SELECT * FROM DEPT WHERE DEPTNO=40;
+-- 40번 삭제
+-- Ex2. 부서번호 받고 부서정보와 사원정보 출력(사번, 이름, 급여, 상사명)
+SELECT * FROM DEPT WHERE DEPTNO=40;
+SELECT E1.EMPNO, E1.ENAME WOR, E1.SAL, E2.ENAME MAN
+    FROM EMP E1, EMP E2 
+    WHERE E1.MGR=E2.EMPNO AND E1.DEPTNO=30;
+
+-- Ex3. 부서이름 검색
+SELECT * FROM DEPT;

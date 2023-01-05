@@ -184,10 +184,16 @@ select p.pno, p.pname, m.pname manage
 select p.pno, p.pname, m.pname manage
 	from personal p left outer join personal m
     on p.manager=m.pno;
+-- 8-1. 사번, 이름, 상사이름, 부서명
+select p.pno, p.pname, m.pname manage, dname
+	from division d, personal p left outer join personal m
+    on p.manager=m.pno
+    where d.dno=p.dno;
 -- 9. 이름이 s로 시작하는 사원 이름
 select pname
 	from personal
     where pname like 'S%';
+--  where substr(pname, 1, 1)='s'
 -- 10. 사번, 이름, 급여, 부서명, 상사이름
 select p.pno, p.pname, p.pay, dname, m.pname
 	from personal p, personal m, division d
@@ -197,7 +203,7 @@ select dno, sum(pay), max(pay)
 	from personal
     group by dno;
 -- 12. 부서명, 급여평균, 인원수
- select dname, avg(pay), count(dname)
+ select dname, avg(pay), count(*)
 	from personal p, division d
     where p.dno=d.dno
     group by dname;
@@ -226,18 +232,88 @@ select pname, pay, (select round(avg(pay)) from personal where dno=p.dno) depav
 -- 18. 입사가 가장 빠른 사람의 이름, 급여, 부서명
  select pname, pay, dname
 	from personal p, division d
-    where p.dno=d.dno
-    order by startdate;
+    where p.dno=d.dno and startdate=(select min(startdate) from personal);
 -- 19. 이름, 급여, 해당부서평균
 select pname, pay, (select round(avg(pay)) from personal where dno=p.dno) depav
 	from personal p;
 -- 20. 이름, 급여, 부서명, 해당부서평균
+	-- 서브 쿼리
 select pname, pay, dname, (select round(avg(pay)) from personal where dno=p.dno) depav
 	from personal p, division d
     where p.dno=d.dno;
--- 단일행 함수
--- top-n (limit) 
+	-- inline view 이용
+select pname, pay, dname, dnoavg
+	from personal p, division d,
+		(select dno, avg(pay) dnoavg from personal group by dno) a
+	where p.dno=d.dno and p.dno=a.dno;
+-- ★ ★ ★ Oracle에서의 단일행 함수와 다른 부분
+select curdate();
+insert into personal values (1000, '홍길동', 'manager', 1001, curdate(), null, null, 40);
+select * from personal where pno=1000;
+set sql_safe_updates = 0;
+delete from personal where pname='홍길동';
 
+ -- EX. "이름은 JOB이다"
+select concat(pname, '은 ', job, '이다') msg from personal;
+select round(35.678); -- from절이 없이도 실행 가능
+
+ -- 시스템으로부터 현재 시점, 현재 날짜, 현재 시간
+select sysdate(); -- 현재 시점
+select now();
+select year(sysdate()), month(now()), day(now()), hour(now()), 
+                         minute(now()), second(now());
+select case weekday(now())
+	when '0' then '월요일'
+    when '1' then '화요일'
+    when '2' then '수요일'
+    when '3' then '목요일'
+    when '4' then '금요일'
+    when '5' then '토요일'
+    when '6' then '일요일' end dayofweek;
+select dayname(now());
+select pname, dayname(startdate) from personal; -- 이름, 입사한 날의 요일
+select monthname(now());
+select pname, monthname(startdate) from personal;
+select date(now()), time(now());
+select pname, year(startdate), month(startdate), day(startdate) from personal;
+
+ -- 시스템으로부터 현재 날짜 
+select current_date();
+select curdate();
+ -- 시스템으로부터 현재 시간
+select current_time();
+select curtime();
+
+ -- date_format(날짜/시간, 포맷) => 문자
+ -- date_format(문자, 포맷) => 날짜
+	-- 포맷 : %Y : 2023(년도4자리) %y : 23(년도2자리)
+	-- 		 %m : (01월, 02월)   %c : (1월, 2월, 3월) %M : 월 이름(January) %b : 짧은월이름(Jan)
+    --       %d : (01일, 02일)   %e : (1일, 2일, 3일)
+    --       %H : (24시간)       %h : (12시간)        %p : (오전, 오후)   %i분 %s초
+select date_format(now(), '%Y년 %c월 %e일 %p %h시 %i분 %s초') now;    
+select * from personal where startdate < '1990-08-08';
+select * from personal 
+	where startdate < date_format('1990-08-08', '%Y-%m-%d');
+
+ -- format(숫자, 소수점자리수) -> 문자
+select pname, format(pay, 2) from personal; -- 소수점 2자리까지 안오고 세자리마자,
+select pname, format(pay, 0) from personal;
+    
+ -- 이름, 급여, 급여 3000이상인지 여부
+select pname, pay, if(pay>3000, '이상', '이하') result from personal;
+select pname, pay, bonus, if(bonus is null, 0, bonus) from personal;
+select pname, bonus, ifnull(bonus, 0) from personal;
+
+-- ★ ★ ★ top-n 구문 (rownum이 없고, limit 이용)
+select pname, pay from personal order by pay desc;
+ -- limit n (1~n등)
+select pname, pay from personal order by pay desc limit 5;
+ -- limit n1, n2 (n1번째부터 n2개, 첫번째는 0번째)
+select pname, pay from personal order by pay desc limit 0, 5; -- 1등부터 5개
+select pname, pay from personal order by pay desc limit 5, 5; -- 6등부터 5개
+select pname, pay from personal order by pay desc limit 6, 3; -- 7등부터 3개
+
+use limdb;
 
 
 
