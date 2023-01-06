@@ -1,4 +1,4 @@
--- 테이블 생성 & 더미 데이터
+-- 테이블 생성 & 더비 데이터
 -- 테이블 및 시퀀스 삭제 
 DROP TABLE PERSON;
 DROP TABLE JOB;
@@ -26,6 +26,7 @@ CREATE SEQUENCE PSQ
 -- 더미데이터 insert (정우성 ~ 송혜교)
 INSERT INTO JOB VALUES (10, '배우'); 
 INSERT INTO JOB VALUES (20, '가수');
+INSERT INTO JOB VALUES (30, '엠씨');
 SELECT * FROM JOB;
 
 INSERT INTO PERSON VALUES (PSQ.NEXTVAL, '정우성', 10, 90, 80, 81); 
@@ -35,30 +36,3 @@ INSERT INTO PERSON VALUES (PSQ.NEXTVAL, '설수현', 20, 95, 95, 95);
 INSERT INTO PERSON VALUES (PSQ.NEXTVAL, '송혜교', 10, 100, 100, 100); 
 SELECT * FROM PERSON;
 commit;
-
--- 기능별 query 작성 (1, 2, 3)
--- 1.
-INSERT INTO PERSON 
-    VALUES (PSQ.NEXTVAL, '아무개', (SELECT JNO FROM JOB WHERE JNAME='가수'), 
-            50,50,50);
-
-ROLLBACK;
--- 2.
-SELECT ROWNUM || '등' RW, A.*
-    FROM (SELECT PNAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT SCR
-                FROM PERSON P, JOB J
-                WHERE P.JNO=J.JNO AND JNAME='배우'
-                ORDER BY SCR DESC) A;
-
--- 3.
-SELECT ROWNUM || '등' RW, A.*
-    FROM (SELECT PNAME, JNAME, KOR, ENG, MAT, KOR+ENG+MAT SCR
-                FROM PERSON P, JOB J
-                WHERE P.JNO=J.JNO
-                ORDER BY SCR DESC) A;
-
--- 
-SELECT JNAME FROM JOB;
-
-
-
