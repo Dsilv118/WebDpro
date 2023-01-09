@@ -10,19 +10,9 @@ public class CustomerDto {
 	private int cpoint;
 	private int cbuy;
 	private String cgname;
-	private int proc;
 	private int grnd;
 	
 	public CustomerDto() {}
-	// 입력용 : 고객 id, 전화, 이름, 구매금액, 고객등급이름 
-	public CustomerDto(int cid, String ctel, String cname, String cgname, int proc) {
-		super();
-		this.cid = cid;
-		this.ctel = ctel;
-		this.cname = cname;
-		this.cgname = cgname;
-		this.proc = proc;
-	}
 	// 출력용 : 아이디, 전화, 이름, 포인트, 구매누적, 고객등급이름, 레벨업을 위한 추가 구매할 금액
 	public CustomerDto(int cid, String ctel, String cname, int cpoint, int cbuy, String cgname, int grnd) {
 		this.cid = cid;
@@ -33,7 +23,6 @@ public class CustomerDto {
 		this.cgname = cgname;
 		this.grnd = grnd;
 	}
-
 
 	@Override
 	public String toString() {
@@ -81,12 +70,6 @@ public class CustomerDto {
 	}
 	public void setGrnd(int grnd) {
 		this.grnd = grnd;
-	}
-	public int getProc() {
-		return proc;
-	}
-	public void setProc(int proc) {
-		this.proc = proc;
 	}
 	
 }
