@@ -1,7 +1,39 @@
 2023.01.09 요점정리
 
-01. Web과 html, css
+01. Web과 HTML, CSS
 
 ● Web
 Web이란?
 1개 이상의 사이트가 연결되어 있는 인터넷 서비스의 한가지 형태를 말합니다.
+인터넷이란, 네트워크가 연결되어 있는 형태를 말합니다. 
+이 인터넷 안에는 많은 서비스(기능)가 존재합니다.
+
+※ 프로토콜(Protocol)  
+네트워크상에서 약속한 통신규약
+
+* http         : HyperText Transfer Protocol의 약자. 정보를 가져와 브라우저 화면상에서 봄
+* FTP          : File Transfer Protocol의 약자. 파일을 다운로드
+* SMTP, POP : 메일 송수신 protocol
+* DHCP        : Dynamic Host Configuration Protocol의 약자 다이나믹하게 계속 사설 ip를 분해주는
+	 역할을 하여 Web을 사용하도록 하는 protocol
+
+※ IP  
+네트워크상에서 컴퓨터를 식별 할 수 있는 주소
+
+※ DNS 
+IP주소를 인간이 쉽게 외우도록 맵핑한 문자열
+
+※ Port 
+IP주소가 컴퓨터를 식별할 수 있게 해준다면, Port번호는 해당 컴퓨터의 구동되고 있는 
+프로그램을 구분할 수 있는 번호
+
+● HTML 
+* HTML이란, Hyper Text Marup Language의 약자로서 웹 문서를 기술하는 언어
+* 웹 문서를 표현하기 위해 태그들로 구성되어 있습니다.
+
+● CSS란? 
+* Cascading Style Sheets의 약자로, HTML 문서를 디자인적으로 예쁘게 만들어 정보 전달을 좀 더
+  효율적으로 하기 위해 만들어진 문서입니다.
+* HTML은 정보를 가지고 있고, CSS는 화면상의 레이아웃등의 
+  디자인을 컨트롤하는 문서라고 생각하면 됩니다.
+
