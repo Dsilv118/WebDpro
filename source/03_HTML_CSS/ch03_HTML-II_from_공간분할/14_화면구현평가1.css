@@ -1,0 +1,12 @@
+﻿footer p {
+    margin: 0;
+    color: gray;
+    font-size: 13pt;
+    text-align: center;
+}
+content td {
+    text-align: center;
+}
+strong {
+    color: red;
+}

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="14_화면구현평가1.css" rel="stylesheet" type="text/css" />
+    <script>
+        function chk() {
+            if (sign.name.value.length < 2) {
+                alert('이름을 2글자 이상 입력해주세요.');
+                sign.name.focus();
+                return false;
+            } else if (sign.id.value.length < 4) {
+                alert('ID를 4글자 이상 입력해주세요.')
+                sign.id.focus();
+                return false;
+            } else if (sign.pw.value.length < 1) {
+                alert('비밀번호를 1글자 이상 입력해주세요.')
+                sign.pw.focus();
+                return false;
+            } else if (sign.pw.value != sign.chpw.value) {
+                alert('비밀번호가 일치하지 않습니다.')
+                sign.chpw.focus();
+                return false;
+            } else if (sign.tel.value.length < 1) {
+                alert('전화번호를 입력해주세요.')
+                sign.tel.focus();
+                return false;
+            } else if (sign.email.value.length < 1) {
+                alert('이메일을 입력해주세요.')
+                sign.email.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="sign" onsubmit="return chk()">
+        <header>
+            <center><h1>회원가입</h1></center>
+        </header>
+        <content>
+            <fieldset>
+                <legend>필수입력</legend>
+                <table>
+                    <tr>
+                        <th>이 름<strong>*</strong></th>
+                        <td><input type="text" name="name" placeholder="2글자 이상 입력해주세요." /></td>
+                    </tr>
+                    <tr>
+                        <th>아이디<strong>*</strong></th>
+                        <td><input type="text" name="id" placeholder="4글자 이상 입력해주세요." /></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호<strong>*</strong></th>
+                        <td><input type="password" name="pw" /></td>
+                    </tr>
+                    <tr>
+                        <th>비번확인<strong>*</strong></th>
+                        <td><input type="password" name="chpw" /></td>
+                    </tr>
+                    <tr>
+                        <th>전 화<strong>*</strong></th>
+                        <td>
+                            <input type="text" name="tel"
+                                   placeholder="ex)010-0000-0000/00-000-0000"
+                                   pattern="\d{2,3}.\d{3,4}.\d{4}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>이메일<strong>*</strong></th>
+                        <td>
+                            <input type="text" name="email"
+                                   placeholder="ex)id@domain.com/id@domain.co.kr"
+                                   pattern="\D+\d*@\w+(\.\w+){1,2}" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>추가 입력 사항</legend>
+                <table>
+                    <tr>
+                        <th>결혼 유 무</th>
+                        <td><input type="radio" name="marry" value="y" />기혼</td>
+                        <td><input type="radio" name="marry" value="n" />미혼</td>
+                    </tr>
+                    <tr>
+                        <th>자녀 유 무</th>
+                        <td><input type="radio" name="child" value="y" />있음</td>
+                        <td><input type="radio" name="child" value="n" />없음</td>
+                    </tr>
+                    <tr>
+                        <th>지 역</th>
+                        <td>
+                            <select name="area">
+                                <option>강서구</option>
+                                <option>양천구</option>
+                                <option>마포구</option>
+                                <option>구로구</option>
+                                <option>용산구</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <center><input type="submit" value="가입" /> &nbsp;<input type="reset" value="취소" /></center>
+        </content>
+        <br />
+        <br />
+        <hr />
+        <br />
+        <br />
+        <footer >
+            <p>서울시 서대문구 신촌로 141 은하빌딩 203호</p>
+            <p>Copyright ⓒ XX All right reserved</p>
+        </footer>
+    </form>
+</body>
+</html>
