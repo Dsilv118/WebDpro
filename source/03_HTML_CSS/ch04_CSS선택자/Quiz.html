@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        /* 전체 레이아웃 잡기 */
+        #header, #content, #footer {
+            width: 1000px; margin: 0 auto;
+            overflow:hidden;
+            text-align: center;
+        }
+        .left, .right {
+            height: 150px;
+            width: 150px;
+            border: 1px solid gray;
+            background-color: lightgray;
+        }
+        .center {
+            height: 150px;
+            width: 694px;
+            border: 1px solid gray;
+            background-color: lightgray;
+        }
+        #header div {
+            float: left;
+        }
+        #header .left {border-radius: 20px 0 20px 0;}
+        #header .center {border-radius: 0 0 20px 20px;}
+        #header .right {border-radius: 0 20px 0 20px;}
+        #content div {
+            float: left;
+        }
+        #content .center {
+            height: 300px;
+            width: 694px;
+            border-radius: 20px;
+        }
+        #content .center ul {overflow:hidden;}
+        #content .center ul li {
+            float: left;
+            list-style: none;
+            padding: 0 40px 0 40px;
+        }
+        #content .right {
+            height: 300px;
+            text-align: left;
+            border-radius: 20px 0 0 20px;
+        }
+        .redc {
+            color: red;
+        }
+        #content .left {
+            height: 300px;
+            border-radius: 0 20px 20px 0;
+        }
+        #footer div {
+            float: left;
+        }
+        #footer .left {border-radius: 0 20px 0 20px;}
+        #footer .center {border-radius: 20px 20px 0 0;}
+        #footer .right {border-radius: 20px 0 20px 0;}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+    <div id="content">
+        <div class="left"></div>
+        <div class="center">
+            <ul>
+                <li><h1>menu1</h1></li>
+                <li><h1>menu2</h1></li>
+                <li><h1>menu3</h1></li>
+            </ul>
+            <h2>풀스택 개발자 양성과정</h2><br />
+            <p>
+                그들을 부패를 수 가치를 어디 위하여 청춘은 있는가? 봄날의 어디 보는 불러 품었기 위하여서. 
+                바이며, 사는가 커다란 바로 끓는 작고 웅대한 얼음에 사막이다. 인간의 남는 몸이 듣는다. 
+            </p>
+        </div>
+        <div class="right">
+            <ol>
+                <li>태그</li>
+                <li>전체(*)</li>
+                <li>id, class</li>
+                <li>속성</li>
+                <li>후손,자손(>)</li>
+                <li>동위</li>
+                <li>반응</li>
+                <li>상태</li>
+                <li>구조</li>
+                <li class="redc">문자</li>
+                <li class="redc">링크</li>
+                <li class="redc">부정</li>
+            </ol>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+</body>
+</html>

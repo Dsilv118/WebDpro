@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 500px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        header {
+            color:darkgoldenrod
+        }
+        section ul {overflow: hidden;}
+        section ul li {
+            float: left;
+            list-style: none;
+            padding: 15px 0 0 12px;
+        }
+        section ul [src$='bmp'] {
+            border: 4px solid blue;
+        }
+        section ul [src$='gif'] {
+            border: 4px solid red;
+        }
+        section ul [src$='jpg'] {
+            border: 4px solid yellow;
+        }
+        section ul [src$='png'] {
+            border: 4px solid black;
+        }
+        footer {
+            color: darkslategrey;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>자바 스크립트 책들</h1>
+        </header>
+        <section>
+            <ul>
+                <li><img src="0112_book/book.bmp" alt="파랑 테두리" /></li>
+                <li><img src="0112_book/book.gif" alt="빨강 테두리" /></li>
+                <li><img src="0112_book/book.jpg" alt="노랑 테두리" /></li>
+                <li><img src="0112_book/book.png" alt="검정 테두리" /></li>
+            </ul>
+        </section>
+        <footer>
+            <p>서울시 강서구 방화동 금강빌딩 4층</p>
+        </footer>
+    </div>
+</body>
+</html>

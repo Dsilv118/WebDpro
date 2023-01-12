@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 700px;
+            margin: 0 auto;
+            border: 1px solid gray;
+        }
+        #wrap #header { /* 후손 선택자 */
+            overflow: hidden;
+        }
+        #wrap .logo { /* 후손 선택자 */
+            float: left;
+            padding: 10px 30px 10px 150px; /* 상 우 하 좌 */
+        }
+        #wrap .title {
+            float: left;
+            padding: 20px 150px 10px 30px;
+        }
+        div p { /* 후손 선택자 (자손선택자 포함) */
+            font-size: 25px;
+        }
+        div > p { /* 자손 선택자 */
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="logo">
+                <h1>LOGO</h1>
+            </div>
+            <div class="title">
+                <h1>이젠주식회사</h1>
+            </div>
+        </div>
+        <div id="content">
+            <p>
+                멀리 멀리 덮어 하나에 내 봅니다. 멀리 아무 별 위에 별 마리아 있습니다. 
+                새워 소학교 사랑과 언덕 이름자 멀듯이, 묻힌 이름과, 거외다. 
+                무엇인지 토끼, 내 이름과, 가을 까닭입니다. 부끄러운 당신은 하나에 없이 하나에 많은 있습니다.
+            </p>
+            <ul>
+                <li>
+                    <p>
+                        잠, 별 묻힌 옥 까닭입니다. 별 오는 프랑시스 내린 옥 까닭입니다. 
+                        언덕 이런 토끼, 쉬이 밤을 듯합니다.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        하나의 이 사랑과 청춘이 하나에 버리었습니다. 이름자 청춘이 보고, 이런 위에 까닭입니다.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        노루, 멀리 것은 써 하나에 했던 이름을 아직 별에도 있습니다.
+                        릴케 속의 내 소녀들의 어머니, 된 이름자 별 봅니다.
+                    </p>
+                </li>
+            </ul>
+        </div><!-- content -->
+        <div id="footer">
+            <p>서울시 서대문구 대현동</p>
+        </div>
+    </div>
+</body>
+</html>
