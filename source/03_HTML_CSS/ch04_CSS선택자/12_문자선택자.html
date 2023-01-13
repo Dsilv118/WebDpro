@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #wrap {
+            width: 700px;
+            margin: 0 auto;
+        }
+        #header {
+            text-align: center;
+            border-bottom: 1px solid lightgray;
+        }
+        #content {
+            padding: 0 10px; /* 상 우 하 좌 */
+            text-align: justify; /* 영어로 쓸 시 오른쪽을 정렬 */
+        }
+        #content p:nth-child(2)::first-line,
+        #content p:nth-child(3)::first-line { /* 문자선택자 */
+            color: blue;
+            font-weight: bold; /* 글씨 굵게 */
+            font-size: 20px; /* p 태그의 기본 폰트 크기가 16px*/
+        }
+        #content p:nth-child(2)::first-letter { /* 문자선택자 */
+            font-size: 2em; /* 원래 크기(20px)의 2배 = 40px */
+        }
+        #content p:nth-child(3) span { /* 문자선택자를 모를 경우*/
+            font-size: 2em;
+        }
+        #content p:nth-child(2)::selection {
+            background-color: darkviolet;
+            color: yellow;
+        }
+        #footer ul {
+            overflow: hidden;
+            border-top: 1px solid lightgray;
+        }
+        #footer ul li {
+            float: left;
+            list-style: none;
+            padding: 15px;
+        }
+        #footer ul li:first-child {
+            padding-top: 35px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <h1>제목이나 회사명</h1>
+        </div>
+        <div id="content">
+            <p>
+                마디씩 이름을 불러 듯합니다. 오는 이런 이웃 파란 봅니다.
+            </p>
+            <p>
+                무덤 이런 사랑과 별 아이들의 이름을 봅니다. 
+                별 아침이 어머님, 오면 노루, 이네들은 가슴속에 무엇인지 내 까닭입니다. 
+                별이 내 나는 밤이 버리었습니다. 어머니, 가득 애기 별 멀리 계십니다. 
+                잔디가 내 묻힌 벌레는 봄이 강아지, 까닭입니다.
+            </p>
+            <p>
+                <span>나</span>는 부끄러운 멀리 보고, 별 청춘이 버리었습니다. 새겨지는 청춘이 이웃 있습니다. 
+                패, 가슴속에 벌레는 까닭입니다. 불러 가을 쉬이 동경과 까닭이요, 하나에 봅니다. 
+                내일 걱정도 가을 위에 까닭입니다.
+            </p>
+        </div>
+        <div id="footer">
+            <ul>
+                <li>
+                    <img src="0112/logo.png" alt="회사로고" />
+                </li>
+                <li>
+                    <img src="0112/address.png" alt="회사정보" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

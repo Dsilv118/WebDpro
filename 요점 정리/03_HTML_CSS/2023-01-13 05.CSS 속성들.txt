@@ -1,0 +1,44 @@
+2023.01.13 요점정리
+
+05. CSS 속성들
+
+● CSS 속성들
+
+① url()           : Background-img 속성의 속성값으로 많이 사용됩니다. 
+                     이 경우 배경이미지의 경로를 나타냅니다.
+
+② background-iamge 속성 : 배경을 지정하는 속성
+
+③ display 속성  : 화면에 어떻게 보이는지를 설정하는 속성. 다양한 속성값이 있지만,
+	          주로 몇가지만 많이 사용됩니다. display 속성의 다음 속성값은 매우 중요합니다.
+
+	* block         : div태그 p태그 li태그 - 높이의 속성이 있다.
+	* inline         : span 태그 - 높이의 속성이 없다.
+	* inline-block : block의 속성을 갖고 옆으로 붙여 나가는 것 - 높이의 속성이 있다.
+
+④ visibility 속성  : display 속성의 none 속성값과 비교하여 이해합니다.
+
+	* visibility : hidden은 공간은 확보, 안보임
+	* display : none은 공간도 사라짐
+
+⑤ opacity 속성   : 투명도를 조절하는 속성. 여러곳에 유용하게 사용된다.
+
+⑥ box-sizing 속성 : box-sizing 속성을 이용하면 전체 사이즈의 크기를 변경 할 수 있습니다.
+
+⑦ border 속성 : border 속성을 변경할 수 있습니다.
+
+⑧ 글자 관련된 속성들
+	* font-family (글꼴)		* font-size (크기)
+	* font-weight (진하게)	* line-height (행간격 조정, 세로축 정렬 용도)
+	* font-style (이텔릭체)	* text-align (글자에 대한 정렬) 
+	* text-decoration (간단한 글꼴 모양의 속성)
+
+⑨ position 속성 
+	* absolute 속성값		* fixed 속성값 		
+	* static 속성값		* relative 속성값 		
+	* relative와 absolute의 혼합 사용
+
+⑩ float 속성     : position 속성과 함께 요소의 위치를 설정하기 위한 속성
+
+⑪ gradient 속성 : 2가지 이상의 색을 표현할 때 사용되는 속성
+
