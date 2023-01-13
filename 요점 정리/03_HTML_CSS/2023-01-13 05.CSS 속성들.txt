@@ -34,7 +34,7 @@
 	* text-decoration (간단한 글꼴 모양의 속성)
 
 ⑨ position 속성 
-	* absolute 속성값		* fixed 속성값 		
+	* absolute 속성값              * fixed 속성값 		
 	* static 속성값		* relative 속성값 		
 	* relative와 absolute의 혼합 사용
 
