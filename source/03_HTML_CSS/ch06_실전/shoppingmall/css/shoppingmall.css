@@ -1,0 +1,173 @@
+/* * * * * * * 페이지 초기화 * * * * * */
+@font-face {
+    font-family: 'Rubik-Italic-VariableFont_wght';
+    src: url('../font/Rubik-Italic-VariableFont_wght.ttf'); /* css 파일 기준으로 */
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik-Italic-VariableFont_wght';
+}
+a {
+    text-decoration: none; 
+    color: black;
+}
+li {
+    list-style: none;
+}
+/* * * * * * * header의 .gnb * * * * * * */
+header .gnb {
+    width: 100%;
+    background-color: dimgray;
+}
+header .gnb ul {
+    width: 1200px;
+    height: 30px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+header .gnb ul li {
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    margin: 0 auto;
+    text-align: center;
+    float: left;
+}
+header .gnb ul li a {
+    color: white;
+    font-weight: bold;
+}
+/* * * * * * * header의 .logo * * * * * * */
+header .logo {
+    width: 400px;
+    height: 200px;
+    margin: 35px auto;
+    line-height: 200px;
+    text-align: center;
+    font-size: 2em;
+    border: 1px solid lightgray;
+    font-weight: bold;
+}
+/* * * * * * * header의 .hitmenu * * * * * * */
+header .hitmenu ul {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+}
+header .hitmenu ul li {
+    float: right;
+    border: 1px solid lightgray;
+    width: 80px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+header .hitmenu ul li a {
+    display: block;
+    font-weight: bold;
+}
+header .hitmenu ul li:first-child {
+    border-radius: 0 10px 10px 0;
+}
+header .hitmenu ul li:last-child {
+    border-radius: 10px 0 0 10px;
+}
+/* * * * * * * header .lnb * * * * * * */
+header .lnb {
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+    width: 100%;
+    margin: 4px auto 8px;
+}
+header .lnb ul {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+}
+header .lnb ul li {
+    float: left;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+}
+header .lnb ul li a {
+    font-weight: bold;
+}
+/* * * * * * * content * * * * * * */
+#content {
+    width: 1000px;
+    margin: 0 auto;
+}
+/* * * * * * * content section1 * * * * * * */
+#content .section1 {overflow: hidden;}
+#content .section1 div {float: left;}
+#content .section1 .slide_banner {
+    height: 400px;
+    width: 700px;
+    line-height: 400px;
+    text-align: center;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+}
+#content .section1 .side_banner {
+    height: 400px;
+    width: 300px;
+    line-height: 400px;
+    text-align: center;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+}
+/* * * * * * * content section2 * * * * * * */
+#content .section2 .hit_product {margin: 10px 0;}
+#content .section2 .hit_product,
+#content .section2 .md_product {
+    border: 1px solid lightgray;
+}
+#content .section2 .hit_product ul,
+#content .section2 .md_product ul {
+    overflow: hidden;
+}
+#content .section2 .hit_product ul li,
+#content .section2 .md_product ul li {
+    float: left;
+    height: 400px;
+    line-height: 400px;
+    text-align: center;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    width: 240.7px;
+    margin-right: 7px;
+}
+#content .section2 .hit_product ul li:first-child,
+#content .section2 .md_product ul li:first-child {
+    margin-left: 7px;
+}
+/* * * * * * * footer * * * * * * */
+footer {
+    overflow: hidden;
+    width: 1000px;
+    height: 100px;
+    margin: 5px auto;
+}
+footer .office_logo,
+footer .office_address,
+footer .shopping_info {
+    float: left;
+    width: 33.3333%;
+    height: 65px;
+    line-height: 65px;
+    text-align: center;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+}
+footer .copyright {
+    clear: both;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background-color: black;
+    color: white;
+}

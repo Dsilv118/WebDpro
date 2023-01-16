@@ -1,0 +1,75 @@
+﻿#wrap {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    border: 1px solid gray;
+    text-align: center;
+    position: relative;
+}
+header {
+    border: 1px solid gray;
+    margin : 8px 10px 0px 10px;
+    background-color: lightgoldenrodyellow;
+}
+#wrap #nav {
+    border: 1px solid gray;
+    margin : 5px 10px;
+}
+#wrap #nav ul {overflow:hidden;}
+#wrap #nav ul li {
+    float: left;
+    list-style: none;
+    margin: 0px 4px;
+    height: 43px;
+    text-align: center;
+    background-color: lightpink;
+    font-weight: bold;
+}
+#wrap #nav ul li:last-child {
+    border-radius: 0 20px 20px 0;
+}
+#wrap #nav ul li:first-child {
+    border-radius: 20px 0 0 20px;
+}
+#wrap #nav ul li a {
+    display: block;
+    padding: 10px 59px;
+    color: cornflowerblue;
+    text-decoration: none;
+}
+#wrap #section {
+    overflow: hidden;
+    border: 1px solid gray;
+    margin: 0px 10px;
+}
+#wrap #content, #wrap #banner {
+    float: left;
+    height: 300px;
+}
+#wrap #content {
+    border: 1px solid gray;
+    margin: 5px 10px;
+    width: 700px;
+}
+#wrap #banner {
+    border: 1px solid gray;
+    margin: 5px 10px 5px 0;
+    width: 244px;
+}
+#wrap footer {
+    border: 1px solid gray;
+    margin: 5px 10px 8px 10px;
+    background-color: yellow;
+}
+#wrap::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    background: url('0113/sulhyun.jpg') center no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; /* 겹쳤을 때 뒤로 */
+    opacity: 0.3;
+}
