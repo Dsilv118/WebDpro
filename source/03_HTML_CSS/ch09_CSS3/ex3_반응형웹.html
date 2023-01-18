@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 페이지초기화 */
+        * {margin: 0; padding: 0;}
+        li {list-style: none;}
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            display: block;
+        }
+        /* 공통부분 */
+        #wrap {
+            border: 1px solid gray;
+            text-align: justify;
+        }
+        #wrap #header {
+            height: 100px; line-height: 100px; text-align: center;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+        #wrap #nav ul {overflow: hidden;}
+        #wrap #nav ul li {
+            float: left;
+            height: 60px; line-height: 60px; text-align: center;
+            border: 1px solid gray;
+            box-sizing: border-box;
+        }
+        #content {padding: 10px;}
+        #footer {
+            height: 70px; line-height: 70px; text-align: center;
+            background-color: gray;
+        }
+        /* 스마트폰용 화면 */
+        @media screen and (max-width: 959px) {
+            #wrap {
+                width: 100%; 
+                margin: 3px;
+                background-color: lightgoldenrodyellow;
+                font-size: 1.2em;
+            }
+            #wrap #nav ul li {width: 33.3%;}
+            #wrap #nav ul li:nth-child(2),
+            #wrap #nav ul li:nth-child(4) {display: none;}
+        }
+        /* 탭용 화면 */
+        @media screen and (min-width: 960px) and (max-width: 1200px) {
+            #wrap {
+                width: 100%;
+                background-color: lightpink;
+                font-size: 1.1em;
+            }
+            #wrap #nav ul li {width: 25%;}
+            #wrap #nav ul li:nth-child(2) {display: none;}
+        }
+        /* pc용 화면 */
+        @media screen and (min-width: 1201px) {
+            #wrap {
+                width: 800px;
+                margin: 3px auto;
+                background-color: lightgreen;
+            }
+            #wrap #nav ul li {width: 20%;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"><h1>반응형 웹</h1></div>
+        <div id="nav">
+            <ul>
+                <li><a href="#1">menu1</a></li>
+                <li><a href="#2">menu2</a></li>
+                <li><a href="#3">menu3</a></li>
+                <li><a href="#4">menu4</a></li>
+                <li><a href="#5">menu5</a></li>
+            </ul>
+        </div>
+        <div id="content">
+            <h2>인간에 싸인 낙원을 못하다 이상의 황금시대를 철환하였는가?</h2>
+            <p>
+                청춘이 있음으로써 이상의 그들에게 얼음이 방황하여도, 청춘은 끝에 간에 보라. 
+                힘차게 때까지 품었기 공자는 가치를 얼마나 되는 때문이다. 
+                두기 열매를 우리 인간에 싸인 낙원을 못하다 이상의 황금시대를 철환하였는가?
+                찾아 군영과 청춘이 우리 생명을 그림자는 눈이 피어나는 얼음이 사막이다. 
+                우리 구하기 천자만홍이 힘있다. 심장은 꽃이 관현악이며, 
+                그들의 이상의 간에 들어 청춘의 것이다. 그것은 귀는 싸인 너의 같은 청춘 할지니, 
+                예가 아니한 힘있다. 얼마나 군영과 그림자는 보내는 뼈 어디 넣는 투명하되 커다란 아니다. 
+                주는 꾸며 공자는 주며, 위하여서, 황금시대다.
+            </p>
+        </div>
+        <div id="footer">홍길동 주식회사</div>
+    </div>
+</body>
+</html>

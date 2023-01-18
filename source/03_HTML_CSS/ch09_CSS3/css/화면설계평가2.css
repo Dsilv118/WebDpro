@@ -1,0 +1,119 @@
+/* * * * * 초기화 * * * * */
+* {margin: 0; padding: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: black;}
+/* * * * * #nav * * * * */
+#nav {
+    overflow: hidden; 
+    min-width: 600px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+}
+#nav li a {
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+#nav #nav_left li {
+    float: left;
+    margin: 20px 30px;
+}
+#nav #nav_left li:first-child {
+    background-color: #FDEADA;
+    border: 1px solid lightgray;
+}
+#nav #nav_right li {
+    float: right;
+    margin: 10px 30px;
+}
+/* * * * * #content #title * * * * */
+#content {
+    overflow: hidden;
+    width: 1200px;
+    margin: 0 auto;
+}
+#content #title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px;
+}
+#content hr {
+    border: 1px solid lightgray;
+    margin: 0 1px;
+}
+/* * * * * #content #lnb * * * * */
+#content #lnb, #content #my_content {float: left;}
+#content #lnb {
+    width: 250px;
+    margin: 10px 20px;
+}
+#content #lnb li {
+    height: 40px;
+    line-height: 40px;
+    text-align: left;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    display: block;
+}
+#content #lnb li a {
+    display: block;
+    padding-left: 40px;
+}
+#content #lnb li:nth-child(4) {
+    background-color: #FDEADA;
+    font-weight: bold;
+}
+/* * * * * #content #my_content * * * * */
+#content #my_content {
+    width: 870px;
+    height: 500px;
+    border: 1px solid lightgray;
+    box-sizing: border-box;
+    margin: 10px 20px;
+}
+#content #sub_title {
+    border-bottom: 1px solid lightgray;
+    box-sizing: border-box;
+    height: 35px;
+}
+#content #sub_title p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 10px;
+}
+#content #modify_form form {
+    width: 870px;
+    height: 455px;
+    box-sizing: border-box;
+}
+#content #modify_form table {
+    width: 600px;
+    height: 300px;
+    text-align:left;
+    margin: 50px auto;
+}
+#content #modify_form table td input {
+    width: 400px;
+    height: 30px;
+    margin-left: 80px;
+    font-size: 1.1em;
+}
+#content #modify_form table tr:last-child td input {
+    width: 60px;
+    height: 20px;
+    margin: 50px 0 0 300px;
+    font-size: 0.8em;
+}
+/* * * * * footer * * * * */
+footer {
+    width: 1200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #FDEADA;
+    border: 1px solid lightgray;
+}

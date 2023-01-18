@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * * * * 페이지 초기화 * * * * */
+        * {margin: 0; padding: 0;}
+        li {list-style: none;}
+        a {text-decoration: none;}
+        body {min-width: 900px;}
+        /* * * * * header * * * * */
+        header {
+            height: 100px;
+            line-height: 100px;
+            padding: 10px;
+            background-color: rgb(117, 53, 108);
+            color: white;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        /* * * * * #nav_gnb (ul이 2개, 하나는 왼쪽으로 인접, 하나는 오른쪽으로 인접) * * * * */
+        #nav_gnb {
+            overflow: hidden;
+            background-color: #333333;
+            height: 80px; 
+            line-height: 80px; 
+            text-align: center;
+        }
+        #nav_gnb ul:first-child {float: left;}
+        #nav_gnb ul:last-child {float: right;}
+        #nav_gnb ul li {float: left;}
+        #nav_gnb ul li a {
+            color: white;
+            font-weight: bold;
+            width: 125px;
+            display: block;
+            border-right: 1px solid lightgray;
+        }
+        #nav_gnb ul:last-child li:first-child a {border-left: 1px solid lightgray;}
+        /* * * * * section * * * * */
+        section {
+            overflow: hidden;
+            background-color: #e9e95e;
+        }
+        /* * * * * section의 #nav_lnb : 고정 가로 사이즈 : 100px * * * * */
+        section #nav_lnb {
+            float: left;
+            width: 100px;
+        }
+        section #nav_lnb ul a {
+            display: block;
+            padding: 10px 20px;
+            color: brown;
+            border-bottom: 2px dashed #6e6d6d;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        /* * * * * section의 #content_wrao : width를 100%(margin-right -100px)  * * * * */
+        section #content_wrap {
+            float: left;
+            width: 100%;
+            margin-right: -100px;
+            background-color: #ffffcc;
+        }
+        section #content_wrap #content {
+            padding: 20px 120px 20px 20px;
+            text-align: justify;
+        }
+        section #content div {margin-bottom: 20px;}
+        section #content div:nth-child(1) img {
+            float: left;
+            margin: 10px 10px 0 0;
+        }
+        section #content div:nth-child(2) img {
+            float: right;
+            margin: 10px 0 0 10px;
+        }
+        section #content div:nth-child(3) img {
+            float: left;
+            margin: 10px 10px 0 0;
+        }
+        section #content div:nth-child(4) img {
+            float: left;
+            margin: 0 10px 0 0;
+        }
+        /* * * * * footer * * * * */
+        footer {
+            background-color: lightgray;
+            height: 100px;
+            text-align: center;
+            font-weight: bold;
+        }
+        footer p:first-child {
+            font-size: 1.3em;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>Web site for Tablet-PC</p>
+    </header>
+    <div id="nav_gnb">
+        <ul>
+            <li><a href="#g1">Gnb1</a></li>
+            <li><a href="#g2">Gnb2</a></li>
+            <li><a href="#g3">Gnb3</a></li>
+            <li><a href="#g4">Gnb4</a></li>
+            <li><a href="#g5">Gnb5</a></li>
+        </ul>
+        <ul>
+            <li><a href="#g6">Gnb6</a></li>
+            <li><a href="#g7">Gnb7</a></li>
+        </ul>
+    </div>
+    <section>
+        <div id="nav_lnb">
+            <ul>
+                <li><a href="#b1">Btn1</a></li>
+                <li><a href="#b2">Btn2</a></li>
+                <li><a href="#b3">Btn3</a></li>
+                <li><a href="#b4">Btn4</a></li>
+                <li><a href="#b5">Btn5</a></li>
+                <li><a href="#b6">Btn6</a></li>
+                <li><a href="#b7">Btn7</a></li>
+                <li><a href="#b8">Btn8</a></li>
+                <li><a href="#b9">Btn9</a></li>
+            </ul>
+        </div> <!-- #nav_lnb -->
+        <div id="content_wrap">
+            <div id="content">
+                <div>
+                    <h1>What is Lorem Ipsum?</h1>
+                    <img src="img/img.jpg" alt="샵화">
+                    <p>
+                        자랑처럼 나는 풀이 이름자를 다하지 아름다운 무성할 새워 쉬이 듯합니다. 
+                        말 강아지, 하나의 오는 듯합니다. 아이들의 비둘기, 잠, 계십니다. 
+                        멀리 하나의 위에 애기 걱정도 오면 겨울이 너무나 봅니다. 
+                        별 언덕 내 무엇인지 소녀들의 까닭입니다. 
+                        자랑처럼 북간도에 릴케 시와 불러 딴은 이국 듯합니다. 
+                        별이 내 피어나듯이 흙으로 청춘이 가을로 별 책상을 아이들의 있습니다. 
+                        이웃 같이 하나에 시와 계십니다. 하나 쓸쓸함과 어머님, 잠, 아무 피어나듯이 계십니다.
+                        아무 써 노새, 둘 아침이 자랑처럼 하나에 지나고 내린 듯합니다. 
+                        청춘이 계집애들의 딴은 걱정도 별이 어머님, 별 차 오면 까닭입니다. 
+                        것은 같이 토끼, 보고, 봅니다. 
+                        하나 불러 시인의 별을 하나의 릴케 했던 별 슬퍼하는 봅니다. 
+                        덮어 파란 슬퍼하는 언덕 내 노새, 프랑시스 불러 언덕 버리었습니다. 
+                        덮어 하나에 무덤 내일 나는 하나에 멀리 가슴속에 거외다. 
+                        하나의 까닭이요, 책상을 사랑과 어머님, 멀듯이, 옥 이국 있습니다. 
+                        이 하나의 다 우는 언덕 그러나 까닭입니다. 
+                        불러 부끄러운 아이들의 하나의 청춘이 아직 이런 듯합니다. 
+                        오면 별 아침이 하나 봅니다. 가슴속에 별빛이 이름을 겨울이 멀리 밤이 까닭입니다
+                    </p>
+                </div>
+                <div>
+                    <h1>What is Lorem Ipsum?</h1>
+                    <img src="img/img.jpg" alt="샵화">
+                    <p>
+                        자랑처럼 나는 풀이 이름자를 다하지 아름다운 무성할 새워 쉬이 듯합니다. 
+                        말 강아지, 하나의 오는 듯합니다. 아이들의 비둘기, 잠, 계십니다. 
+                        멀리 하나의 위에 애기 걱정도 오면 겨울이 너무나 봅니다. 
+                        별 언덕 내 무엇인지 소녀들의 까닭입니다. 
+                        자랑처럼 북간도에 릴케 시와 불러 딴은 이국 듯합니다. 
+                        별이 내 피어나듯이 흙으로 청춘이 가을로 별 책상을 아이들의 있습니다. 
+                        이웃 같이 하나에 시와 계십니다. 하나 쓸쓸함과 어머님, 잠, 아무 피어나듯이 계십니다.
+                        아무 써 노새, 둘 아침이 자랑처럼 하나에 지나고 내린 듯합니다. 
+                        청춘이 계집애들의 딴은 걱정도 별이 어머님, 별 차 오면 까닭입니다. 
+                        것은 같이 토끼, 보고, 봅니다. 
+                        하나 불러 시인의 별을 하나의 릴케 했던 별 슬퍼하는 봅니다. 
+                        덮어 파란 슬퍼하는 언덕 내 노새, 프랑시스 불러 언덕 버리었습니다. 
+                        덮어 하나에 무덤 내일 나는 하나에 멀리 가슴속에 거외다. 
+                        하나의 까닭이요, 책상을 사랑과 어머님, 멀듯이, 옥 이국 있습니다. 
+                        이 하나의 다 우는 언덕 그러나 까닭입니다. 
+                        불러 부끄러운 아이들의 하나의 청춘이 아직 이런 듯합니다. 
+                        오면 별 아침이 하나 봅니다. 가슴속에 별빛이 이름을 겨울이 멀리 밤이 까닭입니다
+                    </p>
+                </div>
+                <div>
+                    <h1>What is Lorem Ipsum?</h1>
+                    <img src="img/img.jpg" alt="샵화">
+                    <p>
+                        자랑처럼 나는 풀이 이름자를 다하지 아름다운 무성할 새워 쉬이 듯합니다. 
+                        말 강아지, 하나의 오는 듯합니다. 아이들의 비둘기, 잠, 계십니다. 
+                        멀리 하나의 위에 애기 걱정도 오면 겨울이 너무나 봅니다. 
+                        별 언덕 내 무엇인지 소녀들의 까닭입니다. 
+                        자랑처럼 북간도에 릴케 시와 불러 딴은 이국 듯합니다. 
+                        별이 내 피어나듯이 흙으로 청춘이 가을로 별 책상을 아이들의 있습니다. 
+                        이웃 같이 하나에 시와 계십니다. 하나 쓸쓸함과 어머님, 잠, 아무 피어나듯이 계십니다.
+                        아무 써 노새, 둘 아침이 자랑처럼 하나에 지나고 내린 듯합니다. 
+                        청춘이 계집애들의 딴은 걱정도 별이 어머님, 별 차 오면 까닭입니다. 
+                        것은 같이 토끼, 보고, 봅니다. 
+                        하나 불러 시인의 별을 하나의 릴케 했던 별 슬퍼하는 봅니다. 
+                        덮어 파란 슬퍼하는 언덕 내 노새, 프랑시스 불러 언덕 버리었습니다. 
+                        덮어 하나에 무덤 내일 나는 하나에 멀리 가슴속에 거외다. 
+                        하나의 까닭이요, 책상을 사랑과 어머님, 멀듯이, 옥 이국 있습니다. 
+                        이 하나의 다 우는 언덕 그러나 까닭입니다. 
+                        불러 부끄러운 아이들의 하나의 청춘이 아직 이런 듯합니다. 
+                        오면 별 아침이 하나 봅니다. 가슴속에 별빛이 이름을 겨울이 멀리 밤이 까닭입니다
+                    </p>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/100x100" alt="더미이미지">
+                    <img src="https://via.placeholder.com/100x100" alt="더미이미지">
+                    <img src="https://via.placeholder.com/100x100" alt="더미이미지">
+                    <p>
+                        쓸쓸함과 별들을 같이 헤일 별 없이 불러 하나에 듯합니다. 
+                        슬퍼하는 이름과, 강아지, 있습니다. 
+                        아이들의 이름과 비둘기, 무성할 당신은 사랑과 이런 봅니다. 
+                        헤는 그리고 이름과, 같이 계십니다. 그리워 하나 위에도 별을 남은 있습니다. 
+                        보고, 못 것은 딴은 파란 이름을 흙으로 이름과, 거외다. 
+                        북간도에 남은 내 써 시인의 속의 겨울이 어머니, 거외다. 
+                        위에도 별 겨울이 것은 릴케 패, 어머님, 이 봅니다. 
+                        까닭이요, 시인의 때 아직 비둘기, 하나에 아름다운 있습니다. 
+                        멀듯이, 흙으로 잔디가 책상을 이제 우는 나의 거외다.
+                    </p>
+                </div> 
+            </div><!-- #content -->
+            
+        </div> <!-- #content_wrap -->
+    </section>
+    <footer>
+        <p>홍길동 주식회사</p>
+        <p>Copyright ⓒ Gildong Co., All right reserved.</p>
+    </footer>
+</body>
+</html>

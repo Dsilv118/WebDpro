@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * * * * 페이지 초기화 * * * * */
+        * {margin: 0; padding: 0;}
+        li {list-style: none;}
+        a {text-decoration: none; color: white; font-weight: bold;}
+        /* * * * * #top_bar * * * * */
+        #top_bar {
+            height: 100px; line-height: 100px; text-align: center;
+            background-color: #FFD800;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+        }
+        #top_bar ul {overflow: hidden;}
+        #top_bar ul li {
+            float: left;
+            width: 16.6666666%;
+            border-right: 1px dotted gray;
+            box-sizing: border-box;
+            font-size: 1.2em;
+        }
+        #top_bar ul li:last-child {border: 0;}
+        /* * * * * #left_bar * * * * */
+        #left_bar {
+            width: 150px; text-align: center;
+            background-color: saddlebrown;
+            position: fixed;
+            top: 100px; left: 0; bottom: 100px;
+        }
+        #left_bar ul li a {
+            padding: 10px; display: block;
+            border-bottom: 1px solid gray;
+        }
+        #left_bar ul li:last-child a {
+            border: 0;
+        }
+        /* * * * * #right_bar * * * * */
+        #right_bar {
+            width: 150px; text-align: center;
+            background-color: lightyellow;
+            position: fixed;
+            top: 100px; bottom: 100px; right: 0;
+        }
+        #right_bar ul li {padding: 5px;}
+        #right_bar ul li img {width: 140px; height: 50px;}
+        /* * * * * #bottom_bar * * * * */
+        #bottom_bar {
+            height: 100px; line-height: 100px; text-align: center;
+            background-color: lightgoldenrodyellow;
+            position: fixed;
+            left: 0; bottom: 0; right: 0;
+        }
+        /* * * * * content * * * * */
+        #content {
+            margin: 110px 160px 110px 160px;
+            text-align: justify;
+        }
+        #content img {
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="top_bar">
+        <ul>
+            <li><a href="#g1">GNB_1</a></li>
+            <li><a href="#g2">GNB_2</a></li>
+            <li><a href="#g3">GNB_3</a></li>
+            <li><a href="#g4">GNB_4</a></li>
+            <li><a href="#g5">GNB_5</a></li>
+            <li><a href="#g6">GNB_6</a></li>
+        </ul>
+    </div>
+    <div id="left_bar">
+        <ul>
+            <li><a href="#l01">LNB_01</a></li>
+            <li><a href="#l02">LNB_02</a></li>
+            <li><a href="#l03">LNB_03</a></li>
+            <li><a href="#l04">LNB_04</a></li>
+            <li><a href="#l05">LNB_05</a></li>
+            <li><a href="#l06">LNB_06</a></li>
+            <li><a href="#l07">LNB_07</a></li>
+            <li><a href="#l08">LNB_08</a></li>
+            <li><a href="#l09">LNB_09</a></li>
+            <li><a href="#l10">LNB_10</a></li>
+        </ul>
+    </div>
+    <div id="right_bar">
+        <ul>
+            <li>
+                <a href="http://www.daum.com">
+                    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+                </a>
+            </li>
+            <li>
+                <a href="http://www.google.com">
+                    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png">
+                </a>
+            </li>
+            <li>
+                <a href="http://www.yahoo.com">
+                    <img src="https://s.yimg.com/rz/p/yahoo_homepage_en-US_s_f_p_bestfit_homepage.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="bottom_bar">
+        <p>
+            Copyright ⓒ Joeun System Co., All rights reserved.
+        </p>
+    </div>
+    <div id="content">
+        <img src="https://via.placeholder.com/100x50">
+        <p>
+            위에 하나의 별 옥 오는 별 계십니다. 이름자를 부끄러운 책상을 너무나 피어나듯이 이네들은 걱정도 까닭이요, 거외다. 
+            프랑시스 슬퍼하는 봄이 벌레는 어머님, 듯합니다. 계절이 별빛이 가을 오는 둘 프랑시스 라이너 봄이 너무나 계십니다. 
+            때 나는 이런 너무나 위에 별 새겨지는 이름과, 거외다. 이름과, 별 않은 소학교 내린 무성할 별 하나에 듯합니다. 
+            애기 않은 이름을 했던 별 위에도 쓸쓸함과 계절이 속의 봅니다. 하나의 이름과, 쓸쓸함과 마디씩 있습니다. 
+            지나가는 별 시인의 남은 계십니다. 노새, 자랑처럼 잠, 언덕 이름과, 하나 덮어 까닭입니다.
+            불러 잔디가 봄이 노루, 덮어 어머니, 무성할 슬퍼하는 있습니다. 시인의 우는 가을 이름과, 하나에 별 버리었습니다. 
+            오는 같이 둘 하나에 까닭이요, 이웃 내 까닭입니다. 멀리 북간도에 풀이 책상을 프랑시스 나의 위에 이름을 봅니다. 
+            사람들의 밤을 시인의 있습니다. 어머님, 쓸쓸함과 마디씩 언덕 비둘기, 벌레는 봅니다. 위에 별빛이 지나고 부끄러운 있습니다. 
+            이름을 하나에 우는 한 딴은 있습니다. 토끼, 아직 하나에 봅니다. 이름을 나는 딴은 계집애들의 아직 까닭입니다. 
+            너무나 나의 나의 노루, 지나고 봅니다.
+            걱정도 나는 딴은 이름과 노새, 봅니다. 이름을 지나고 어머니, 것은 벌써 봅니다. 
+            어머니, 위에도 사람들의 같이 경, 있습니다. 이웃 다하지 이름을 청춘이 된 시와 별을 밤이 북간도에 거외다. 
+            아스라히 불러 피어나듯이 노루, 묻힌 잔디가 언덕 한 패, 까닭입니다. 내 오면 이름을 비둘기, 봅니다. 
+            위에 그러나 애기 했던 계집애들의 버리었습니다. 별빛이 사람들의 피어나듯이 이런 헤일 봅니다. 이제 이름을 멀리 거외다. 
+            묻힌 다하지 어머님, 버리었습니다. 풀이 이름과, 사람들의 거외다.
+            당신은 멀리 오는 나는 묻힌 프랑시스 이국 겨울이 까닭입니다. 가득 언덕 이름을 같이 아무 계십니다. 
+            아침이 슬퍼하는 걱정도 나는 못 봅니다. 시인의 하나에 것은 청춘이 마디씩 릴케 않은 이름과, 봅니다. 
+            마디씩 차 다 계집애들의 풀이 프랑시스 버리었습니다. 하나 강아지, 이름과, 나의 잔디가 위에 아직 슬퍼하는 했던 있습니다.
+            나의 비둘기, 하나에 딴은 별 이 어머니, 있습니다. 오는 잠, 아스라히 이 겨울이 지나가는 이런 무성할 이름과, 까닭입니다. 
+            다하지 아스라히 위에 강아지, 마디씩 소학교 내 봅니다. 아무 별을 나는 있습니다.
+            위에 하나의 별 옥 오는 별 계십니다. 이름자를 부끄러운 책상을 너무나 피어나듯이 이네들은 걱정도 까닭이요, 거외다. 
+            프랑시스 슬퍼하는 봄이 벌레는 어머님, 듯합니다. 계절이 별빛이 가을 오는 둘 프랑시스 라이너 봄이 너무나 계십니다. 
+            때 나는 이런 너무나 위에 별 새겨지는 이름과, 거외다. 이름과, 별 않은 소학교 내린 무성할 별 하나에 듯합니다. 
+            애기 않은 이름을 했던 별 위에도 쓸쓸함과 계절이 속의 봅니다. 하나의 이름과, 쓸쓸함과 마디씩 있습니다. 
+            지나가는 별 시인의 남은 계십니다. 노새, 자랑처럼 잠, 언덕 이름과, 하나 덮어 까닭입니다.
+            불러 잔디가 봄이 노루, 덮어 어머니, 무성할 슬퍼하는 있습니다. 시인의 우는 가을 이름과, 하나에 별 버리었습니다. 
+            오는 같이 둘 하나에 까닭이요, 이웃 내 까닭입니다. 멀리 북간도에 풀이 책상을 프랑시스 나의 위에 이름을 봅니다. 
+            사람들의 밤을 시인의 있습니다. 어머님, 쓸쓸함과 마디씩 언덕 비둘기, 벌레는 봅니다. 위에 별빛이 지나고 부끄러운 있습니다. 
+            이름을 하나에 우는 한 딴은 있습니다. 토끼, 아직 하나에 봅니다. 이름을 나는 딴은 계집애들의 아직 까닭입니다. 
+            너무나 나의 나의 노루, 지나고 봅니다.
+            걱정도 나는 딴은 이름과 노새, 봅니다. 이름을 지나고 어머니, 것은 벌써 봅니다. 
+            어머니, 위에도 사람들의 같이 경, 있습니다. 이웃 다하지 이름을 청춘이 된 시와 별을 밤이 북간도에 거외다. 
+            아스라히 불러 피어나듯이 노루, 묻힌 잔디가 언덕 한 패, 까닭입니다. 내 오면 이름을 비둘기, 봅니다. 
+            위에 그러나 애기 했던 계집애들의 버리었습니다. 별빛이 사람들의 피어나듯이 이런 헤일 봅니다. 이제 이름을 멀리 거외다. 
+            묻힌 다하지 어머님, 버리었습니다. 풀이 이름과, 사람들의 거외다.
+            당신은 멀리 오는 나는 묻힌 프랑시스 이국 겨울이 까닭입니다. 가득 언덕 이름을 같이 아무 계십니다. 
+            아침이 슬퍼하는 걱정도 나는 못 봅니다. 시인의 하나에 것은 청춘이 마디씩 릴케 않은 이름과, 봅니다. 
+            마디씩 차 다 계집애들의 풀이 프랑시스 버리었습니다. 하나 강아지, 이름과, 나의 잔디가 위에 아직 슬퍼하는 했던 있습니다.
+            나의 비둘기, 하나에 딴은 별 이 어머니, 있습니다. 오는 잠, 아스라히 이 겨울이 지나가는 이런 무성할 이름과, 까닭입니다. 
+            다하지 아스라히 위에 강아지, 마디씩 소학교 내 봅니다. 아무 별을 나는 있습니다.
+        </p>
+    </div>
+</body>
+</html>
