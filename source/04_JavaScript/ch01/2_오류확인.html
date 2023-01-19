@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* inst i = 20; i = "홍길동"; */
+        al_pha = 20; // var을 사용하면 전역 변수 vs let을 사용하면 지역 변수
+        alert(1); // submit이 이루어진 이후라서 F12키를 눌러도 에러를 못 볼 경우
+        console.log(1);
+        alert("al_pha값은 " + al_pha); // 고의적인 error
+        alert(2);
+        console.log(2);
+        alpha = 'Hello';
+        alert(3);
+        console.log(3);
+        alert('바뀐 al_pha값은 ' + al_pha);
+        alert(4);
+    </script>
+</head>
+<body>
+    <script>
+        document.write('위 스크립트에서 선언된 변수 al_pha값은 ' + al_pha);
+    </script>
+</body>
+</html>

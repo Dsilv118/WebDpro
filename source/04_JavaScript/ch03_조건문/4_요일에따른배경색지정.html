@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write('<h1>와 마지막 시간이다</h1>');
+        var week = new Date().getDay(); // 0:일요일, 1:월요일, 2:화요일, 3:수요일, 4:목요일 ... 
+        document.write(week);
+        switch(week) {
+            case 0: document.body.style = 'background-color: red'; break;
+            case 1: document.body.style = 'background-color: orange'; break;
+            case 2: document.body.style = 'background-color: yellow'; break;
+            case 3: document.bgColor = 'green'; break;
+            case 4: document.bgColor = 'blue'; break;
+            case 5: document.bgColor = 'navy'; break;
+            case 6: document.bgColor = 'purple'; break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
