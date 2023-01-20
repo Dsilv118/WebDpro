@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        document.write('<table>');
+        document.write('<caption><h2>2단~9단까지 구구단들</h2><caption>');
+        document.write('<tr>');
+        for (var i=2 ; i<10 ; i++) {
+            document.write('<td>' + i + '단</td>');
+        }
+        document.write('</tr>');
+        for(var f=1 ; f<10 ; f++) {
+            document.write('<tr>');
+            for(var t=2 ; t<10 ; t++) {
+                document.write('<td>' + t + 'x' + f + '=' + (f*t) + '</td>');
+            }
+            document.write('</tr>');
+        }
+        document.write('</table>');
+    </script>
+</head>
+<body>
+
+</body>
+</html>

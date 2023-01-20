@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var acount = 0;
+        var scount = 0;
+        var rcount = 0;
+        var sum = 0;
+        do {
+            if(!confirm('누적할래?')) {
+                break;
+            } else {
+                acount += 1;
+            }
+            var score = parseInt(prompt('누적할 점수를 입력해주세요', '점수는 0점~100점까지입니다.'));
+            if(isNaN(score) || score<0 || score>100) {
+                scount += 1;
+                alert('점수를 잘못 입력하셨습니다.');
+            } else {
+                rcount += 1;
+                sum += score;
+                alert(score + '점 누적되었습니다. 누적된 총 값은 ' + sum + '점 입니다.');
+            }
+        } while(true);
+        document.write(acount + '번 입력하였습니다.<br>');
+        document.write('누적점수: ' + sum +'점<br>');
+        document.write('점수를 잘못 입력한 횟수: ' + scount + '번<br>');
+        document.write('점수를 제대로 입력한 횟수: ' + rcount + '번');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
