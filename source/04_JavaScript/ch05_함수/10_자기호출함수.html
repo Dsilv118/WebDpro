@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // 다른 개발자의 로직에 영향을 주지 않으려고 -> 내부함수, 자기호출함수
+        (function fun(){
+            alert('자기호출함수1');
+        })();
+        (function fun(i){
+            alert('자기호출함수' + i);
+        })(2);
+        function pythagoras(width, height){
+            function square(x){
+            return x*x;
+            }
+            return Math.sqrt((function(x){
+                                return x*x;
+                                })(width) +
+                            (function(x){
+                                return x*x;
+                            })(height));
+        }
+        alert('빗변의 길이 : ' + pythagoras(3, 4));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

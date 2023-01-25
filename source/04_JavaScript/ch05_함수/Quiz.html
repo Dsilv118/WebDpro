@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            font-size: 1.3em;
+        }
+    </style>
+    <script>
+        /*힌트 : 배열 이용하면 소스가 효율적 */
+        // document.write('테스트');
+        // document.body.style.backgroundImage = 'url(ch05_img/img01.png)';
+        // document.body.style.backgroundImage = 'url(ch05_img/img02.png)';
+        // document.body.style.backgroundImage = 'url(ch05_img/img03.png)';
+        var num = 0;
+        var col = ['white', 'blue', 'red'];
+        var img = ['url(ch05_img/img01.png)', 'url(ch05_img/img02.png)', 'url(ch05_img/img03.png)'];
+        var id = setInterval(function(){
+            document.write(new Date(), '<br>');
+            document.body.style.backgroundImage = img[num % img.length];
+            document.body.style.backgroundSize = '100%';
+            document.body.style.fontWeight = 'bold';
+            document.body.style.fontSize = '1.2em';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.color = col[num % col.length];
+            num++;
+        }, 1000);
+        setTimeout(function(){
+            clearInterval(id);
+        }, 10000);
+    </script>
+</head>
+<body>
+    1초 뒤에 시작합니다
+</body>
+</html>
