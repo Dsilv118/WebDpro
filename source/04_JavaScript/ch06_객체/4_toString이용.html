@@ -3,6 +3,7 @@
     <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="5_replaceAll.js"></script>
     <script>
         let person = {
             name : '홍길동', // 속성변수
@@ -11,32 +12,48 @@
                 var msg = this.age + '살 ' + this.name + '님은 ' + food + '를 먹습니다';
                 alert(msg);
             },
+            toString : function(){
+                let output = '';
+                for(var key in this){
+                    if(key != 'eat' && key != 'toString'){
+                        output += key + ' : ' + this[key] + '\n';
+                    }//if
+                }//for
+                return output;
+            },
         };
+        alert(person.toString());
+        alert(person); // toString 안붙여도 붙인거랑 똑같음
+        // string.replace(oldStr, newStr); string에서 처음 나오는 oldStr을 newStr로 교체(처음 하나만)
+        // document.write(person.toString().replace('\n','<br>'));
+        document.write(replaceAll(person.toString(), '\n', '<br>'));
+        person.address = '서울 서대문';
+        document.write(replaceAll(person.toString(), '\n', '<br>'));
         // toString 구현 방식 : for-in문 이용 / for-of문
-        arr = [10,20,30]; // for-in문 - 배열출력
-        for(var idx in arr){
-            document.write(arr[idx] + '<br>');
-        }
-        for(var data of arr){ // for-of문
-            document.write(data + '<br>')
-        }
-        var output = '';
-        for(var key in person){
-            if(key != 'eat'){
-                output += key + ' : ' + person[key] + '<br>';
-            }
-        }
-        document.write(output);
-        output = '';
-        // person의 key(속성변수)를 배열 keyList = ['name','age','eat']
-        var keyList = Object.keys(person);
-        // document.write(keyList + '<br>');
-        for(var key of keyList){
-            if(key != 'eat'){
-                output += key + ' : ' + person[key] + '<br>';
-            }
-        }
-        document.write(output);
+        // arr = [10,20,30]; // for-in문 - 배열출력
+        // for(var idx in arr){
+        //     document.write(arr[idx] + '<br>');
+        // }
+        // for(var data of arr){ // for-of문
+        //     document.write(data + '<br>')
+        // }
+        // var output = '';
+        // for(var key in person){
+        //     if(key != 'eat'){
+        //         output += key + ' : ' + person[key] + '<br>';
+        //     }
+        // }
+        // document.write(output);
+        // output = '';
+        // // person의 key(속성변수)를 배열 keyList = ['name','age','eat']
+        // var keyList = Object.keys(person);
+        // // document.write(keyList + '<br>');
+        // for(var key of keyList){
+        //     if(key != 'eat'){
+        //         output += key + ' : ' + person[key] + '<br>';
+        //     }
+        // }
+        // document.write(output);
     </script>
 </head>
 <body>

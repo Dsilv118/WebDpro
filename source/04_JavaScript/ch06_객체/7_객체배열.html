@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="5_replaceAll.js"></script>
+    <script>
+        var students = [{'name':'박','kor':99,'mat':65,'eng':29, 'sci':90},
+                        {'name':'임','kor':94,'mat':80,'eng':49, 'sci':80},]
+        students.push({'name':'김','kor':99,'mat':90,'eng':99, 'sci':23});
+        students.push({'name':'홍','kor':33,'mat':92,'eng':34, 'sci':67});
+        students.push({'name':'이','kor':56,'mat':76,'eng':76, 'sci':86});
+        students.push({'name':'정','kor':49,'mat':45,'eng':53, 'sci':57});
+        for(var idx in students){
+            students[idx].getSum = function(){
+                return this.kor + this.mat + this.eng + this.sci;
+            };
+            students[idx].getAvg = function(){
+                return this.getSum()/4; // 소수점 유지
+            };
+            students[idx].toString = function(){
+                var output = '';
+                for(var key in this){
+                    if(key != 'getSum' && key != 'getAvg' && key != 'toString'){
+                        output += key + ':' + this[key] + ' ';
+                    }else if(key == 'getSum'){
+                        output += key.substring(3) + ':' + this[key]() + ' ';
+                    }else if(key == 'getAvg'){
+                        output += key.substring(3) + ':' + this[key]() + '\n';
+                    }//if
+                }//for
+                return output;
+            };//toString
+        }//for
+        // 1. 일반 for문
+        var out = '';
+        for(var idx=0 ; idx<students.length ; idx++){
+            out += idx + '번째 ';
+            out += students[idx]; // out += students[idx].toString();
+        }
+        alert(out);
+        document.write(replaceAll(out, '\n', '<br>'));
+        // 2. for-in문
+        for(var idx in students){
+            document.write(idx + '번째 ' + students[idx] + '<br>');
+        }
+        // 3. for-of문
+        for(var s of students){
+            document.write(s + '<br>');
+        }
+        // 4. for-each()
+        document.write('<h3>forEach() 함수 이용1</h3>');
+        students.forEach(function(data, idx){
+            document.write(idx + '번째 ' + data + '<br>');
+        }); 
+        // 5. for-each()
+        document.write('<h3>forEach() 함수 이용2</h3>');
+        students.forEach(function(data){
+            document.write(data + '<br>');
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
