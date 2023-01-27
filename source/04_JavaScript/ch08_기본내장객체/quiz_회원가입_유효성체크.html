@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        form {
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            margin: 0 auto;
+            border: 2px solid #385d81 ;
+        }
+        table {
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table tr td input{
+            border: 2px solid #385d81 ;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 220px;
+            height: 30px;
+        }
+        table tr:last-child td input{
+            border: 1px solid white ;
+            border-radius: 20px;
+            background-color: lightblue;
+            color: white;
+            width: 115px;
+            height: 50px;
+        }
+    </style>
+    <script>
+        var patternName = /[~`!@#$%^&*()\--_+=|\\\[\]{}'";:?,.\/\s]/;
+        var patternMail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
+        var patternPw1  = /[a-z]+/;
+        var patternPw2  = /[A-Z]+/;
+        var patternPw3  = /[1-9]+/;
+        var patternPw4  = /[~`!@#$%^&*()\-_+=|\\\[\]{}'";:?,.\/<>]+/;
+        function chk(){
+            if(sign.name.value.length < 1){
+                alert('이름을 한글자 이상 입력해주세요');
+                sign.name.focus();
+                return false;
+            }else if(sign.name.value.match(patternName)){
+                alert('이름에 특수문자, 번호 혹은 스페이스가 들어갔습니다');
+                sign.name.focus();
+                return false;
+            }else if(!sign.mail.value.match(patternMail)){
+                alert('이메일 형식이 맞지 않습니다');
+                sign.mail.focus();
+                return false;
+            }else if(!sign.pw.value.match(patternPw1) || !sign.pw.value.match(patternPw2) ||
+                    !sign.pw.value.match(patternPw3) || !sign.pw.value.match(patternPw4)){
+                alert('비밀번호는 소문자와 대문자, 숫자, 특수문자를 섞어서 4글자 이상 입력해주세요');
+                sign.pw.focus();
+                return false;
+            }else if(sign.pw.value != sign.pwchk.value){
+                alert('비밀번호가 일치하지 않습니다');
+                sign.pwchk.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="sign" onsubmit="return chk()">
+        <table>
+            <tr>
+                <th>이 름</th>
+                <td colspan="2"><input type="text" name="name" placeholder="한글과 영어만 입력"/></td>
+            </tr>
+            <tr>
+                <th>메 일</th>
+                <td colspan="2"><input type="text" name="mail" placeholder="메일 형식에 맞게 입력"/></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td colspan="2"><input type="password" name="pw" /></td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td colspan="2"><input type="password" name="pwchk" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="signup" value="회원가입" /></td>
+                <td><input type="reset" name="cancel" value="취소" /></td>
+                <td><input type="button" name="login" value="로그인" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
