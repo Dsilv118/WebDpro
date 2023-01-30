@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {width: 700px; margin: 0 auto;}
+        td {width: 80px; height: 200px; box-sizing: border-box;}
+    </style>
+    <script>
+        color = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple', 'white'];
+        window.onload = function(){
+            var tds = document.querySelectorAll('td');
+            for(var idx in tds){
+                tds[idx].style = 'background-color:'+color[idx];
+            }
+        }
+        function over(n){
+            document.body.style.backgroundColor = color[n];
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <table>
+            <tr onmouseout="over(7)">
+                <td onmouseover="over(0)"></td>
+                <td onmouseover="over(1)"></td>
+                <td onmouseover="over(2)"></td>
+                <td onmouseover="over(3)"></td>
+                <td onmouseover="over(4)"></td>
+                <td onmouseover="over(5)"></td>
+                <td onmouseover="over(6)"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

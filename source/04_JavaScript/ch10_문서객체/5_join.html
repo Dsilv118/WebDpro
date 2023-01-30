@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #wrap {width: 400px; margin: 50px auto;}
+    </style>
+    <script>
+        function confirmOpen(){
+            var confirm = open('5_confirm.html','','width=600,height=600,left=100')
+            if(!confirm){
+                alert('팝업 차단 해제해 주세요');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <span>아이디 : <input type="text" id="name"></span>
+        <button onclick="confirmOpen()">중복확인</button>
+        <input type="submit" value="회원가입">
+    </div>
+</body>
+</html>

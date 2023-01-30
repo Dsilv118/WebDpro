@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {text-align: center;}
+        div {
+            width: 300px;
+            height: 110px;
+            text-align: center;
+            margin: 0 auto;
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        function change(n){
+            if(n==1){
+                location.href = "http://www.naver.com";
+            }else if(n==2){
+                location.href = "http://www.daum.net";
+            }else if(n==3){
+                location.href = "http://www.google.com";
+            }else if(n==4){
+                location.href = "http://www.youtube.com";
+            }
+        };
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <h2>중간예제2. 메뉴</h2>
+        <button onclick="change(1)">네이버</button>
+        <button onclick="change(2)">다음</button>
+        <button onclick="change(3)">구글</button>
+        <button onclick="change(4)">유튜브</button>
+    </div>
+</body>
+</html>

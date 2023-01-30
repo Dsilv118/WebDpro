@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #wrap {width: 400px; margin: 50px auto;}
+    </style>
+    <script>
+        window.onload = function(){
+            var name = opener.document.getElementById('name').value;
+            var modifyName = document.gerElementById('modifyName');
+            alert(name);
+            modifyName.value = name;
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <span>ID : <input type="text" id="modifyName"></span>
+        <button>체크</button>
+        <button>아이디사용</button>
+    </div>
+</body>
+</html>
