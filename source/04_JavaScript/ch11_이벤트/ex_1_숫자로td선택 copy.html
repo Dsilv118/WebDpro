@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table {width: 500px; margin: 0 auto; background: darkgreen;}
+        td {background-color: white; padding: 50px; text-align: center;}
+    </style>
+    <script>
+        window.onkeyup = function(){
+            // 우측숫자 : 96(0), 97(1), 98(2), 99(3) ~ 104(8)
+            // 윗숫자   : 48(0), 49(1), 50(2), 51(3) ~ 56(8)
+            var tds = document.getElementsByTagName('td');
+            var key = event.keyCode;
+            if(key>=96 && key<=104){
+                for(var i=0 ; i<tds.length ; i++){
+                    tds[i].style.backgroundColor = 'white';
+                }
+                tds[key-96].style.backgroundColor = 'yellow';
+            }else if(key>=48 && key<=56){
+                for(var i=0 ; i<tds.length ; i++){
+                    tds[i].style.backgroundColor = 'white';
+                }
+                tds[key - 48].style.backgroundColor = 'yellow';
+            }
+        };
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>0</td><td>1</td><td>2</td>
+        </tr>
+        <tr>
+            <td>3</td><td>4</td><td>5</td>
+        </tr>
+        <tr>
+            <td>6</td><td>7</td><td>8</td>
+        </tr>
+    </table>
+</body>
+</html>

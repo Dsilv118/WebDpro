@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function down(){
+            var img = document.querySelector('img');
+            img.setAttribute('src', "img/but2.gif");
+        }
+        function up(){
+            var img = document.querySelector('img');
+            img.setAttribute('src', "img/but1.gif");
+        }
+    </script>
+</head>
+<body>
+    <img src="img/but1.gif" onmousedown="down()" onmouseup="up()">
+</body>
+</html>

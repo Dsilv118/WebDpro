@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {width: 600px; margin: 0 auto; text-align: center;}
+        img {width: 130px; height: 50px;}
+    </style>
+    <script>
+        window.onload = function(){
+            var picture = ["img/0over.jpg","img/1over.jpg","img/2over.jpg","img/3over.jpg",];
+            var pictureOut = ["img/0out.jpg","img/1out.jpg","img/2out.jpg","img/3out.jpg",];
+            function changePic(n){
+                var imgs = document.getElementsByTagName('img');
+                imgs[n].setAttribute('src', picture[n]);
+            };
+            function changeOut(n){
+                var imgs = document.getElementsByTagName('img');
+                imgs[n].setAttribute('src', pictureOut[n]);
+            };  
+        };
+        // var picture = ["img/0over.jpg","img/1over.jpg","img/2over.jpg","img/3over.jpg",];
+        // var pictureOut = ["img/0out.jpg","img/1out.jpg","img/2out.jpg","img/3out.jpg",];
+        //     function changePic(n){
+        //         var imgs = document.getElementsByTagName('img');
+        //         imgs[n].setAttribute('src', picture[n]);
+        //     };
+        //     function changeOut(n){
+        //         var imgs = document.getElementsByTagName('img');
+        //         imgs[n].setAttribute('src', pictureOut[n]);
+        //     };    
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <img src="img/0out.jpg" onmouseover="changePic(0);" onmouseout="changeOut(0);">
+        <img src="img/1out.jpg" onmouseover="changePic(1);" onmouseout="changeOut(1);">
+        <img src="img/2out.jpg" onmouseover="changePic(2);" onmouseout="changeOut(2);">
+        <img src="img/3out.jpg" onmouseover="changePic(3);" onmouseout="changeOut(3);">
+    </div>
+</body>
+</html>
