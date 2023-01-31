@@ -9,9 +9,13 @@
     <script>
         window.onload = function(){
             var name = opener.document.getElementById('name').value;
-            var modifyName = document.gerElementById('modifyName');
-            alert(name);
+            var modifyName = document.getElementById('modifyName');
             modifyName.value = name;
+        }
+        function joinOpen(){
+            var modifyName = document.getElementById('modifyName').value;
+            opener.document.getElementById('name').value = modifyName;
+            close();
         }
     </script>
 </head>
@@ -19,7 +23,7 @@
     <div id="wrap">
         <span>ID : <input type="text" id="modifyName"></span>
         <button>체크</button>
-        <button>아이디사용</button>
+        <button onclick="joinOpen()">아이디사용</button>
     </div>
 </body>
 </html>
