@@ -1,0 +1,19 @@
+2023.02.01 요점정리
+
+01. React-I
+
+● React 
+사용자 정의 태그를 만들어 주는 기술 중 하나이고 이를 Component라 한다.
+
+* Component의 장점 : ①가독성 ②재사용성 ③유지보수 용이성
+
+◎ Class 
+※ 객체의 깊은 복사 / 얕은 복사 
+let memberArray = ['egoing', 'graphitie','leezhce'];
+* 깊은 복사 : var copyArray = [...memberArray]; 
+	     var copyArray = Array.from(memberArray);
+
+* 얕은 복사 : var copyArray = memberArray; 
+
+
+
