@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table {
+		width: 500px; 
+		margin: 20px auto;
+		text-align: center;
+		border: 1px solid lightblue;
+	}
+</style>
+<script>
+	window.onload = function(){
+		document.querySelector('form').onsubmit = function(){
+			var num1 = Number(document.querySelector('input[name="su1"]').value);
+			var num2 = Number(document.querySelector('input[name="su2"]').value);
+			if(!(1 <= num1 && num1 <= 9)){
+				alert('첫 번째 빈칸에 1부터 9까지의 수를 입력해주세요');
+				su1.focus();
+				return false;
+			} else if (!(1 <= num2 && num2 <= 9)) {
+				alert('두 번째 빈칸에 1부터 9까지의 수를 입력해주세요');
+				su2.focus();
+				return false;
+			} else if(num1>num2) {
+				alert('첫번째 수는 두번째 수보다 작아야합니다.');
+				su1.focus();
+				return false;
+		}
+	}
+/* 	function chk() {
+		var num1 = Number(gugu.su1.value);
+		var num2 = Number(gugu.su2.value);
+		if (!(1 <= num1 && num1 <= 9)) {
+			alert('첫 번째 빈칸에 1부터 9까지의 수를 입력해주세요');
+			gugu.su1.focus();
+			return false;
+		} else if (!(1 <= num2 && num2 <= 9)) {
+			alert('두 번째 빈칸에 1부터 9까지의 수를 입력해주세요');
+			gugu.su2.focus();
+			return false;
+		} else if(num1>num2) {
+			alert('첫번째 수는 두번째 수보다 작아야합니다.');
+			gugu.su1.focus();
+			return false;
+		}
+	} */
+</script>
+</head>
+<body>
+	<form name="gugu" action="6_su2gugudanOut.jsp" method="get" onsubmit="return chk()" >
+		<table>
+			<tr>
+				<td>
+					단수 : 
+				</td>
+				<td>
+					<input type="number" name="su1"/>단 ~
+				</td>
+				<td>
+					<input type="number" name="su2"/>단까지
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<input type="submit" value="구구단 출력"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
