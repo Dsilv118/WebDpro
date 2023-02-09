@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		body {background-color: #FFF0B5;font-size: 9pt; }
+		table {border: pink solid 2px; margin:0 auto;}
+		tr {background-color: #FFE271;}
+		tr:HOVER {background-color: orange;cursor: pointer;}
+		td,th {text-align: center; padding: 5pt;}
+		caption {font-size: 25px;}
+	</style>
+</head>
+<body>
+	<form action="../Quiz5" method="POST">
+		<div>
+			<table>
+				<caption>게시판</caption>
+				<tr>
+					<th>제 목</th>
+					<td><input type="text" name="title"></td>
+				</tr>
+				<tr>
+					<th>작 성 자</th>
+					<td><input type="text" name="writer"></td>
+				</tr>
+				<tr>
+					<th>내용</th>
+					<td><input type="text" name="detail"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="저장">
+						<input type="reset" value="초기화">
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script>
+		window.onload = function(){
+			document.getElementsByTagName('form')[0].onsubmit = function(){
+				var agreeYes = document.querySelector('input[type="radio"]');
+				//var agreeYes = document.getElementsByName('agree')[0];
+				if(!agreeYes.checked){
+					alert('동의를 하셔야 진행됩니다.');
+					return false;
+				}
+			};
+		};
+	</script>
+</head>
+<body>
+	<fieldset>
+		부끄러운 내일 아이들의 나는 아스라히 있습니다. 많은 오는 하나에 별 그리워 하나에 잠, 봅니다. 
+		가난한 흙으로 이런 어머니 아침이 않은 무엇인지 봄이 듯합니다. 청춘이 것은 언덕 멀리 이런 이름과, 동경과 이름자를 버리었습니다. 
+		어머님, 없이 패, 듯합니다. 파란 남은 아름다운 아스라히 슬퍼하는 별 별이 사람들의 우는 있습니다.
+	</fieldset>
+	<form action="" method="get">
+		<input type="radio" name="agree" value="yes">동의합니다.
+		<input type="radio" name="agree" value="no" checked="checked">동의하지 않습니다.
+		<input type="submit" value="다음">
+	</form>
+</body>
+</html>
