@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% String conPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link href='join.css' rel='stylesheet'>
+	<link href='<%=conPath %>/css/join.css' rel='stylesheet'>
 	<script>
 		window.onload = function(){
 			document.querySelector('form').onsubmit = function(){
@@ -21,15 +22,15 @@
 					pwChk.value = '';
 					pw.focus();
 					return false;
-				}else	if(!email.value.match(patternMail)){
+				}else if(!email.value.match(patternMail)){
 		      alert('메일 형식을 확인하세요');
 		      email.focus();
 		      return false;
-		    }else if(!mailOption[0].selected && !mailOption[1].selected 
+		    }/* else if(!mailOption[0].selected && !mailOption[1].selected 
 					&& !mailOption[2].selected && !mailOption[3].selected ){
 					alert('메일수신을 한가지 이상 선택해 주세요');
 					return false;
-				}
+				} */
 				/* 바로 위의 if문을 아래로 변경 가능() 
 				var mailOptionCnt = 0;
 				for(var i=0 ; i<mailOption.length ; i++){
@@ -67,7 +68,7 @@
 				</tr>
 				<tr>
 					<th><label for="birth">생년월일</label></th>
-					<td><input type="date" name="birth" id="birth" class="birth" required="required"></td>
+					<td><input type="date" name="birth" id="birth" class="birth"></td>
 				</tr>
 				<tr>
 					<th>취미</th>
@@ -87,7 +88,7 @@
 				</tr>
 				<tr>
 					<th><label for="email">이메일</label></th>
-					<td><input type="text" name="email" id="email" class="email" required="required"></td>
+					<td><input type="text" name="email" id="email" class="email"></td>
 				</tr>
 				<tr>
 					<th>메일수신</th>
@@ -114,6 +115,8 @@
 			</table>
 		</form>
 	</div>
-	<%@include file="footer.jsp" %><!-- jsp 소스가 include -->
+	<jsp:include page="../member/footer.jsp"/>
+	<%-- <%@include file="footer.jsp" %><!-- jsp 소스가 include --> --%>
 </body>
 </html>
+
