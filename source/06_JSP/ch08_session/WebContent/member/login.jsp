@@ -17,7 +17,16 @@
 				<tr><td></td></tr>
 				<tr>
 					<td><label for="id">아이디</label></td>
-					<td><input type="id" name="id" id="id" required="required" autofocus="autofocus"></td>
+					<td>
+						<input type="id" name="id" id="id" required="required" autofocus="autofocus"
+							   value="<% 
+							   	 String seId = (String)session.getAttribute("sid");
+							   	 if(seId != null){
+							   		 out.print(seId);
+							   	 }
+							   %>"
+						>
+					</td>
 				</tr>
 				<tr>
 					<td><label for="pw">비밀번호</label></td>

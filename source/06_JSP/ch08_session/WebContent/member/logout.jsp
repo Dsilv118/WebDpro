@@ -6,26 +6,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<style>
+		#logoutForm_wrap {
+			height: 630px; line-height: 600px; font-size: 15px;
+			width: 400px; text-align: center; margin: 0 auto;
+		}
+	</style>
+	<script>
+		setTimeout(function(){location.href="main.jsp";}, 3000);
+	</script> 
 </head>
 <body>
 	<%
-		// id 쿠키와 name 쿠키 삭제하고 main.jsp로 이동(방법1)
-		Cookie[] cookies = request.getCookies();
-		if(cookies!=null){
-			for(Cookie cookie : cookies){
-				String cname = cookie.getName();
-				if(cname.equals("id")){
-					// id라는 이름의 쿠키 삭제
-					cookie.setMaxAge(0);
-					response.addCookie(cookie);
-				}else if(cname.equals("name")){
-					// name이라는 이름의 쿠키 삭제
-					cookie.setMaxAge(0);
-					response.addCookie(cookie);
-				} // if
-			} // for
-		} // if
-		response.sendRedirect(conPath + "/member/main.jsp");
+		session.invalidate();
 	%>
+	<jsp:include page="../member/header.jsp"/>
+	<div id="logoutForm_wrap">
+		로그아웃되었습니다. 잠시 후 페이지 이동이 있겠습니다.
+	</div>
+	<jsp:include page="../member/footer.jsp"/>
 </body>
 </html>

@@ -9,14 +9,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link href='<%=conPath %>/css/join.css' rel='stylesheet'>
 </head>
 <body>
 <%
 	request.setCharacterEncoding("utf-8");
-	String name       = request.getParameter("name");
-	String id     		= request.getParameter("id");
-	String pw 				= request.getParameter("pw");
-	String birth 			= request.getParameter("birth");
+	String name   = request.getParameter("name");
+	String id     = request.getParameter("id");
+	String pw 	  = request.getParameter("pw");
+	String birth  = request.getParameter("birth");
 	//Date   birthDate  = Date.valueOf(birth);
 	//Timestamp birthTimestamp = Timestamp.valueOf(birth + " 00:00:00");
 	Date birthDate = null;
@@ -30,12 +31,11 @@
 	String email 		= request.getParameter("email");
 	String[] mailSend = request.getParameterValues("mailSend");
 	// 받은 파라미터 값을 Member DB에 저장
+	session.setAttribute("sid", id);
+	session.setAttribute("sname", name);
+	session.setAttribute("spw", pw);
 %>
-	<script>
-		alert('<%=name%>님 회원가입 완료되었습니다. 감사합니다');
-		location.href = '<%=conPath%>/member/login.jsp';
-	</script>
-	<%-- <jsp:include page="../member/header.jsp"/>
+	<jsp:include page="../member/header.jsp"/>
 	<div id="joinForm_wrap">
 		<div id="join_title">회원가입정보</div>
 		<h2>name : <%=name %></h2>
@@ -72,7 +72,6 @@
 		<input type="button" value="로그인" class="joinBtn_style" 
 											onclick="location.href='login.jsp'">
 	</div>
-	<jsp:include page="../member/footer.jsp"></jsp:include> --%>
-	<%-- <%@ include file="footer.jsp" %><!-- jsp 소스가 include --> --%>
+	<jsp:include page="../member/footer.jsp"></jsp:include> 
 </body>
 </html>
