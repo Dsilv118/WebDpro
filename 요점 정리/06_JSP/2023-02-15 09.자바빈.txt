@@ -1,0 +1,32 @@
+2023.02.15 요점정리
+
+09. 자바빈
+
+● 자바빈
+자바빈이란?
+JAVA언어의 데이터(속성)와 기능(메소드)으로 이루어진 클래스이다.
+
+※ 자바빈은 반복적인 작업을 효율적으로 하기 위해 사용한다.
+
+◎ 빈 만들기
+* 데이터 객체에는 데이터가 있어 그에 해당하는 getter와 setter가 있다.
+
+* 빈을 만든다는 것은 데이터 객체를 만들기 위한 클래스를 만드는 것이다.
+
+◎ 빈 관련 액션태그
+※ useBean : 특정 Bean을 사용한다고 명시할 때 사용
+	<jsp:useBean id="student" class="com.lec.ex.Student" scope="page" />
+
+◎ scope
+① page        : 빈이 생성된 페이지 내에서만 사용 가능.
+② request     : 요청된 request 범위 내에서만 사용 가능.
+③ session      : 하나의 웹 브라우저 당 1개의 session 객체 생성. 
+                     웹 브라우저 생명 주기와 동일하게 사용 가능.
+④ application : 하나의 웹 어플리케이션 당 1개의 application 객체 생성.
+                    웹 어플리케이션 생명주기와 동일하게 사용 가능.
+
+※ setProperty : 데이터 값을 설정할 때 사용. 자바에서의 setter 역할
+	<jsp:setProperty name="student" property="name" value="홍길동" />
+
+※ getProperty : 데이터 값을 가져올 때 사용. 자바에서의 getter 역할
+	<jsp:getProperty name="student" property="name" />
