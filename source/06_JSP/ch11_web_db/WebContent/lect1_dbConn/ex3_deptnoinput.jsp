@@ -10,7 +10,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<style>p {text-align: center;}</style>
+	<link href="<%=conPath %>/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<%!
