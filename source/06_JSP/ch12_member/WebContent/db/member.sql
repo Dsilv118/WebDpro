@@ -1,6 +1,7 @@
 -- TABLE DROP & CREATE 
 
 DROP TABLE MEMBER;
+
 CREATE TABLE MEMBER(
     ID      VARCHAR2(30) PRIMARY KEY,
     PW      VARCHAR2(30) NOT NULL,
@@ -44,6 +45,9 @@ UPDATE MEMBER SET PW='111',
                   BIRTH='1995-01-18',
                   ADDRESS='경기도 안양'
     WHERE ID='aaa';
+    
+SELECT * FROM MEMBER;
+
 COMMIT;
 
 

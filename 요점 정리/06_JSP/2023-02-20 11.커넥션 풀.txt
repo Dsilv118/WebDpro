@@ -1,0 +1,26 @@
+2023.02.20 요점정리
+
+11.커넥션 풀
+
+● 커넥션 풀
+커넥션 풀이란?
+jsp에서 데이터베이스와 미리 연결된 커넥션들을 사용자가 필요할 때 사용하고 반환하는 방식이다.
+
+◎ 커넥션 풀을 이용하는 이유
+클라이언트에서 다수의 요청이 발생할 경우 데이터베이스에 부하가 발생하게 된다.
+이러한 문제를 해결하기 위해서 커넥션 풀 기법을 이용한다.
+
+◎ 커넥션 풀 사용 방법
+tomcat 컨테이너가 데이터베이스 인증을 하도록 context.xml 파일에 아래의 코드를 추가한다.
+
+	<Resource 
+		auth="Container"
+		driverClassName = "oracle.jdbc.driver.OracleDriver"
+		url = "jdbc:oracle:thin:@localhost:1521:xe"
+		username = "scott"
+		password = "tiger"
+		name = "jdbc/Oracle11g" 
+		type = "javax.sql.DataSource"
+		maxActive = "20"
+		maxWait = "1000"
+	/>
