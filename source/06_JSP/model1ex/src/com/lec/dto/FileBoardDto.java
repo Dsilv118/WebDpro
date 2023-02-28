@@ -18,9 +18,10 @@ public class FileBoardDto {
 	private String cname;
 	private String cemail;
 	public FileBoardDto() {}
-	// 글 쓰기 용
-	public FileBoardDto(String cid, String fsubject, String fcontent, String ffilename, String fpw,
-			int fref, int fre_step, int fre_level, String fip) {
+	// 글 쓰기 용(원글, 답변글), 글 수정용
+	public FileBoardDto(int fnum, String cid, String fsubject, String fcontent, String ffilename, String fpw, int fref,
+			int fre_step, int fre_level, String fip) {
+		this.fnum = fnum;
 		this.cid = cid;
 		this.fsubject = fsubject;
 		this.fcontent = fcontent;

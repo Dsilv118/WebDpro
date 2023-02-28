@@ -51,7 +51,7 @@
 					if(d.getReadcount() > 10) {
 						out.println("<img src='"+conPath+"/img/hot.gif'>");
 					}
-					out.println("<a href='"+conPath+"/board/content.jsp?num="+d.getNum()+"&pageNum="+pageNum+"'>"
+					out.println("<a href='"+conPath+"/fileboard/fboardContent.jsp?num="+d.getNum()+"&pageNum="+pageNum+"'>"
 									+d.getSubject()+"</a>");
 					out.println("</td>");
 					// 메일

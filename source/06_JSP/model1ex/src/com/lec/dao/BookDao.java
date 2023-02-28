@@ -18,8 +18,8 @@ public class BookDao {
 	public static int SUCCESS = 1;
 	public static int FAIL    = 0;
 	// 싱글톤 
-	private static CustomerDao INSTANCE = new CustomerDao();
-	public static CustomerDao getInstance() {
+	private static BookDao INSTANCE = new BookDao();
+	public static BookDao getInstance() {
 		return INSTANCE;
 	}
 	// 커넥션 풀

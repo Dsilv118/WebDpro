@@ -30,7 +30,7 @@
 	%>
 				<script>
 					alert('회원가입 감사합니다. 로그인 후에 서비스를 이용하세요');
-					location.href = 'login.jsp';
+					location.href = 'loginForm.jsp';
 				</script>
 	<% 
 			} else {

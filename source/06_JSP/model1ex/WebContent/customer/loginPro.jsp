@@ -25,7 +25,7 @@
 			if(method.equals("null")){
 				response.sendRedirect("../main/main.jsp");
 			} else {
-				response.sendRedirect(method + ".jsp");
+				response.sendRedirect(conPath + "/" + method + ".jsp");
 			}
 		} else {
 	%>

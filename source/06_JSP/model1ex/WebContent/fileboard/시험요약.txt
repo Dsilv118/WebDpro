@@ -1,0 +1,2 @@
+오라클 : 시스템 들어가서 sql/system/ score tiger 만들기 테이블 만들기
+mysql : 

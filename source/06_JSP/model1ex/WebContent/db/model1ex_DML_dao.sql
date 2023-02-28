@@ -59,10 +59,12 @@ UPDATE CUSTOMER SET cPW = '123',
         
 -- 3. 조회수 올리기 
 UPDATE FILEBOARD SET fHIT = fHIT + 1 
-    WHERE cID = 'aaa';
+    WHERE fNUM = '2';
     
 -- 4. 글 상세보기
-SELECT * FROM FILEBOARD WHERE fNUM = '2';
+SELECT * 
+    FROM CUSTOMER C, FILEBOARD F 
+    WHERE C.CID=F.CID AND fNUM = '2';
 
 -- 5. 글 수정
 UPDATE FILEBOARD SET fSUBJECT = '수정된 제목',
@@ -72,8 +74,12 @@ UPDATE FILEBOARD SET fSUBJECT = '수정된 제목',
     WHERE fNUM = '1';
     
 -- 6. 글 삭제
-DELETE FROM FILEBOARD WHERE cID = 'aaa' AND fPW = '111';
+DELETE FROM FILEBOARD WHERE fNUM = '1' AND fPW = '111';
 
+-- 7. 답변 글
+INSERT INTO FILEBOARD (fNUM, CID, fSUBJECT, fCONTENT, fFILENAME, fPW, fREF, fRE_STEP, fRE_LEVEL, fIP) 
+    VALUES (FN_SEQ.NEXTVAL, 'abc', '제목이야', '본문이야', null, '123', 0, 0, 0, '123.123.2.2');
+    
 -- BookDao(top-N 리스트, 책 갯수, 책 등록, 책 상세보기)
 
 -- 1. TOP-N 리스트

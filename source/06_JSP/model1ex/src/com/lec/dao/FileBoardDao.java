@@ -12,15 +12,14 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import com.lec.dto.BookDto;
 import com.lec.dto.FileBoardDto;
 
 public class FileBoardDao {
 	public static int SUCCESS = 1;
 	public static int FAIL    = 0;
 	// 싱글톤 
-	private static CustomerDao INSTANCE = new CustomerDao();
-	public static CustomerDao getInstance() {
+	private static FileBoardDao INSTANCE = new FileBoardDao();
+	public static FileBoardDao getInstance() {
 		return INSTANCE;
 	}
 	// 커넥션 풀
@@ -147,7 +146,7 @@ public class FileBoardDao {
 		Connection        conn = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE FILEBOARD SET fHIT = fHIT + 1 " + 
-					 "    WHERE cID = ?";
+					 "    WHERE fNUM = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -171,12 +170,15 @@ public class FileBoardDao {
 		Connection         conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet            rs = null;
-		String sql = "SELECT * FROM FILEBOARD WHERE fNUM = ?";
+		String sql = "SELECT * " + 
+					 "    FROM CUSTOMER C, FILEBOARD F " + 
+					 "    WHERE C.CID=F.CID AND fNUM = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, fnum);
 			rs = pstmt.executeQuery();
+			if(rs.next()) {
 			String cid       = rs.getString("cid");
 			String fsubject  = rs.getString("fsubject");
 			String fcontent  = rs.getString("fcontent");
@@ -192,8 +194,17 @@ public class FileBoardDao {
 			String cemail    = rs.getString("cemail");
 			dto = new FileBoardDto(fnum, cid, fsubject, fcontent, ffilename, fpw, fhit, 
 								   fref, fre_step, fre_level, fip, frdate, cname, cemail);
+			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if(rs   != null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn !=null) conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		return dto;
 	}
@@ -218,15 +229,22 @@ public class FileBoardDao {
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn !=null) conn.close();
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}
 		}
 		return result;
-	}
+	} 
 	// -- 6. 글 삭제
 	public int deleteBoard(int num, String pw) {
 		int result = FAIL;
 		Connection        conn = null;
 		PreparedStatement pstmt = null;
-		String sql = "DELETE FROM FILEBOARD WHERE cID = ? AND fPW = ?";
+		String sql = "DELETE FROM FILEBOARD WHERE fNUM = ? AND fPW = ?";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -242,10 +260,87 @@ public class FileBoardDao {
 				if(conn !=null) conn.close();
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if(pstmt!=null) pstmt.close();
+					if(conn !=null) conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
 			}
 		}
 		return result;
 	}
+	// --7. 답변글 쓰기전 step ⓐ
+		private void preReplyStepA(int fref, int fre_step) {
+			Connection        conn  = null;
+			PreparedStatement pstmt = null;
+			String sql = "UPDATE FILEBOARD SET fRE_STEP = fRE_STEP + 1 "
+					+ "		WHERE fREF=? AND fRE_STEP>?";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, fref);
+				pstmt.setInt(2, fre_step);
+				int result = pstmt.executeUpdate();
+				System.out.println(result==0? "첫답변이네": result+"행 step 조정");
+			}catch (SQLException e) {
+				System.out.println(e.getMessage());
+			}finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn  != null) conn.close();
+				}catch (SQLException e) {
+					// TODO: handle exception
+				} finally {
+					try {
+						if(pstmt!=null) pstmt.close();
+						if(conn !=null) conn.close();
+					} catch (SQLException e) {
+						System.out.println(e.getMessage());
+					}
+				}
+			}
+		}
+		// --8. 답변글 쓰기
+		public int reply(FileBoardDto dto) {
+			// fref, fre_step, fre_level : 원글의 정보
+			// cid, fsubject, fcontent, ffilename, fpw, fip : 답변글의 정보
+			preReplyStepA(dto.getFref(), dto.getFre_step());
+			int result = FAIL;
+			Connection        conn  = null;
+			PreparedStatement pstmt = null;
+			String sql = "INSERT INTO FILEBOARD (fNUM, CID, fSUBJECT, fCONTENT, fFILENAME, "
+					+ "						fPW, fREF, fRE_STEP, fRE_LEVEL, fIP) "
+					+ " VALUES (FN_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			try {
+				conn = getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, dto.getCid());
+				pstmt.setString(2, dto.getFsubject());
+				pstmt.setString(3, dto.getFcontent());
+				pstmt.setString(4, dto.getFfilename());
+				pstmt.setString(5, dto.getFpw());
+				pstmt.setInt(6, dto.getFref()); // 답변글은 원글의 fref
+				pstmt.setInt(7, dto.getFre_step()+1); // 답변글은 원글의 fre_step + 1
+				pstmt.setInt(8, dto.getFre_level()+1); // 답변글은 원글의 fre_level+1
+				pstmt.setString(9, dto.getFip());
+				result = pstmt.executeUpdate();
+				System.out.println("답변글 쓰기 성공");
+			}catch (SQLException e) {
+				dto.setFre_step(dto.getFre_step()+1);
+				dto.setFre_level(dto.getFre_level()+1);
+				System.out.println(e.getMessage() + "답변글 쓰기 실패 : " + dto);
+			}finally {
+				try {
+					if(pstmt != null) pstmt.close();
+					if(conn  != null) conn.close();
+				}catch (SQLException e) {
+					// TODO: handle exception
+				}
+			}
+			return result;
+		}
 }
 
 
