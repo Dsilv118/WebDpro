@@ -1,0 +1,32 @@
+2023.02.28 요점정리
+
+15. EL
+
+● EL(Expression Language)
+EL이란? 
+표현식(<%= ~ %>)을 조금 더 간략하게 대신해서 값을 표현하는 언어. 
+액션 태그를 조금 다르게(간략하게) 표현한 것
+
+* 표현식 (<%=value %>) ---> EL 표기법 (${ value })
+
+◎ EL 연산자
+EL 표기법 안에서 아래의 연산자를 사용할 수 있다.
+① 산술 :  +  -  *  /  %
+② 관계 :  ==(eq)  !=(ne)  <(lt)  >(gt)  <=  >=
+③ 조건 : a ? b : c 
+④ 논리 && || 
+⑤ ${empty 값} 공백이거나 null일 때 true
+⑥ ${not empty 값} 공백이거나 null이 아닐 때 true
+
+◎ 내장 객체
+* Scope에 관한 객체
+① pageScope : page객체의 attributte를 참조하는 객체(page attribute의 집합) Map 타입
+② reuqestScope : request객체의 attribute를 참조하는 객체(request attribute의 집합) Map 타입
+③ sessionScope : session객체의 attribute를 참조하는 객체(session attribute의 집합) Map 타입
+④ applicationScope : application객체의 attribute를 참조하는 객체(application attribute의 집합) Map 타입
+
+* 그 외 유용한 객체
+① param : 요청 파라미터를 참조하는 객체(웹 브라우저로부터 입력된 데이터의 집합) Map 타입
+② paramValues : 요청 파라미터(배열)를 참조하는 객체 Map 타입
+③ initParam : 초기화 파라미터를 참조하는 객체(웹 어플리케이션의 초기화 파라미터의 집합) Map 타입
+④ cookie : cookie객체를 참조하는 객체(웹 브라우저로부터 전송된 쿠키의 집합)
