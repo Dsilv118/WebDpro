@@ -29,26 +29,26 @@ public class FontController extends HttpServlet {
 		// URL     : http://localhost:8090/ch18/insert.do
 		String uri = request.getRequestURI();	          // URI     : /ch18/select.do
 		String conPath = request.getContextPath();        // conPath : /ch18
-		String commend = uri.substring(conPath.length()); // command : /~~.do
+		String command = uri.substring(conPath.length()); // command : /~~.do
 		System.out.println("uri : " + uri);
 		System.out.println("conPath : " + conPath);
-		System.out.println("들어온 요청 : " + commend);
+		System.out.println("들어온 요청 : " + command);
 		// 들어온 요청에 따라 다른 일을 하고 뷰로 forward
 		String viewPage = null; // 뷰 페이지를 저장할 변수
 		Service service = null; // InsertService나 SelectService나 DeleteService, UpdateService
-		if(commend.equals("/insert.do")) {
+		if(command.equals("/insert.do")) {
 			service = new InsertService();
 			service.execute(request, response);
 			viewPage = "select.do";
-		} else if (commend.equals("/select.do")) {
+		} else if (command.equals("/select.do")) {
 			service = new SelectService();
 			service.execute(request, response);
 			viewPage = "ex2/select.jsp";
-		} else if (commend.equals("/update.do")) {
+		} else if (command.equals("/update.do")) {
 			service = new UpdateService();
 			service.execute(request, response);
 			viewPage = "select.do";
-		} else if (commend.equals("/delete.do")) {
+		} else if (command.equals("/delete.do")) {
 			service = new DeleteService();
 			service.execute(request, response);
 			viewPage = "select.do";
