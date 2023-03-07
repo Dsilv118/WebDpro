@@ -1,0 +1,34 @@
+2023.03.06 요점정리
+
+17. JSTL
+
+● JSTL
+JSTL이란? 
+JSP 표준 태그 라이브러리(여러 프로그램이 공통으로 사용하는 코드를 모아놓은 코드의 집합)의 약어이다.
+
+◎ JSTL 가지고 할 수 있는 일 
+① 간단한 프로그램 로직의 구사(자바의 변수 선언, if문, for문 등에 해당하는 로직)
+② 다른 JSP 페이지 호출(<c:redirect>, <c:import>)
+③ 날짜, 시간, 숫자의 포맷
+④ JSP 페이지 하나를 가지고 여러 언어의 웹 페이지 생성
+
+◎ Core ; 
+Core 라이브러리는 기본적인 라이브러리로 출력, 제어문, 반복문 같은 기능이 포함되어있다. 
+
+① 출력 태그                      <c:out> 
+② 변수 설정 태그               <c:set>
+③ 변수를 제거하는 태그       <c:remove>
+④ 예외 처리 태그               <c:catch>
+⑤ 제어문 태그                   <c:if>
+⑥ 제어문 태그                   <c:choose>
+⑦ 반복문 태그                   <c:forEach>
+⑧ 페이지 이동 태그             <c:redirect url="url">
+
+◎ fmt ;
+국제화/형식화 액션. 국제화/형식화 기능을 제공해 주는 JSTL 라이브러리
+
+① 국제화는 다국어 내용을 처리, 형식화는 날짜와 숫자 형식 등을 처리
+② 인코딩 관련 태그            <fmt:requestEncoding>
+③ 국제화 관련 태그            <fmt:setLocale> / <fmt:timeZone> / <fmt:setTimeZone> 
+④ 형식화 관련 태그            <fmt:formatNumber>
+
