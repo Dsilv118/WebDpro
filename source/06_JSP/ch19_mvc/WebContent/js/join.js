@@ -1,5 +1,5 @@
 /**
- * 
+ * 회원가입 유효성 검사
  */
 const infoConfirm = function(){
 	if(join_frm.id.value.length <3){
@@ -21,11 +21,6 @@ const infoConfirm = function(){
 	if(!join_frm.name.value){
 		alert('이름은 필수 입력 사항입니다.');
 		join_frm.name.focus();
-		return;
-	}
-	if(join_frm.email.value && !join_frm.email.value.match(patternMail)){
-		alert('메일 형식을 확인하세요');
-		join_frm.email.focus();
 		return;
 	}
 	join_frm.submit(); // 강제로 submit 이벤트 발생
