@@ -60,7 +60,7 @@
 				<td colspan="2">
 					<input type="button" value="회원가입" onclick="infoConfirm()">
 					<input type="reset" value="취소">
-					<input type="button" value="로그인" onclick="location.href='login.jsp'">
+					<input type="button" value="로그인" onclick="location.href='loginView.do'">
 				</td>
 			</tr>
 		</table>

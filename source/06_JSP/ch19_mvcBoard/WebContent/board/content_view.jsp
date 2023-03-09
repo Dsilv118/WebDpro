@@ -11,6 +11,17 @@
 	<link href="${conPath }/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+	<c:set var="SUCCESS" value="1"/>
+	<c:set var="FAIL" value="0"/>
+	<c:if test="${modifyResult eq SUCCESS }">
+		<script>alert('${param.bid}번글 수정 성공');</script>
+	</c:if>
+	<c:if test="${modifyResult eq FAIL }">
+		<script>
+			alert('${param.bid}번글 수정 실패');
+			history.back();
+		</script>
+	</c:if>
 	<table>
 		<caption>상세보기</caption>
 		<tr><th>글번호</th><td>${contentBoard.bid }</td></tr>
@@ -26,8 +37,8 @@
 		<tr>
 			<td colspan="2">
 				<button onclick="location.href='${conPath}/modifyView.do?bid=${param.bid }&pageNum=${param.pageNum }'">수정</button>
-				<button onclick="location.href='${conPath}/delete.do?bid=${param.bid }&pageNum=${pageNum }'">삭제</button>
-				<button onclick="location.href='${conPath}/replyView.do?bid=${param.bid }&pageNum=${pageNum }'">답변</button>
+				<button onclick="location.href='${conPath}/delete.do?bid=${param.bid }&pageNum=${param.pageNum }'">삭제</button>
+				<button onclick="location.href='${conPath}/replyView.do?bid=${param.bid }&pageNum=${param.pageNum }'">답변</button>
 				<button onclick="location.href='${conPath}/list.do?pageNum=${param.pageNum }'">목록</button>
 			</td>
 		</tr>

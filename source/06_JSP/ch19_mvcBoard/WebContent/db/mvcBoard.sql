@@ -87,7 +87,7 @@ COMMIT;
 
 ROLLBACK;
 
-
+-- id 중복체크(idConfirm), insert 멤버(join), 로그인 체크(login), id로 dto 가져오기(getMember)
 
 
 

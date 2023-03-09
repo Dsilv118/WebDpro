@@ -19,6 +19,16 @@
 	<c:if test="${writeResult eq FAIL }">
 		<script>alert('글쓰기 실패');</script>
 	</c:if>
+	<c:if test="${not empty deleteResult }">
+		<script>alert('${deleteResult }');</script>
+	</c:if>
+	<c:if test="${replyResult eq SUCCESS }">
+		<script>alert('${param.bid }번 답변글 작성 성공');</script>
+	</c:if>
+	<c:if test="${replyResult eq FAIL }">
+		<script>alert('답변글 작성 실패');</script>
+		history.back();
+	</c:if>
 	<table>
 		<caption>게시판</caption>
 		<tr>
@@ -63,18 +73,18 @@
 	</table>
 	<div class="paging">
 		<c:if test="${startPage > BLOCKSIZE }">
-			[<a href="${conPath }/list.do?pageNum=${startPage-1}">이전</a>]
+			{<a href="${conPath }/list.do?pageNum=${startPage-1}">이전</a>}
 		</c:if>
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i eq pageNum }">
-				[ <b>${i }</b> ]
+				[<b>${i }</b>]
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[ <a href="${conPath }/list.do?pageNum=${i}">${i }</a> ]
+				[<a href="${conPath }/list.do?pageNum=${i}">${i }</a>]
 			</c:if>
 		</c:forEach>
 		<c:if test="${endPage < pageCnt }">
-			[<a href="${conPath }/list.do?pageNum=${endPage+1}">다음</a>]
+			{<a href="${conPath }/list.do?pageNum=${endPage+1}">다음</a>}
 		</c:if>
 	</div>
 </body>

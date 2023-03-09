@@ -61,7 +61,7 @@ public class MemberDao {
 			System.out.println(e.getMessage());
 		} finally {
 			try {
-				if(rs    != null) rs.close();
+				if(rs    !=null) rs.close();
 				if(pstmt !=null) pstmt.close();
 				if(conn  !=null) conn.close();
 			} catch(Exception e) {
