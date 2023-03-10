@@ -1,6 +1,5 @@
 @charset "UTF-8";
-p {text-align: center;}
-
-table {border: 2px solid pink; width:95%; margin: 10px auto;}
-td, th {text-align: center; padding:5px; }
-table input:not(.btn), textarea { width:90% }
+h1, p{text-align: center;}
+p{margin-top: 30px}
+a{text-decoration: none; color: black;}
+b{color: red;}

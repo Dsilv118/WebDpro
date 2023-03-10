@@ -9,9 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lec.ex.service.MAllViewService;
 import com.lec.ex.service.MJoinService;
 import com.lec.ex.service.MLoginService;
 import com.lec.ex.service.MLogoutService;
+import com.lec.ex.service.MModifyService;
+import com.lec.ex.service.MWithdrawalService;
 import com.lec.ex.service.Service;
 
 @WebServlet("*.do")
@@ -56,6 +59,22 @@ public class MController extends HttpServlet {
 			service = new MLogoutService();
 			service.execute(request, response);
 			viewPage = "main.do";
+		} else if(command.equals("/modifyView.do")) { // 정보 수정을 위한 view
+			// service = new MGetMemberService();  -- 세션에 있는 mid로 dto 가져오는 작업
+			// service.execute(request, response); -- 로그인할때 dto 세션을 가져와서 불필요
+			viewPage = "member/modify.jsp";
+		} else if(command.equals("/modify.do")) { // DB에 정보 수정
+			service = new MModifyService();
+			service.execute(request, response);
+			viewPage = "member/main.jsp";
+		} else if(command.equals("/allView.do")) { // 회원목록 출력(페이징 처리)
+			service = new MAllViewService();
+			service.execute(request, response);
+			viewPage = "member/mAllView.jsp";
+		} else if(command.equals("/withdrawal.do")) { // 회원 탈퇴
+			service = new MWithdrawalService();
+			service.execute(request, response);
+			viewPage = "member/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

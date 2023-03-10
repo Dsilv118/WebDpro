@@ -17,6 +17,8 @@ public class MLoginService implements Service {
 		if(result==mDao.SUCCESS) {
 			HttpSession session = request.getSession();
 			session.setAttribute("getMember", mDao.getMember(mid));
+		} else {
+			request.setAttribute("loginFail", result);
 		}
 	}
 

@@ -19,14 +19,14 @@
 	<c:if test="${joinResult eq FAIL}">
 		<script>
 			alert('회원가입 실패되었습니다. 다시 확인해주세요');
-			history.back();
+			location.href = '${conPath }/joinView.do';
 		</script>
 	</c:if>
 	<form action="login.do" method="post">
 		<table>
 			<tr>
 				<th>ID</th>
-				<td><input type="text" name="mid" required="required" autofocus="autofocus"></td>
+				<td><input type="text" name="mid" required="required" autofocus="autofocus" value="${mid }"></td>
 			</tr>
 			<tr>
 				<th>PW</th>

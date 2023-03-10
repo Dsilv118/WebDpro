@@ -12,6 +12,7 @@ import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.lec.ex.dao.MemberDao;
 import com.lec.ex.dto.MemberDto;
@@ -25,16 +26,36 @@ public class MJoinService implements Service {
 		String path = request.getRealPath("memberPhotoUp");
 		int maxSize = 1024*1024*5;
 		String filename = "";
-		String originalFilename = "";
 		MultipartRequest mRequest = null;
+		int result = 0;
+		MemberDao mDao = MemberDao.getInstance();
 		try {
+			// 첨부된 파일을 서버에 저장하고, 파일이름(mPhto) 가져오기
 			mRequest = new MultipartRequest(request, path, maxSize, "utf-8", new DefaultFileRenamePolicy());
 			Enumeration<String> paramNames = mRequest.getFileNames();
-			while(paramNames.hasMoreElements()) {
-				String param = paramNames.nextElement();
-				filename = mRequest.getFilesystemName(param);
-				originalFilename = mRequest.getOriginalFileName(param);
+			//while(paramNames.hasMoreElements()) { -- 파일이 하나밖에 없기때문에 while문은 안돌림
+			String param = paramNames.nextElement();
+			filename = mRequest.getFilesystemName(param);
+			//}
+			// mRequest를 이용하여 파라미터 받아와서 DB에 저장
+			String mid = mRequest.getParameter("mid");
+			String mpw = mRequest.getParameter("mpw");
+			String mname = mRequest.getParameter("mname");
+			String memail = mRequest.getParameter("memail");
+			String mphoto = filename != null ? filename : "NOIMG.JPG";
+			Date mbirth = null;
+			if(mRequest.getParameter("mbirth").equals("")) {
+				mbirth = null;
+			} else {
+				mbirth = Date.valueOf(mRequest.getParameter("mbirth"));
 			}
+			String maddress = mRequest.getParameter("maddress");
+			Timestamp mrdate = null;
+			MemberDto newMember = new MemberDto(mid, mpw, mname, memail, mphoto, mbirth, maddress, mrdate);
+			result = mDao.joinMember(newMember);
+			HttpSession session = request.getSession();
+			session.setAttribute("mid", mid);
+			request.setAttribute("joinResult", result);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
@@ -42,7 +63,7 @@ public class MJoinService implements Service {
 		OutputStream os = null;
 		try {
 			File serverFile = new File(path + "/" + filename);
-			if(serverFile.exists()) {
+			if(serverFile.exists() && !filename.equals("NOIMG.JPG") && result==mDao.SUCCESS) {
 				is = new FileInputStream(serverFile);
 				os = new FileOutputStream("D:\\Dsilv\\source\\06_JSP\\ch19_mvcMember\\WebContent\\memberPhotoUp\\"+filename);
 				byte[] bs = new byte[(int)serverFile.length()];
@@ -65,23 +86,6 @@ public class MJoinService implements Service {
 			
 		}
 		
-		String mid = mRequest.getParameter("mid");
-		String mpw = mRequest.getParameter("mpw");
-		String mname = mRequest.getParameter("mname");
-		String memail = mRequest.getParameter("memail");
-		String mphoto = filename != null ? filename : "NOIMG.JPG";
-		Date mbirth = null;
-		if(mRequest.getParameter("mbirth").equals("")) {
-			mbirth = null;
-		} else {
-			mbirth = Date.valueOf(mRequest.getParameter("mbirth"));
-		}
-		String maddress = mRequest.getParameter("maddress");
-		Timestamp mrdate = null;
-		MemberDto newMember = new MemberDto(mid, mpw, mname, memail, mphoto, mbirth, maddress, mrdate);
-		MemberDao bDao = MemberDao.getInstance();
-		int result = bDao.joinMember(newMember);
-		request.setAttribute("joinResult", result);
 	}
 
 }

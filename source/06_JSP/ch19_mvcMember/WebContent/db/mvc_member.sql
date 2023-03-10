@@ -38,6 +38,35 @@ SELECT * FROM MVC_MEMBER WHERE MID='aaa' AND MPW='111';
 
     -- 4. id로 MemberDto 가져오기
 SELECT * FROM MVC_MEMBER WHERE MID='aaa';
+
+    -- 5. 회원정보수정
+UPDATE MVC_MEMBER SET MPW    = '333',
+                      MNAME  = '수길동',
+                      MEMAIL = 'SUSU@SU.COM',
+                      MPHOTO = 'NOIMG.JPG',
+                      MBIRTH = '1995-12-21',
+                      MADDRESS = '부산 강서구'
+    WHERE MID = 'aaa';
+    
+    -- 6. 회원 리스트 보기(top-N)
+    -- 6-1. 회원 리스트 보기 
+SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC; -- 신입 회원순서 / 1단계
+
+SELECT ROWNUM RW, A.* FROM (SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC) A; -- / 2단계
+
+SELECT * 
+    FROM (SELECT ROWNUM RW, A.* FROM (SELECT * FROM MVC_MEMBER ORDER BY MRDATE DESC) A) -- / 3단계
+    WHERE RW BETWEEN 10 AND 12;
+    
+    -- 6-2. 전체 등록된 회원수
+SELECT COUNT(*) CNT FROM MVC_MEMBER;
+    
+    -- 7. 회원탈퇴
+DELETE FROM MVC_MEMBER WHERE MID = 'ffff';
+
+SELECT * FROM MVC_MEMBER;
+
+COMMIT;
     
     
     
