@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		p {text-align: center;}
+		h1 {text-align: center;}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script>
+		$(document).ready(function(){
+		/*	
+			1단계 : [ x ] + [ x ] = [ 답 ]
+			2단계 : [ x ] @ [ x ] = [ 답 ] 연산자가 [+,-,*,/] 중에서 random
+			3단계 : 
+				1. [ x ] @ [ x ] = [ 답 ]
+				2. [ x ] @ [ x ] = [ 답 ]
+				3. [ x ] @ [ x ] = [ 답 ]
+				4. [ x ] @ [ x ] = [ 답 ]
+				5. [ x ] @ [ x ] = [ 답 ]
+			5 5문제를 count 처리 / 채점해봐를 클릭하면 점수와 문제를 푼 시간을 출력
+			  ex. 80점 / 24초
+		*/
+			$('input[name="n1"]').val(Math.trunc(Math.random()*10)); // 0 ~ 9
+			$('input[name="n2"]').val(Math.trunc(Math.random()*10));
+			var n1 = Number($('input[name="n1"]').val());
+			var n2 = Number($('input[name="n2"]').val());
+			$('#cal').click(function(){
+				var answer = Number($('input[name="answer"]').val());
+				var corr = (n1+n2);
+				if(answer == corr) {
+					$('.result').html('정답!').css('color', 'blue');
+				} else {
+					$('.result').html('오답!').css('color', 'red');
+				}
+			});
+			$('#reset').click(function(){
+				location.reload();
+			});
+		});
+	</script>
+</head>
+<body>
+	<p>
+		<input type="text" name="n1" size="5" readonly="readonly">
+		+
+		<input type="text" name="n2" size="5" readonly="readonly">
+		=
+		<input type="text" name="answer" size="5" placeholder="답">
+	</p>
+	<p>
+		<button id="reset">다시해봐</button>
+		<button id="cal">채점해봐</button>
+	</p>
+	<hr>
+	<h1 class="result"></h1>
+</body>
+</html>

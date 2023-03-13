@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		table td {width:100px; height: 100px; background-color: #50BCDF;}
+		.tdRed {background-color: red;}
+		div {width: 500px; margin: 0 auto;}
+		p {text-align: center;}
+		.image {background-size: 100px 100px;}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script>
+		$(document).ready(function(){
+			var ran = Math.trunc(Math.random()*9);
+			$('td').on('click', function(){
+				$('td').removeClass('tdRed');
+				$(this).addClass('tdRed');
+				var idx = $(this).attr('id');
+				alert(idx + '번째를 선택하셨습니다. ' + ran + ' : 랜덤 숫자입니다.');
+				if(ran == idx) {
+					$('.result').html('맞았습니다.');
+					$(this).css("background","url(img/dduk.jpg)").css("background-size","100px 100px");
+				} else {
+					$('.result').html('틀렸습니다. 힌트는 ' + ran + '번째');
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<table>
+			<tr><td id="0"></td><td id="1"></td><td id="2"></td></tr>
+			<tr><td id="3"></td><td id="4"></td><td id="5"></td></tr>
+			<tr><td id="6"></td><td id="7"></td><td id="8"></td></tr>
+		</table>
+		<p class='result'></p>
+	</div>
+</body>
+</html>
