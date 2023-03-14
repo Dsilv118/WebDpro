@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		canvas {width: 100%; height: 400px; border: 2px solid blue;}
+		img {position: absolute; left: 10px; top: 10px; width: 60px;}
+		fieldset {width: 45%; float: left;}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('canvas').mousedown(function(){
+				// 현재 img 좌표를 가져와 전좌표에 출력
+				var img = $('img').offset(); // img 태그의 top과 left(img.top, img.left);
+				/*for(var key in img) {
+					alert(key + " : " + img[key]);
+				}*/
+				$('input[name="preXPosition"]').val(Math.round(img.left));
+				$('input[name="preYPosition"]').val(Math.round(img.top));
+				// 마우스 클릭한 좌표를 가져와 현 좌표 출력 + img 옮기기)
+				// event.pageX : body 기본으로 마우스의 x 좌표
+				// event.offsetX : 이벤트 대상 객체에서 상대적 마우스 x좌표
+				// event.screenX : 모니터 화면 기준의 마우스 x좌표
+				var x = event.pageX;
+				var y = event.pageY;
+				$('input[name="xPosition"]').val(x);
+				$('input[name="yPosition"]').val(y);
+				$('img').css('top', y);
+				$('img').css('left', x);
+			});
+		});
+	</script>
+</head>
+<body>
+	<canvas></canvas>
+	<img src="img/diamond.png" alt="위치 수정 가능한 다이아몬드">
+	<fieldset>
+		<legend>현 좌표</legend>
+		<p>X좌표 : <input type="text" name="xPosition" value="10"></p>
+		<p>Y좌표 : <input type="text" name="yPosition" value="10"></p>
+	</fieldset>
+	<fieldset>
+		<legend>현 좌표</legend>
+		<p>X좌표 : <input type="text" name="preXPosition"></p>
+		<p>Y좌표 : <input type="text" name="preYPosition"></p>
+	</fieldset>
+</body>
+</html>

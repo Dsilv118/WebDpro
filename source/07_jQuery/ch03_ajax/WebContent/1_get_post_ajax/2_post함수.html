@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<style>
+	
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('button').click(function(){
+				var mid = $('#mid').val();
+				// $.post('요청url', 요청파라미터, callback);
+				$.post('midConfirm.jsp', {mid:mid}, function(data, status){
+					if(status = 'success'){
+						$('span#midConfirmResult').html(data);
+					} else {
+						alert(status);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	아이디 <input type="text" name="mid" required="required" id="mid"> <button>중복체크</button><br>
+	<span id="midConfirmResult"> &nbsp; &nbsp; &nbsp; &nbsp; </span> <!-- 테이블간 공간을 벌려놔야함 -->
+</body>
+</html>

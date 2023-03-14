@@ -35,11 +35,11 @@
 			var n2 = Array(5);
 			var opIdx = Array(5);
 			var answer = Array(5);
-			$('.n1').each(function(idx, item){
+			$('input[name="n1"]').each(function(idx, item){
 				n1[idx] = parseInt(Math.random()*10);
 				item.value = n1[idx];
 			});
-			$('.n2').each(function(idx, item){
+			$('input[name="n2"]').each(function(idx, item){
 				n2[idx] = parseInt(Math.random()*10);
 				item.value = n2[idx];
 			});
