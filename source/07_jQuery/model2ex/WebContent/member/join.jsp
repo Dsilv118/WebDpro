@@ -19,7 +19,7 @@
   				$('#idConfirmResult').text('아이디는 2글자 이상');
   			} else {
   				$.ajax({
-  					url : '${conPath }/1_get_post_ajax/midConfirm.jsp',
+  					url : '${conPath }/midConfirm.do',
   					type : 'get',
   					data : 'mid='+mid,
   					dataType : 'html',
@@ -29,15 +29,50 @@
   				}); // ajax함수
   			}  // if
   		}); // keyup event(id 중복 확인용)
-  		$('#pw, #pwChk').keyup(function(){
-  			var pw = $('#pw').val();
-  			var pwChk = $('#pwChk').val();
+  		
+/*   		$('#memail').keyup(function(){
+  			var memail = $(this).val();
+  			$.ajax({
+  				url : '${conPath}/memailConfirm.do',
+  				type : 'get',
+  				data : 'memail='+memail,
+  				dataType : 'html',
+  				success : function(data) {
+  					$('#emailConfirmResult').html(data);
+  				}
+  			}); // ajax 함수
+  		}); // keyup event(email 중복 확인용) */
+  		
+  		var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
+  		$('input[name="memail"]').keyup(function(){
+  			let memail = $(this).val();
+  			if(!memail){
+  				$('#emailConfirmResult').html(' &nbsp; ');
+  			}else if(!memail.match(patternMemail)){
+  				$('#emailConfirmResult').html('<b>메일 형식을 지켜 주세요</b>');
+  			}else{
+  				$.ajax({
+  					url : '${conPath}/memailConfirm.do',
+  					type : 'get',
+  					data : 'memail='+memail,
+  					dataType : 'html',
+  					success : function(data){
+  						$('#emailConfirmResult').html(data);
+  					},
+  				});
+  			}
+  		});
+  		
+  		$('#mpw, #mpwChk').keyup(function(){
+  			var pw = $('#mpw').val();
+  			var pwChk = $('#mpwChk').val();
   			if(pw == pwChk) {
   				$('#pwChkResult').text('비밀번호 일치');
   			} else {
   				$('#pwChkResult').text('비밀번호 불일치');
   			}
   		}); // keyup event(비밀번호 일치 확인용)
+  		
   		$('form').submit(function(){
   	  		// "사용 가능한 ID입니다"('#idConfirmResult'), "비밀번호 일치"('#pwChkResult') 가 출력되었을 경우만 submit 가능
   	  		var idConfirmResult = $('#idConfirmResult').text().trim();
@@ -47,10 +82,11 @@
   	  			return false; // submit 제한
   	  		} else if(pwChkResult != '비밀번호 일치') {
   	  			alert('비밀번호를 확인하세요');
-  	  			$('#pw').focus();
+  	  			$('#mpw').focus();
   	  			return false;
   	  		}
   		});
+  		
   	});
   </script>
   <script>
@@ -72,46 +108,63 @@
    </script>
 </head>
 <body>
+	<jsp:include page="../main/header.jsp"/>
 	<div id="joinForm_wrap">
-		<form action="">
+		<form action="${conPath }/join.do" method="post" enctype="multipart/form-data">
 			<div id="join_title">회원가입</div>
 			<table>
 				<tr>
-					<th><label for="id">아이디</label></th>
+					<th><label for="mid">아이디</label></th>
 					<td>
-						<input type="text" name="mid" id="id" class="id" required="required">
+						<input type="text" name="mid" id="mid" class="mid" required="required">
 						<div id="idConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="pw">비밀번호</label></th>
-					<td><input type="password" name="pw" id="pw" class="pw" required="required"></td>
+					<th><label for="mpw">비밀번호</label></th>
+					<td><input type="password" name="mpw" id="mpw" class="mpw" required="required"></td>
 				</tr>
 				<tr>
-					<th><label for="pwChk">비밀번호 확인</label></th>
+					<th><label for="mpwChk">비밀번호 확인</label></th>
 					<td>
-						<input type="password" name="pwChk" id="pwChk" class="pwChk" required="required">
+						<input type="password" name="mpwChk" id="mpwChk" class="mpwChk" required="required">
 						<div id="pwChkResult"> &nbsp; &nbsp;  &nbsp; </div>
 					</td>
 				</tr>
 				<tr>
-					<th><label for="pw">이름</label></th>
-					<td><input type="text" name="name" id="name" class="name"></td>
+					<th><label for="mname">이름</label></th>
+					<td><input type="text" name="mname" id="mname" class="mname"></td>
 				</tr>
 				<tr>
+					<th><label for="memail">이메일</label></th>
+					<td>
+						<input type="text" name="memail" id="memail" class="memail">
+						<div id="emailConfirmResult"> &nbsp; &nbsp; &nbsp; </div>
+					</td>
+				</tr>
+				<tr>
+					<th>사진</th>
+					<td><input type="file" name="mphoto" id="mphoto" class="mphoto"></td>
+				</tr>				
+				<tr>
 					<th>생년월일</th>
-					<td><input type="text" name="birth" id="datepicker" class="birth"></td>
+					<td><input type="text" name="mbirth" id="datepicker" class="mbirth"></td>
+				</tr>
+				<tr>
+					<th><label for="maddress">주소</label></th>
+					<td><input type="text" name="maddress" id="maddress" class="maddress"></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="가입하기" class="joinBtn_style">
 						<input type="reset" value="다시하기" class="joinBtn_style">
-						<input type="button" value="로그인" class="joinBtn_style">
+						<input type="button" value="로그인" class="joinBtn_style" onclick="location.href='loginView.do'">
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
+	<jsp:include page="../main/footer.jsp"/>
 </body>
 </html>
 

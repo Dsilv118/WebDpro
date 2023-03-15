@@ -19,7 +19,7 @@
   				$('#idConfirmResult').text('아이디는 2글자 이상');
   			} else {
   				$.ajax({
-  					url : '${conPath }/1_get_post_ajax/midConfirm.jsp',
+  					url : '${conPath }/midConfirm.do',
   					type : 'get',
   					data : 'mid='+mid,
   					dataType : 'html',
