@@ -12,26 +12,33 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+	<script>
+		$(function(){
+	 		var patternMemail = /^[a-zA-Z0-9_\.]+@[a-zA-Z0-9_]+(\.\w+){1,2}$/;
+	 		$('input[name="memail"]').keyup(function(){
+	 			let memail = $(this).val();
+	 			if(!memail || (memail == '${member.memail }')){
+	 				$('#emailConfirmResult').html(' &nbsp; ');
+	 			}else if(!memail.match(patternMemail)){
+	 				$('#emailConfirmResult').html('<b>메일 형식을 지켜 주세요</b>');
+	 			}else{
+	 				$.ajax({
+	 					url : '${conPath}/memailConfirm.do',
+	 					type : 'get',
+	 					data : 'memail='+memail,
+	 					dataType : 'html',
+	 					success : function(data){
+	 						$('#emailConfirmResult').html(data);
+	 					},
+	 				});
+	 			}
+	 		});
+		});
+	</script>
 </head>
 <body>
 	<c:if test="${empty member }">
 		<script>location.href='${conPath}/loginView.do';</script>
-		<script>
-			$(function(){
-				$('#memail').keyup(function(){
-		  			var memail = $(this).val();
-		  			$.ajax({
-		  				url : '${conPath}/memailConfirm.do',
-		  				type : 'get',
-		  				data : 'memail='+memail,
-		  				dataType : 'html',
-		  				success : function(data) {
-		  					$('#emailConfirmResult').html(data);
-		  				}
-		  			}); // ajax 함수
-		  		});
-			});
-		</script>
 	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">

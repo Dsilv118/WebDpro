@@ -12,7 +12,7 @@
 	body { background-color: #ffffaa; }
 	footer {height:100px;background-color: #003300;}
 	footer #footer_conts, footer #footer_conts a {
-		color:white;
+		color: #ffffaa;
 		font-weight: blod;
 		font-size:0.9em;
 		text-align: center;
@@ -26,7 +26,12 @@
 	<footer>
 		<div id="footer_conts">
 			<p>(주)좋은시스템 402</p> 
+			<c:if test="${empty member and empty admin}">
 			<p>서울특별시 어떤구 어떤로 9 좋은빌딩 1-5F | <b><a href="${conPath }/adminLoginView.do">관리자 모드</a></b></p>
+			</c:if>
+			<c:if test="${not empty member or not empty admin}">
+			<p>서울특별시 어떤구 어떤로 9 좋은빌딩 1-5F</p>
+			</c:if>
 			<p>Copyright© 2022 tj . All rights reserved.</p>
 		</div>
 	</footer>

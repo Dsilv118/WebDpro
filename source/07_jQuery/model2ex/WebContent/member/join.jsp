@@ -30,7 +30,7 @@
   			}  // if
   		}); // keyup event(id 중복 확인용)
   		
-/*   		$('#memail').keyup(function(){
+       /*$('#memail').keyup(function(){
   			var memail = $(this).val();
   			$.ajax({
   				url : '${conPath}/memailConfirm.do',

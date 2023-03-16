@@ -34,8 +34,7 @@ public class FrontController extends HttpServlet {
 		Service service = null;
 		if(command.equals("/main.do")) { // 첫 메인화면
 			viewPage = "main/main.jsp";
-		} else if(command.equals("/joinView.do")) {
-			/*          Member 관련 요청                */
+		} else if(command.equals("/joinView.do")) { /*          Member 관련 요청                */
 			viewPage = "member/join.jsp";
 			joinView = true;
 		} else if(command.equals("/midConfirm.do")) {
@@ -73,14 +72,67 @@ public class FrontController extends HttpServlet {
 			service = new MWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
+		} else if(command.equals("/adminLoginView.do")) { /*          admin 관련 요청                */	
+			viewPage = "admin/adminLogin.jsp";
+			joinView = true;
+		} else if(command.equals("/adminLogin.do")) {
+			if(joinView) {
+				service = new ALoginService();
+				service.execute(request, response);
+				joinView = false;
+			}
+			viewPage = "/allView.do";
+		} else if(command.equals("/allView.do")) {
+			service = new MAllViewService();
+			service.execute(request, response);
+			viewPage = "member/mAllView.jsp";
+		} else if(command.equals("/boardList.do")) { /*          파일첨부 게시판 관련 요청                */
+			service = new BoardListService();
+			service.execute(request, response);
+			viewPage = "fileBoard/boardList.jsp";
+		} else if(command.equals("/boardWriteView.do")) {
+			viewPage = "fileBoard/boardWrite.jsp";
+			joinView = true;
+		} else if(command.equals("/boardWrite.do")) {
+			if(joinView) {
+				service = new BoardWriteService();
+				service.execute(request, response);
+				joinView = false;
+			}
+			viewPage = "boardList.do";
+		} else if(command.equals("/boardContent.do")) {
+			service = new BoardContentService();
+			service.execute(request, response);
+			viewPage = "fileBoard/boardContent.jsp";
+		} else if(command.equals("/boardModifyView.do")) {
+			service = new BoardModifyViewService();
+			service.execute(request, response);
+			viewPage = "fileBoard/boardModify.jsp";
+		} else if(command.equals("/boardModify.do")) {
+			service = new BoardModifyService();
+			service.execute(request, response);
+			viewPage = "boardList.do";
+		} else if(command.equals("/boardDelete.do")) {
+			service = new BoardDeleteService();
+			service.execute(request, response);
+			viewPage = "boardList.do";
+		} else if(command.equals("/boardReplyView.do")) {
+			service = new BoardReplyViewService();
+			service.execute(request, response);
+			joinView = true;
+			viewPage = "fileBoard/boardReply.jsp";
+		} else if(command.equals("/boardReply.do")) {
+			if(joinView) {
+				service = new BoardReplyService();
+				service.execute(request, response);
+				joinView = false;
+			}
+			viewPage = "boardList.do";
 		}
-		/*          admin 관련 요청                */
-		/*          파일첨부 게시판 관련 요청                */
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 	}
 
 }
-
-
+ 
 

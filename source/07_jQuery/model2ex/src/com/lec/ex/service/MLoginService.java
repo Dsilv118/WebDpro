@@ -17,6 +17,7 @@ public class MLoginService implements Service {
 		if(result==mDao.SUCCESS) {
 			HttpSession session = request.getSession();
 			session.setAttribute("member", mDao.getMember(mid));
+			request.setAttribute("mid", mid);
 		} else {
 			request.setAttribute("loginErrorMsg", "IP와 PW를 다시 확인해주세요");
 		}

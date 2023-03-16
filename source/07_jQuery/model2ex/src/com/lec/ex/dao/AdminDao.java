@@ -66,7 +66,7 @@ public class AdminDao {
 		return result;
 	}
 	// -- 2. 로그인 후 세션에 넣을 용도 admin aid로 AdminDto
-	public AdminDto content(String aid) {
+	public AdminDto getAdmin(String aid) {
 		AdminDto dto = null;
 		Connection         conn = null;
 		PreparedStatement pstmt = null;

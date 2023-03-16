@@ -13,31 +13,22 @@
 <body>
 	<c:set var="SUCCESS" value="1"/>
 	<c:set var="FAIL" value="0"/>
-	<c:if test="${joinResult eq SUCCESS}">
-		<script>alert('회원가입되었습니다. 감사합니다')</script>
-	</c:if>
-	<c:if test="${joinResult eq FAIL}">
-		<script>
-			alert('회원가입 실패되었습니다. 다시 확인해주세요');
-			location.href = '${conPath }/joinView.do';
-		</script>
-	</c:if>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="content_form">
-		<form action="login.do" method="post">
+		<form action="adminLogin.do" method="post">
 			<table>
 				<tr>
 					<th>ID</th>
-					<td><input type="text" name="mid" id="mid" required="required" autofocus="autofocus" value="${mid }"></td>
+					<td><input type="text" name="aid" id="aid" required="required" autofocus="autofocus"></td>
 				</tr>
 				<tr>
 					<th>PW</th>
-					<td><input type="password" name="mpw" id="mpw" required="required"></td>
+					<td><input type="password" name="apw" id="apw" required="required"></td>
 				</tr>
 				<tr>
 					<td colspan="2">
 						<input type="submit" value="로그인" class="btn">
-						<input type="button" value="회원가입" class="btn" onclick="location.href='joinView.do'">
+						<input type="button" value="회원가입" class="btn" onclick="location.href='adminLogin.do'">
 					</td>
 				</tr>
 			</table>
