@@ -1,12 +1,12 @@
--- [IX] ¼îÇÎ¸ô DBÀÇ ¿¹
+-- [IX] ì‡¼í•‘ëª° DBì˜ ì˜ˆ
 DROP TABLE CART;
 DROP TABLE ORDER_DETAIL;
 DROP TABLE ORDERS;
 DROP TABLE MEMBER;
-DROP TABLE PRODUCT; -- Å×ÀÌºí »èÁ¦°¡ ¾È µÇ¸é ÂüÁ¶µÇ´Â Å×ÀÌºíÀÌ ÀÖ´Â °æ¿ì
-                    -- ¹«½ÃÇÏ°í »èÁ¦ÇÏ°íÀÚ ÇÏ¸é CASCADE CONSTRAINTS Ãß°¡
-    -- ½Äº°°ü°è : ºÎ¸ðÅ×ÀÌºíÀÇ ÁÖÅ°°¡ ÀÚ½Ä Å×ÀÌºíÀÇ ÁÖÅ°
-    -- ºñ½Äº°°ü°è : ºÎ¸ðÅ×ÀÌºíÀÇ ÁÖÅ°°¡ ÀÚ½ÄÅ×ÀÌºíÀÇ ÀÏ¹Ý¼Ó¼º
+DROP TABLE PRODUCT; -- í…Œì´ë¸” ì‚­ì œê°€ ì•ˆ ë˜ë©´ ì°¸ì¡°ë˜ëŠ” í…Œì´ë¸”ì´ ìžˆëŠ” ê²½ìš°
+                    -- ë¬´ì‹œí•˜ê³  ì‚­ì œí•˜ê³ ìž í•˜ë©´ CASCADE CONSTRAINTS ì¶”ê°€
+    -- ì‹ë³„ê´€ê³„ : ë¶€ëª¨í…Œì´ë¸”ì˜ ì£¼í‚¤ê°€ ìžì‹ í…Œì´ë¸”ì˜ ì£¼í‚¤
+    -- ë¹„ì‹ë³„ê´€ê³„ : ë¶€ëª¨í…Œì´ë¸”ì˜ ì£¼í‚¤ê°€ ìžì‹í…Œì´ë¸”ì˜ ì¼ë°˜ì†ì„±
 CREATE TABLE MEMBER(
     mID VARCHAR2(20) PRIMARY KEY,
     mNAME VARCHAR2(50) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE CART(
     mID VARCHAR2(20) REFERENCES MEMBER(mID) NOT NULL,
     pCODE VARCHAR2(5) REFERENCES PRODUCT(pCODE) NOT NULL,
     QTY NUMBER(3) CHECK(QTY>0) NOT NULL,
-    COST NUMBER(9) -- ¹Ø¿¡ Ãß°¡ÇØµµ µÊ. FOREIGN KEY(mID) REFERENCES MEMBER(mID)
+    COST NUMBER(9) -- ë°‘ì— ì¶”ê°€í•´ë„ ë¨. FOREIGN KEY(mID) REFERENCES MEMBER(mID)
 );
 DROP SEQUENCE ORDERS_SEQ;
 CREATE SEQUENCE ORDERS_SEQ MAXVALUE 999 NOCACHE;
@@ -53,51 +53,51 @@ SELECT * FROM PRODUCT;
 SELECT * FROM CART;
 SELECT * FROM ORDERS;
 SELECT * FROM ORDER_DETAIL;
-INSERT INTO MEMBER VALUES ('abc','È«±æµ¿','¼­¿ï ¼­´ë¹®±¸','010-9999-9999','hong@hong.com');
-INSERT INTO MEMBER VALUES ('def','±è±èµ¿','°æ±âµµ ¼ö¿ø½Ã','010-8888-8888','kim@kim.com');
+INSERT INTO MEMBER VALUES ('abc','í™ê¸¸ë™','ì„œìš¸ ì„œëŒ€ë¬¸êµ¬','010-9999-9999','hong@hong.com');
+INSERT INTO MEMBER VALUES ('def','ê¹€ê¹€ë™','ê²½ê¸°ë„ ìˆ˜ì›ì‹œ','010-8888-8888','kim@kim.com');
 SELECT * FROM MEMBER;
-INSERT INTO PRODUCT VALUES ('A1', '¸ÆÁÖ', 3000, 200);
-INSERT INTO PRODUCT VALUES ('A2', '¸¶½ºÅ©', 200, 500);
-INSERT INTO PRODUCT VALUES ('B1', '¶¥Äá', 3000, 200);
-INSERT INTO PRODUCT VALUES ('B2', '¿ÀÂ¡¾î', 5000, 200);
-INSERT INTO PRODUCT VALUES ('C1', '¼Òµ¶¾à', 7000, 200);
+INSERT INTO PRODUCT VALUES ('A1', 'ë§¥ì£¼', 3000, 200);
+INSERT INTO PRODUCT VALUES ('A2', 'ë§ˆìŠ¤í¬', 200, 500);
+INSERT INTO PRODUCT VALUES ('B1', 'ë•…ì½©', 3000, 200);
+INSERT INTO PRODUCT VALUES ('B2', 'ì˜¤ì§•ì–´', 5000, 200);
+INSERT INTO PRODUCT VALUES ('C1', 'ì†Œë…ì•½', 7000, 200);
 SELECT * FROM PRODUCT;
 
--- ÁÖ¹®¹øÈ£ °¡Á®¿À±â ('230102' || ' 001' => '230102001')
+-- ì£¼ë¬¸ë²ˆí˜¸ ê°€ì ¸ì˜¤ê¸° ('230102' || ' 001' => '230102001')
 SELECT TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.NEXTVAL, '000')) oNO FROM DUAL;
 SELECT TO_CHAR(SYSDATE, 'RRMMDD')||SUBSTR(TO_CHAR(ORDERS_SEQ.NEXTVAL, '000'),2,3) FROM DUAL;
 SELECT concat(TO_CHAR(SYSDATE, 'RRMMDD'),TO_CHAR(ORDERS_SEQ.NEXTVAL, '000')) oNO FROM DUAL;
 DROP SEQUENCE ORDERS_SEQ;
 CREATE SEQUENCE ORDERS_SEQ MAXVALUE 999 NOCACHE;
 
--- ¢Æ¢Æ¢Æ¢Æ¢Æ Ã¹¹øÂ° È«±æµ¿´Ô ÁÖ¹®¼­ (23.1.10) ¢Æ¢Æ¢Æ¢Æ¢Æ
+-- â–’â–’â–’â–’â–’ ì²«ë²ˆì§¸ í™ê¸¸ë™ë‹˜ ì£¼ë¬¸ì„œ (23.1.10) â–’â–’â–’â–’â–’
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'abc', 'A1', 3, (select price from product where pcode='A1')*3);
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'abc', 'B1', 1, (select price from product where pcode='B1')*1);
 SELECT 
     -- ORDER_DETAIL_SEQ.NEXTVAL odNO, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART WHERE MID='abc'; -- cart È®ÀÎ
--- ORDERS(ÁÖ¹®)Å×ÀÌºí
+    FROM CART WHERE MID='abc'; -- cart í™•ì¸
+-- ORDERS(ì£¼ë¬¸)í…Œì´ë¸”
 INSERT INTO ORDERS (ONO, MID, ONAME, OADDR, OTEL)
     VALUES (TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.NEXTVAL, '000')),
-            'abc', 'È«±æµ¿', '¼­¿ï½Ã ¼­´ë¹®±¸', '010-9999-9999');
--- ORDER_DETAIL(ÁÖ¹®»ó¼¼) Å×ÀÌºí
+            'abc', 'í™ê¸¸ë™', 'ì„œìš¸ì‹œ ì„œëŒ€ë¬¸êµ¬', '010-9999-9999');
+-- ORDER_DETAIL(ì£¼ë¬¸ìƒì„¸) í…Œì´ë¸”
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     SELECT ORDER_DETAIL_SEQ.NEXTVAL, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART  WHERE MID='abc'; -- ¼­ºêÄõ¸® ÀÌ¿ëÇÏ¿© Àå¹Ù±¸´ÏÀÇ ¸ðµç »óÇ°À» ÁÖ¹®ÇÒ °æ¿ì
--- ¾Æ·¡´Â ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÏºÎ »óÇ°¸¸ ±¸¸ÅÇÒ °æ¿ì µû·Î µû·Î ÀÔ·Â
--- A1, ¸ÆÁÖ, 3000, 3°³
+    FROM CART  WHERE MID='abc'; -- ì„œë¸Œì¿¼ë¦¬ ì´ìš©í•˜ì—¬ ìž¥ë°”êµ¬ë‹ˆì˜ ëª¨ë“  ìƒí’ˆì„ ì£¼ë¬¸í•  ê²½ìš°
+-- ì•„ëž˜ëŠ” ì„œë¸Œì¿¼ë¦¬ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì¼ë¶€ ìƒí’ˆë§Œ êµ¬ë§¤í•  ê²½ìš° ë”°ë¡œ ë”°ë¡œ ìž…ë ¥
+-- A1, ë§¥ì£¼, 3000, 3ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES (ORDER_DETAIL_SEQ.NEXTVAL,
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')),
         'A1',
         3,
         (SELECT PRICE FROM PRODUCT WHERE pCODE='A1')*3);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-3 WHERE pCODE='A1'; -- Àç°í ¼ö·® ¼öÁ¤
--- B1, ¶¥Äá, 3000, 1°³
+UPDATE PRODUCT SET pSTOCK = pSTOCK-3 WHERE pCODE='A1'; -- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+-- B1, ë•…ì½©, 3000, 1ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES
     (ORDER_DETAIL_SEQ.NEXTVAL, 
@@ -105,11 +105,11 @@ INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     'B1',
     1, 
     (SELECT PRICE FROM PRODUCT WHERE pCODE='B1')*1);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='B1';-- Àç°í ¼ö·® ¼öÁ¤
-DELETE FROM CART WHERE MID='abc';-- Àå¹Ù±¸´Ï ºñ¿ì±â
+UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='B1';-- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+DELETE FROM CART WHERE MID='abc';-- ìž¥ë°”êµ¬ë‹ˆ ë¹„ìš°ê¸°
 
--- ÁÖ¹®¼­¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ Ãâ·Â
---ÇöÀç ÁÖ¹®¹øÈ£¸¸ SELECTÀý¿¡ ÇöÀç ½ÃÄö½º°ªÀ» ÀÌ¿ëÇÏ¿© °¡Á®¿Ã ¼ö ÀÖÀ¸³ª ½ÃÄö½º.CURRVALÀº WHEREÀý¿¡¼­ »ç¿ëÇÒ ¼ö ¾øÀ½
+-- ì£¼ë¬¸ì„œì— í•„ìš”í•œ ë°ì´í„° ì¶œë ¥
+--í˜„ìž¬ ì£¼ë¬¸ë²ˆí˜¸ë§Œ SELECTì ˆì— í˜„ìž¬ ì‹œí€€ìŠ¤ê°’ì„ ì´ìš©í•˜ì—¬ ê°€ì ¸ì˜¬ ìˆ˜ ìžˆìœ¼ë‚˜ ì‹œí€€ìŠ¤.CURRVALì€ WHEREì ˆì—ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
 SELECT TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) FROM DUAL; 
 
 SELECT * FROM ORDERS WHERE ONO=230102001;
@@ -119,7 +119,7 @@ SELECT O.PCODE, PNAME, PRICE, QTY, COST
     WHERE O.PCODE=P.PCODE AND
         ONO=230102001;
 
--- ¢Æ¢Æ¢Æ¢Æ¢Æ ±è±èµ¿´Ô ÁÖ¹®¼­ (23.1.10) ¢Æ¢Æ¢Æ¢Æ¢Æ
+-- â–’â–’â–’â–’â–’ ê¹€ê¹€ë™ë‹˜ ì£¼ë¬¸ì„œ (23.1.10) â–’â–’â–’â–’â–’
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'def', 'A2', 20, (select price from product where pcode='A2')*20);
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'def', 'B2', 2, (select price from product where pcode='B2')*2);
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'def', 'C1', 1, (select price from product where pcode='C1')*1);
@@ -127,27 +127,27 @@ SELECT
     -- ORDER_DETAIL_SEQ.NEXTVAL odNO, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART WHERE MID='def'; -- cart È®ÀÎ
--- ORDERS(ÁÖ¹®)Å×ÀÌºí
+    FROM CART WHERE MID='def'; -- cart í™•ì¸
+-- ORDERS(ì£¼ë¬¸)í…Œì´ë¸”
 INSERT INTO ORDERS
     VALUES (TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.NEXTVAL, '000')),
-            'def', '±è±èµ¿', '°æ±âµµ ¼ö¿ø½Ã', '010-8888-8888', SYSDATE);
--- ORDER_DETAIL(ÁÖ¹®»ó¼¼) Å×ÀÌºí
+            'def', 'ê¹€ê¹€ë™', 'ê²½ê¸°ë„ ìˆ˜ì›ì‹œ', '010-8888-8888', SYSDATE);
+-- ORDER_DETAIL(ì£¼ë¬¸ìƒì„¸) í…Œì´ë¸”
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     SELECT ORDER_DETAIL_SEQ.NEXTVAL, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART WHERE MID='def'; -- ¼­ºêÄõ¸® ÀÌ¿ëÇÏ¿© Àå¹Ù±¸´ÏÀÇ ¸ðµç »óÇ°À» ÁÖ¹®ÇÒ °æ¿ì
--- ¾Æ·¡´Â ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÏºÎ »óÇ°¸¸ ±¸¸ÅÇÒ °æ¿ì µû·Î µû·Î ÀÔ·Â
--- A2, ¸¶½ºÅ©, 200, 20°³
+    FROM CART WHERE MID='def'; -- ì„œë¸Œì¿¼ë¦¬ ì´ìš©í•˜ì—¬ ìž¥ë°”êµ¬ë‹ˆì˜ ëª¨ë“  ìƒí’ˆì„ ì£¼ë¬¸í•  ê²½ìš°
+-- ì•„ëž˜ëŠ” ì„œë¸Œì¿¼ë¦¬ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì¼ë¶€ ìƒí’ˆë§Œ êµ¬ë§¤í•  ê²½ìš° ë”°ë¡œ ë”°ë¡œ ìž…ë ¥
+-- A2, ë§ˆìŠ¤í¬, 200, 20ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES (ORDER_DETAIL_SEQ.NEXTVAL,
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')),
         'A2',
         20,
         (SELECT PRICE FROM PRODUCT WHERE pCODE='A2')*20);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-20 WHERE pCODE='A2'; -- Àç°í ¼ö·® ¼öÁ¤
--- B2, ¿ÀÂ¡¾î, 5000, 2°³
+UPDATE PRODUCT SET pSTOCK = pSTOCK-20 WHERE pCODE='A2'; -- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+-- B2, ì˜¤ì§•ì–´, 5000, 2ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES
     (ORDER_DETAIL_SEQ.NEXTVAL, 
@@ -155,8 +155,8 @@ INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     'B2',
     2, 
     (SELECT PRICE FROM PRODUCT WHERE pCODE='B2')*2);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-2 WHERE pCODE='B2';-- Àç°í ¼ö·® ¼öÁ¤
--- C1, ¼Òµ¶¾à, 7000, 1°³
+UPDATE PRODUCT SET pSTOCK = pSTOCK-2 WHERE pCODE='B2';-- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+-- C1, ì†Œë…ì•½, 7000, 1ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES
     (ORDER_DETAIL_SEQ.NEXTVAL, 
@@ -164,10 +164,10 @@ INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     'C1',
     1, 
     (SELECT PRICE FROM PRODUCT WHERE pCODE='C1')*1);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='C1';-- Àç°í ¼ö·® ¼öÁ¤
-DELETE FROM CART WHERE MID='def'; -- Àå¹Ù±¸´Ï ºñ¿ì±â
--- ÁÖ¹®¼­¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ Ãâ·Â
---ÇöÀç ÁÖ¹®¹øÈ£¸¸ SELECTÀý¿¡ ÇöÀç ½ÃÄö½º°ªÀ» ÀÌ¿ëÇÏ¿© °¡Á®¿Ã ¼ö ÀÖÀ¸³ª ½ÃÄö½º.CURRVALÀº WHEREÀý¿¡¼­ »ç¿ëÇÒ ¼ö ¾øÀ½
+UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='C1';-- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+DELETE FROM CART WHERE MID='def'; -- ìž¥ë°”êµ¬ë‹ˆ ë¹„ìš°ê¸°
+-- ì£¼ë¬¸ì„œì— í•„ìš”í•œ ë°ì´í„° ì¶œë ¥
+--í˜„ìž¬ ì£¼ë¬¸ë²ˆí˜¸ë§Œ SELECTì ˆì— í˜„ìž¬ ì‹œí€€ìŠ¤ê°’ì„ ì´ìš©í•˜ì—¬ ê°€ì ¸ì˜¬ ìˆ˜ ìžˆìœ¼ë‚˜ ì‹œí€€ìŠ¤.CURRVALì€ WHEREì ˆì—ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
 SELECT TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) FROM DUAL; 
 
 SELECT * FROM ORDERS WHERE ONO=230102002;
@@ -177,8 +177,8 @@ SELECT O.PCODE, PNAME, PRICE, QTY, COST
     WHERE O.PCODE=P.PCODE AND
         ONO=230102002;
         
--- ¢Æ¢Æ¢Æ¢Æ¢Æ È«±æµ¿´Ô ÁÖ¹®¼­ (23.1.12) ¢Æ¢Æ¢Æ¢Æ¢Æ
--- ORDERS(ÁÖ¹®)Å×ÀÌºí
+-- â–’â–’â–’â–’â–’ í™ê¸¸ë™ë‹˜ ì£¼ë¬¸ì„œ (23.1.12) â–’â–’â–’â–’â–’
+-- ORDERS(ì£¼ë¬¸)í…Œì´ë¸”
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'abc', 'A1', 2, (select price from product where pcode='A1')*2);
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'abc', 'B1', 1, (select price from product where pcode='B1')*1);
 INSERT INTO CART VALUES (CART_SEQ.NEXTVAL, 'abc', 'C1', 1, (select price from product where pcode='C1')*1);
@@ -186,27 +186,27 @@ SELECT
     -- ORDER_DETAIL_SEQ.NEXTVAL odNO, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART WHERE MID='abc'; -- Àå¹Ù±¸´Ï È®ÀÎ
+    FROM CART WHERE MID='abc'; -- ìž¥ë°”êµ¬ë‹ˆ í™•ì¸
 
 INSERT INTO ORDERS (ONO, MID, ONAME, OADDR, OTEL)
     VALUES (TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.NEXTVAL, '000')),
-            'abc', 'È«¾Æºü', 'Á¦ÁÖµµ Á¦ÁÖ½Ã', '010-7777-9999');
--- ORDER_DETAIL(ÁÖ¹®»ó¼¼) Å×ÀÌºí
+            'abc', 'í™ì•„ë¹ ', 'ì œì£¼ë„ ì œì£¼ì‹œ', '010-7777-9999');
+-- ORDER_DETAIL(ì£¼ë¬¸ìƒì„¸) í…Œì´ë¸”
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     SELECT ORDER_DETAIL_SEQ.NEXTVAL, 
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ono, 
         pcode, qty, cost 
-    FROM CART WHERE MID='abc'; -- ¼­ºêÄõ¸® ÀÌ¿ëÇÏ¿© Àå¹Ù±¸´ÏÀÇ ¸ðµç »óÇ°À» ÁÖ¹®ÇÒ °æ¿ì
--- ¾Æ·¡´Â ¼­ºêÄõ¸®¸¦ ÀÌ¿ëÇÏÁö ¾Ê°í ÀÏºÎ »óÇ°¸¸ ±¸¸ÅÇÒ °æ¿ì µû·Î µû·Î ÀÔ·Â
--- A1, ¸ÆÁÖ, 3000, 2°³
+    FROM CART WHERE MID='abc'; -- ì„œë¸Œì¿¼ë¦¬ ì´ìš©í•˜ì—¬ ìž¥ë°”êµ¬ë‹ˆì˜ ëª¨ë“  ìƒí’ˆì„ ì£¼ë¬¸í•  ê²½ìš°
+-- ì•„ëž˜ëŠ” ì„œë¸Œì¿¼ë¦¬ë¥¼ ì´ìš©í•˜ì§€ ì•Šê³  ì¼ë¶€ ìƒí’ˆë§Œ êµ¬ë§¤í•  ê²½ìš° ë”°ë¡œ ë”°ë¡œ ìž…ë ¥
+-- A1, ë§¥ì£¼, 3000, 2ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES (ORDER_DETAIL_SEQ.NEXTVAL,
         TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')),
         'A1',
         2,
         (SELECT PRICE FROM PRODUCT WHERE pCODE='A1')*2);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-2 WHERE pCODE='A1'; -- Àç°í ¼ö·® ¼öÁ¤
--- B1, ¶¥Äá, 3000, 1°³
+UPDATE PRODUCT SET pSTOCK = pSTOCK-2 WHERE pCODE='A1'; -- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+-- B1, ë•…ì½©, 3000, 1ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES
     (ORDER_DETAIL_SEQ.NEXTVAL, 
@@ -214,8 +214,8 @@ INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     'B1',
     1, 
     (SELECT PRICE FROM PRODUCT WHERE pCODE='B1')*1);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='B1';-- Àç°í ¼ö·® ¼öÁ¤
--- C1, ¼Òµ¶¾à, 7000, 1°³
+UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='B1';-- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+-- C1, ì†Œë…ì•½, 7000, 1ê°œ
 INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     VALUES
     (ORDER_DETAIL_SEQ.NEXTVAL, 
@@ -223,11 +223,11 @@ INSERT INTO ORDER_DETAIL (odNO, oNO, pCODE, QTY, COST)
     'C1',
     1, 
     (SELECT PRICE FROM PRODUCT WHERE pCODE='C1')*1);
-UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='C1';-- Àç°í ¼ö·® ¼öÁ¤
-DELETE FROM CART WHERE MID='abc'; -- Àå¹Ù±¸´Ï ºñ¿ì±â
+UPDATE PRODUCT SET pSTOCK = pSTOCK-1 WHERE pCODE='C1';-- ìž¬ê³  ìˆ˜ëŸ‰ ìˆ˜ì •
+DELETE FROM CART WHERE MID='abc'; -- ìž¥ë°”êµ¬ë‹ˆ ë¹„ìš°ê¸°
 
--- ÁÖ¹®¼­¿¡ ÇÊ¿äÇÑ µ¥ÀÌÅÍ Ãâ·Â
---ÇöÀç ÁÖ¹®¹øÈ£¸¸ SELECTÀý¿¡ ÇöÀç ½ÃÄö½º°ªÀ» ÀÌ¿ëÇÏ¿© °¡Á®¿Ã ¼ö ÀÖÀ¸³ª ½ÃÄö½º.CURRVALÀº WHEREÀý¿¡¼­ »ç¿ëÇÒ ¼ö ¾øÀ½
+-- ì£¼ë¬¸ì„œì— í•„ìš”í•œ ë°ì´í„° ì¶œë ¥
+--í˜„ìž¬ ì£¼ë¬¸ë²ˆí˜¸ë§Œ SELECTì ˆì— í˜„ìž¬ ì‹œí€€ìŠ¤ê°’ì„ ì´ìš©í•˜ì—¬ ê°€ì ¸ì˜¬ ìˆ˜ ìžˆìœ¼ë‚˜ ì‹œí€€ìŠ¤.CURRVALì€ WHEREì ˆì—ì„œ ì‚¬ìš©í•  ìˆ˜ ì—†ìŒ
 SELECT TO_CHAR(SYSDATE, 'RRMMDD')||TRIM(TO_CHAR(ORDERS_SEQ.CURRVAL, '000')) ONO FROM DUAL; 
 
 SELECT * FROM ORDERS WHERE ONO=230102003;
