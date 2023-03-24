@@ -34,7 +34,8 @@ public class FrontController extends HttpServlet {
 		Service service = null;
 		if(command.equals("/main.do")) { // 첫 메인화면
 			viewPage = "main/main.jsp";
-		} else if(command.equals("/joinView.do")) { /*          Member 관련 요청                */
+		} else if(command.equals("/joinView.do")) {
+			/*          Member 관련 요청                */
 			viewPage = "member/join.jsp";
 			joinView = true;
 		} else if(command.equals("/midConfirm.do")) {
@@ -72,7 +73,8 @@ public class FrontController extends HttpServlet {
 			service = new MWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
-		} else if(command.equals("/adminLoginView.do")) { /*          admin 관련 요청                */	
+		} else if(command.equals("/adminLoginView.do")) { 
+			/*          admin 관련 요청                */
 			viewPage = "admin/adminLogin.jsp";
 			joinView = true;
 		} else if(command.equals("/adminLogin.do")) {
@@ -86,7 +88,8 @@ public class FrontController extends HttpServlet {
 			service = new MAllViewService();
 			service.execute(request, response);
 			viewPage = "member/mAllView.jsp";
-		} else if(command.equals("/boardList.do")) { /*          파일첨부 게시판 관련 요청                */
+		} else if(command.equals("/boardList.do")) { 
+			/*          파일첨부 게시판 관련 요청                */
 			service = new BoardListService();
 			service.execute(request, response);
 			viewPage = "fileBoard/boardList.jsp";
