@@ -73,6 +73,7 @@
 			<h3>첨부한 오리지널 파일 이름 <%=originalFilename%></h3>
 			<h3>서버에 저장된 파일 이름 <%=filename%></h3>
 			<img src="<%=conPath%>/fileUpFolder/<%=filename%>" alt="첨부안함">
+			<a href="<%=conPath%>/fileUpFolder/<%=filename%>">링크</a>
 	<%  } else {
 			out.println("<h2>첨부 안 함 : filename = "+filename+ ", 오리지널="+originalFilename+"</h2>");
 	    }
