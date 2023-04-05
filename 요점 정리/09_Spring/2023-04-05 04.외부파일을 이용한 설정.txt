@@ -1,0 +1,23 @@
+2023.04.05 요점정리
+
+04. 외부파일을 이용한 설정
+
+◎ Environment 객체를 이용한 스프링 빈 설정
+① Context 객체를 얻는다
+	ㄴ> ConfigurableApplicationContext ctx = new GenericXmlApplicationContext( );
+
+② Context 객체로부터 ctx.getEnvironment( )를 하여 Environment 객체를 얻는다
+	ㄴ> ConfigurableEnvironment env = ctx.getEnvironment( );
+
+③ Environment 객체 안에는 여러 가지 정보들이 있다. 이런 값들을 관리하기 위해 이런 정보들이 바로 
+    들어있지 않고, PropertySource라고 하는 객체가 있고, PropertySource안에 정보가 있다.
+    Environment 객체로부터 env.getPropertySources( )를 하여 데이터를 관리해 주는
+    PropertySources 객체를 얻는다.
+	ㄴ> MutablePropertySources propertySources = env.getPropertySources( );
+
+④ 추가 : propertySources.addLast( )
+	ㄴ> propertySources.addLast(new ResourcePropertySource("classpath:admin.properties")); 
+	     (외부 설정파일을 ResourcePropertySource로 만들고 그것을 propertySources에 추가한다)
+
+⑤ 추출 : env.getProperty( ) : 내가 필요한 정보가 있을때까지 계속 검색하고 있으면 정보값을 리턴
+	ㄴ> System.out.println(env.getProperty("admin.id"));
