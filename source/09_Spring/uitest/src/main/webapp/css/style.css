@@ -1,0 +1,19 @@
+@charset "UTF-8";
+* {
+	background-color: lightyellow;
+}
+#wrap {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;	
+}
+table {
+	width: 300px;
+}
+table input {
+	background-color: #ffffff;
+}
+.right {
+	text-align: right;
+	color: red;
+}
