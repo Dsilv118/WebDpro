@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="ch07_mvc" path="/ch07" reloadable="true" source="org.eclipse.jst.jee.server:ch07_mvc"/><Context docBase="ch08_controller" path="/ch08" reloadable="true" source="org.eclipse.jst.jee.server:ch08_controller"/><Context docBase="ch09_formData" path="/ch09" reloadable="true" source="org.eclipse.jst.jee.server:ch09_formData"/><Context docBase="uitest" path="/uitest" reloadable="true" source="org.eclipse.jst.jee.server:uitest"/></Host>
+      <Context docBase="ch07_mvc" path="/ch07" reloadable="true" source="org.eclipse.jst.jee.server:ch07_mvc"/><Context docBase="ch08_controller" path="/ch08" reloadable="true" source="org.eclipse.jst.jee.server:ch08_controller"/><Context docBase="ch09_formData" path="/ch09" reloadable="true" source="org.eclipse.jst.jee.server:ch09_formData"/><Context docBase="uitest" path="/uitest" reloadable="true" source="org.eclipse.jst.jee.server:uitest"/><Context docBase="ch10_reqMapping" path="/ch10" reloadable="true" source="org.eclipse.jst.jee.server:ch10_reqMapping"/><Context docBase="ch11_mvcboard" path="/ch11" reloadable="true" source="org.eclipse.jst.jee.server:ch11_mvcboard"/></Host>
     </Engine>
   </Service>
 </Server>
