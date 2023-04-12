@@ -1,0 +1,8 @@
+2023.04.12 요점정리 
+
+12. MyBatis II
+
+● MyBatis II 
+
+◎ Dao를 Interface로 대체하는 방법
+
