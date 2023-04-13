@@ -49,14 +49,14 @@
 		DELETE FROM MVC_BOARD
     	WHERE BID = #{bid}
 	</delete>
-	<update id="afterReply" parameterType="int">
+	<update id="afterReply" parameterType="Board">
 		UPDATE MVC_BOARD 
     	SET BSTEP = BSTEP+1
     	WHERE BGROUP = #{bgroup} AND BSTEP > #{bstep}
 	</update>
 	<insert id="writeReply" parameterType="Board">
 		INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
-   	 VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep}, #{bindent}, #{bip})
+   	 VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep}+1, #{bindent}+1, #{bip})
 	</insert>
 </mapper>
 

@@ -1,14 +1,11 @@
-package com.lec.ch12.dao;
+package com.lec.ch12.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-
 import com.lec.ch12.dto.Board;
 
-@Mapper
-public interface BoardDao {
-	public List<Board> boardList(Board board);
+public interface BoardService {
+	public List<Board> boardList(String pageNum);
 	public int totCnt();
 	public int writeBoard(Board board);
 	public int hitUp(int bid);
@@ -16,5 +13,5 @@ public interface BoardDao {
 	public int modifyBoard(Board board);
 	public int deleteBoard(int bid);
 	public int afterReply(Board board);
-	public int writeReply(Board board);
+	public int writeReply(Board board);	
 }

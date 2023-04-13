@@ -115,15 +115,7 @@
 			<artifactId>junit</artifactId>
 			<version>4.7</version>
 			<scope>test</scope>
-		</dependency>
-		 
-		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-		<dependency>
-	    <groupId>org.projectlombok</groupId>
-	    <artifactId>lombok</artifactId>
-	    <version>1.18.26</version>
-	    <scope>provided</scope>
-		</dependency>       
+		</dependency>   
 		
 		<!-- lombok -->
 		<dependency>
@@ -133,26 +125,24 @@
 		    <scope>provided</scope>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+		<!-- JDBC template -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-jdbc</artifactId>
-		    <version>${org.springframework-version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.1.4.RELEASE</version>
 		</dependency>
 		
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis 3.5.5-->
+		<!-- myBatis -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
 		    <version>3.5.6</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring 2.0.5 -->
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>2.0.6</version>
-		</dependency>
+		</dependency>		
 	</dependencies>
     <build>
         <plugins>

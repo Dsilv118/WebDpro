@@ -62,7 +62,7 @@
 			<c:set var="oNum" value="${orderNum }"/>
 			<c:set var="iNum" value="${inverseNum }"/>
 			<c:forEach var="dto" items="${boardList }">
-				<tr onclick="trClicked(${dto.bid})">
+				<tr onclick="trClicked(${dto.bid })">
 					<td>${oNum }</td>
 					<td>${iNum }</td>
 					<td>${dto.bid }</td>
@@ -93,18 +93,18 @@
 	</table>
 	<div class="paging">
 		<c:if test="${startPage > BLOCKSIZE }">
-			{<a href="${conPath }/mvcBoard/list.do?pageNum=${startPage-1}">이전</a>}
+			{<a href="${conPath }/mvcBoard/list.do?pageNum=${startPage-1 }">이전</a>}
 		</c:if>
 		<c:forEach var="i" begin="${startPage }" end="${endPage }">
 			<c:if test="${i eq pageNum }">
 				[<b>${i }</b>]
 			</c:if>
 			<c:if test="${i != pageNum }">
-				[<a href="${conPath }/mvcBoard/list.do?pageNum=${i}">${i }</a>]
+				[<a href="${conPath }/mvcBoard/list.do?pageNum=${i }">${i }</a>]
 			</c:if>
 		</c:forEach>
 		<c:if test="${endPage < pageCnt }">
-			{<a href="${conPath }/mvcBoard/list.do?pageNum=${endPage+1}">다음</a>}
+			{<a href="${conPath }/mvcBoard/list.do?pageNum=${endPage+1 }">다음</a>}
 		</c:if>
 	</div>
 </body>

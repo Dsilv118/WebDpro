@@ -36,9 +36,9 @@
 		<tr><th>IP</th><td>${contentBoard.bip }</td></tr>
 		<tr>
 			<td colspan="2">
-				<button onclick="location.href='${conPath}/mvcBoard/modify.do?bid=${param.bid }&pageNum=${param.pageNum }'">수정</button>
+				<button onclick="location.href='${conPath}/mvcBoard/modifyView.do?bid=${param.bid }&pageNum=${param.pageNum }'">수정</button>
 				<button onclick="location.href='${conPath}/mvcBoard/delete.do?bid=${param.bid }&pageNum=${param.pageNum }'">삭제</button>
-				<button onclick="location.href='${conPath}/mvcBoard/reply.do?bid=${param.bid }&pageNum=${param.pageNum }'">답변</button>
+				<button onclick="location.href='${conPath}/mvcBoard/replyView.do?bid=${param.bid }&pageNum=${param.pageNum }'">답변</button>
 				<button onclick="location.href='${conPath}/mvcBoard/list.do?pageNum=${param.pageNum }'">목록</button>
 			</td>
 		</tr>

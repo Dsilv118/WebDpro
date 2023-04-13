@@ -7,7 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-public class BoardDto {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Board {
 	private int       bid;
 	private String    bname;
 	private String    btitle;

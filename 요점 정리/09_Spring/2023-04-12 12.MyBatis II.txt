@@ -5,4 +5,16 @@
 ● MyBatis II 
 
 ◎ Dao를 Interface로 대체하는 방법
+① Servlet-context.xml에 아래의 부분 추가 
+	ㄴ> <mybatis-spring:scan base-package="com.lec.ch16.dao"/>
 
+② Mapper xml 파일에 namespace를 DAO interface로 수정 (xml파일의 id와 DAO의 method 이름은 일치)
+* Dept.xml 수정 사항 
+	ㄴ> <mapper namespace="Dept">를 아래와 같이 수정
+	      <mapper namespace="com.lec.ch16.dao.DeptDao">
+* Emp.xml 수정 사항
+	ㄴ> <mapper namespace="Emp">를 아래와 같이 수정
+	      <mapper namespace="com.lec.ch16.dao.EmpDao">
+
+③ DeptDaoImpl.java와 EmpDaoImpl.java를 삭제하고 DeptDao와 EmpDao interface 선언 위에
+   @Mapper를 추가

@@ -27,5 +27,42 @@
 		INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
     	VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, MVC_BOARD_SEQ.CURRVAL, 0, 0, #{bip})
 	</insert>
-	<update id="hitUp"></update>
+	<update id="hitUp" parameterType="int">
+		UPDATE MVC_BOARD 
+    	SET BHIT = BHIT + 1
+    	WHERE BID = #{bid}
+	</update>
+	<select id="detailBoard" parameterType="int" resultType="Board">
+		SELECT * 
+    	FROM MVC_BOARD
+    	WHERE BID=#{bid}
+	</select>
+	<update id="modifyBoard" parameterType="Board">
+		UPDATE MVC_BOARD
+    	SET BNAME = #{bname},
+       	  BTITLE = #{btitle},
+          BCONTENT = #{bcontent},
+          BIP = #{bip}
+   	 	WHERE BID = #{bid}
+	</update>
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM MVC_BOARD
+    	WHERE BID = #{bid}
+	</delete>
+	<update id="afterReply" parameterType="Board">
+		UPDATE MVC_BOARD 
+    	SET BSTEP = BSTEP+1
+    	WHERE BGROUP = #{bgroup} AND BSTEP > #{bstep}
+	</update>
+	<insert id="writeReply" parameterType="Board">
+		INSERT INTO MVC_BOARD (BID, BNAME, BTITLE, BCONTENT, BGROUP, BSTEP, BINDENT, BIP)
+   	 VALUES (MVC_BOARD_SEQ.NEXTVAL, #{bname}, #{btitle}, #{bcontent}, #{bgroup}, #{bstep}+1, #{bindent}+1, #{bip})
+	</insert>
 </mapper>
+
+
+
+
+
+
+
