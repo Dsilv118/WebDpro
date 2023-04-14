@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lec.ch19.dao.BookDao">
+	<resultMap type="Book" id="BookResult">
+		<result property="bnum" column="bnum"/>
+		<result property="btitle" column="btitle"/>
+		<result property="bwriter" column="bwriter"/>
+		<result property="brdate" column="brdate"/>
+		<result property="bimg1" column="bimg1"/>
+		<result property="bimg2" column="bimg2"/>
+		<result property="binfp" column="binfo"/>
+	</resultMap> 
+	<select id="mainList" resultMap="BookResult">
+		SELECT * FROM BOOK ORDER BY bRDATE DESC
+	</select>
+	<select id="bookList" parameterType="Book" resultMap="BookResult">
+		SELECT * 
+    	FROM (SELECT ROWNUM RW, A.* FROM (SELECT * FROM BOOK ORDER BY bTITLE DESC)A )
+    	WHERE RW BETWEEN #{startRow} AND #{endRow}
+	</select>
+	<select id="totCntBook" resultType="int">
+		SELECT COUNT(*) FROM BOOK
+	</select>
+	<select id="getDetailBook" resultType="Book">
+		SELECT * FROM BOOK WHERE bNUM = #{bnum}
+	</select>
+	<insert id="registerBook" parameterType="Book">
+		<if test="bimg1!='' and bimg2 != ''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG1, bIMG2, bINFO)
+  			VALUES (BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg1}, #{bimg2}, #{binfo})
+		</if>
+		<if test="bimg1!='' and bimg2 == ''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG1, bINFO)
+  			VALUES (BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg1}, #{binfo})
+		</if>
+		<if test="bimg1=='' and bimg2 != ''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bIMG2, bINFO)
+  			VALUES (BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{bimg2}, #{binfo})
+		</if>
+		<if test="bimg1=='' and bimg2 == ''">
+			INSERT INTO BOOK (bNUM, bTITLE, bWRITER, bRDATE, bINFO)
+  			VALUES (BOOK_SQ.NEXTVAL, #{btitle}, #{bwriter}, #{brdate}, #{binfo})
+		</if>
+	</insert>
+	<update id="modifyBook"  parameterType="Book">
+		UPDATE BOOK 
+	    SET bTITLE = #{btitle},
+	        bWRITER = #{bwriter},
+	        bRDATE = #{brdate},
+	        <if test="bimg1 != null and bimg1 != ''">BIMG1 = #{bimg1},</if>
+	        <if test="bimg2 != null and bimg2 != ''">BIMG2 = #{bimg2},</if>
+	        bINFO = #{binfo}
+	    WHERE bNUM = #{bnum}
+	</update>
+</mapper>
