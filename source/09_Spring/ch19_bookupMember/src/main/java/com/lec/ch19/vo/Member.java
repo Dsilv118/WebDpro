@@ -1,7 +1,5 @@
-package com.lec.ch19.model;
-
+package com.lec.ch19.vo;
 import lombok.Data;
-
 @Data
 public class Member {
 	private String mid;
