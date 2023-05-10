@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* myPage */
+#myPage {
+	width: 1140px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+/* left: myContent */
+#myPage .myContent {
+	width: 240px;
+	background-color: #def0c7;
+	border-radius: 14px;
+	padding-top: 30px;
+	padding-left: 40px;
+	box-sizing: border-box;
+}
+
+#myPage .myContent ul {
+	margin: 20px 0;
+}
+
+#myPage .myContent ul li {
+	margin: 10px 0;
+}
+
+/* 이름 */
+#myPage .myContent ul>li>h1>a {
+	color: #000000;
+}
+
+/* 소메뉴 */
+#myPage .myContent ul>li>a {
+	margin: 10px 0;
+	color: #4d4d4d;
+}
+
+/* right: myInfo */
+#myPage .myPage_right {
+	width: 860px;
+}
+
+#myPage .myPage_right .info_box {
+	width: 100%;
+	height: 130px;
+	background-color: #b596ff;
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 30px;
+	border-radius: 14px;
+	box-sizing: border-box;
+	margin-bottom: 30px;
+}
+
+#myPage .myPage_right .info_box>.info_box_left {
+	width: 246px;
+}
+
+#myPage .myPage_right .info_box>.info_box_right {
+	width: 246px;
+	padding-left: 30px;
+	border-left: 1px solid #dedede;
+}
+
+/* item_box */
+#myPage .myPage_right .item_box {
+	width: 100%;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: space-between;
+	align-content: space-between;
+	margin-bottom: 30px;
+	border-radius: 14px;
+	cursor: pointer;
+}
+
+#myPage .myPage_right .item_box .sub_item {
+	width: 415px;
+	height: 255px;
+	background-color: #ffffff;
+	border-radius: 14px;
+	box-sizing: border-box;
+	padding: 40px 30px;
+	overflow: hidden;
+	margin-bottom: 30px;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+
+#myPage .myPage_right .item_box .sub_item>img{
+	width: 80px;
+	height: 80px;
+}
+
+.myPage_right_white {
+	width: 860px;
+	background-color: #ffffff;
+	border-radius: 14px;
+	padding: 40px;
+	box-sizing: border-box;
+}
+
+/* 마이페이지 테이블 */
+.myPage_table {
+	width: 100%;
+	margin: 10px auto;
+	border-collapse: collapse;
+}
+
+.myPage_table tr {
+	padding: 30px 0;
+}
+
+.myPage_table td {
+	font-size: 16px;
+	color: #4d4d4d;
+	border-bottom: 1px solid #bfbfbf;
+	padding: 30px;
+}
+
+.myPage_table td>textarea {
+	width: 100%;
+	height: 170px;
+	border: 0px;
+	outline: none;
+	box-sizing: border-box;
+}
+
+/* list_box */
+.list_box li:first-child {
+	padding-top: 14px;
+	border-top: 1px solid #dedede;
+}
+
+.list_box li {
+	margin: 8px 0;
+}
+
+.list_box li a {
+	color: #1d1d1d;
+}

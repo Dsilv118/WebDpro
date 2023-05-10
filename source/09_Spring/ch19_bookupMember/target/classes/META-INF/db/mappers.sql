@@ -5,16 +5,6 @@ SELECT * FROM BOOK ORDER BY BRDATE DESC;
     -- (1) schItem이 null이거나 ''일 때
 SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK ORDER BY BTITLE) A)
   WHERE RN BETWEEN 2 AND 4;
-    -- (2) schItem 'all'일 때
-SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK 
-                                            WHERE bTITLE LIKE '%'||'J'||'%' OR BWRITER LIKE '%'||'J'||'%' 
-                                            ORDER BY BTITLE) A)
-  WHERE RN BETWEEN 1 AND 4;
-    -- (3) schItem이 'btitle'일 때
-SELECT * FROM (SELECT ROWNUM RN, A.* FROM (SELECT * FROM BOOK 
-                                            WHERE bTITLE LIKE '%'||'J'||'%'
-                                            ORDER BY BTITLE) A)
-  WHERE RN BETWEEN 2 AND 4;
 -- id = totCntBook (등록된 책 갯수)
 SELECT COUNT(*) FROM BOOK;
 -- id = getDetailBook (책번호로 dto가져오기)
