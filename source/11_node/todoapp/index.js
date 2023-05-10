@@ -1,7 +1,7 @@
 const express = require('express'); // express 라이브러리 첨부
 const app = express(); // express 라이브러리를 이용하여 객체
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://qoxmfspt43:WxI9djaQgLOU5uXi@cluster0.jh1ynad.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://qoxmfspt43:<보지마>@cluster0.jh1ynad.mongodb.net/?retryWrites=true&w=majority";
 var db;
 MongoClient.connect(uri, function(err, client){
     // MongoDB 연결 후 할 일
