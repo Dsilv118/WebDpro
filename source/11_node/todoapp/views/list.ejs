@@ -29,7 +29,7 @@
             <p class="detail" data-id="<%=posts[i]._id %>">
               할일 마감날짜 : <%=posts[i].date %>
             </p>
-            <button class="btn btn-warning delete" data-id="<%=posts[i]._id %>">
+            <button class="btn btn-primary delete" data-id="<%=posts[i]._id %>">
               삭제
             </button>
           </li>
@@ -41,27 +41,27 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script>
       $(document).ready(function () {
-        $('.detail').click(function(){
-          var _id = e.target.dataset.id;
-          location.href = '/detail/' + _id; // REST API 방식의 파라미터 전달(get 방식)
+        $(".detail").click(function (e) {
+          var _id = $(this).attr("data-id");
+          // alert(_id);
+          location.href = "/detail/" + _id;
         });
-        $(".delete").click(function (e) {
-          // var _id = $(this).attr("data-id");
+
+        $("button.delete").click(function (e) {
           var _id = e.target.dataset.id;
-          var div = $(this).parent('li').parent('ul').parent('div');
+          var div = $(this).parent("li").parent("ul").parent("div");
           $.ajax({
-            url : '/delete',
-            method : 'DELETE',
-            data : {_id : _id},
-            success : function(result){
+            method: "DELETE",
+            url: "/delete",
+            data: { _id: _id },
+            success: function (result) {
               alert(result.msg);
-              div.hide();
-            }
+              div.fadeOut();
+            },
           });
         });
       });
     </script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
